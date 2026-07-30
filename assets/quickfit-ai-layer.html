@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickFit — AI Content Layer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1200px;
+      margin: 0;
+      background: #0d0d0d;
+      color: #f5f5f0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
+    .asset {
+      width: 1200px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 56px 52px;
+    }
+
+    .top-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #e8c97e;
+      margin-bottom: 22px;
+      align-self: flex-start;
+    }
+
+    .title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #f5f5f0;
+      margin-bottom: 24px;
+      align-self: flex-start;
+    }
+
+    .body-text {
+      font-size: 16px;
+      font-weight: 400;
+      color: #888884;
+      line-height: 1.75;
+      max-width: 680px;
+      align-self: flex-start;
+      margin-bottom: 44px;
+    }
+
+    .annotations {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid #222220;
+      border-bottom: 1px solid #222220;
+      margin-bottom: 32px;
+    }
+
+    .annotation {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid #1a1a18;
+    }
+
+    .annotation:last-child {
+      border-bottom: none;
+    }
+
+    .annotation-bullet {
+      color: #e8c97e;
+      font-size: 16px;
+      font-weight: 300;
+      flex-shrink: 0;
+      width: 12px;
+    }
+
+    .annotation-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f5f5f0;
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .annotation-dash {
+      font-size: 14px;
+      color: #444440;
+      flex-shrink: 0;
+    }
+
+    .annotation-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #888884;
+      line-height: 1.5;
+    }
+
+    .bottom-note {
+      font-size: 12px;
+      font-weight: 400;
+      color: #444440;
+      line-height: 1.6;
+      align-self: flex-start;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="asset">
+    <p class="top-label">AI Content Layer</p>
+    <h2 class="title">The site that updates itself.</h2>
+    <p class="body-text">Most trade sites are frozen at launch — every product update requires a developer. QuickFit was built differently. A Claude API integration handles product copy generation, meaning the client can describe a new product in plain language and get publish-ready copy in seconds.</p>
+
+    <div class="annotations">
+      <div class="annotation">
+        <span class="annotation-bullet">&middot;</span>
+        <span class="annotation-label">Input</span>
+        <span class="annotation-dash">&mdash;</span>
+        <span class="annotation-desc">Client describes a product in plain language. No formatting, no specifications, no copywriting required.</span>
+      </div>
+      <div class="annotation">
+        <span class="annotation-bullet">&middot;</span>
+        <span class="annotation-label">Process</span>
+        <span class="annotation-dash">&mdash;</span>
+        <span class="annotation-desc">Claude generates trade-specific copy — product name, specifications, use case, and category context — formatted for the site.</span>
+      </div>
+      <div class="annotation">
+        <span class="annotation-bullet">&middot;</span>
+        <span class="annotation-label">Output</span>
+        <span class="annotation-dash">&mdash;</span>
+        <span class="annotation-desc">Publish-ready content. No developer required. The client owns the workflow after handoff.</span>
+      </div>
+    </div>
+
+    <p class="bottom-note">This architecture was built to outlast the engagement — the client owns the workflow.</p>
+  </div>
+</body>
+</html>

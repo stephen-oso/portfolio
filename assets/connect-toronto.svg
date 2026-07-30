@@ -1,0 +1,131 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+  <defs>
+    <radialGradient id="cglow" cx="30%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#1d3a6e" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cglow2" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="phoneclip">
+      <rect x="500" y="30" width="370" height="540" rx="28"/>
+    </clipPath>
+  </defs>
+
+  <!-- Base — dark navy -->
+  <rect width="900" height="600" fill="#080d1a"/>
+  <rect width="900" height="600" fill="url(#cglow)"/>
+  <rect width="900" height="600" fill="url(#cglow2)"/>
+
+  <!-- Street grid — dark -->
+  <line x1="0" y1="120" x2="460" y2="120" stroke="#131e35" stroke-width="1"/>
+  <line x1="0" y1="200" x2="460" y2="200" stroke="#131e35" stroke-width="1"/>
+  <line x1="0" y1="280" x2="460" y2="280" stroke="#131e35" stroke-width="1"/>
+  <line x1="0" y1="360" x2="460" y2="360" stroke="#131e35" stroke-width="1"/>
+  <line x1="0" y1="440" x2="460" y2="440" stroke="#131e35" stroke-width="1"/>
+  <line x1="0" y1="520" x2="460" y2="520" stroke="#131e35" stroke-width="1"/>
+  <line x1="80" y1="0" x2="80" y2="600" stroke="#131e35" stroke-width="1"/>
+  <line x1="160" y1="0" x2="160" y2="600" stroke="#131e35" stroke-width="1"/>
+  <line x1="240" y1="0" x2="240" y2="600" stroke="#131e35" stroke-width="1"/>
+  <line x1="320" y1="0" x2="320" y2="600" stroke="#131e35" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="600" stroke="#131e35" stroke-width="1"/>
+
+  <!-- Major roads — slightly brighter -->
+  <line x1="0" y1="300" x2="460" y2="300" stroke="#1c2a45" stroke-width="2.5"/>
+  <line x1="230" y1="0" x2="230" y2="600" stroke="#1c2a45" stroke-width="2.5"/>
+
+  <!-- AR coverage zone glow -->
+  <ellipse cx="220" cy="295" rx="165" ry="130" fill="#2563eb" opacity="0.06"/>
+  <ellipse cx="220" cy="295" rx="165" ry="130" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
+
+  <!-- Location pins -->
+  <circle cx="220" cy="260" r="10" fill="#2563eb" opacity="0.95"/>
+  <circle cx="220" cy="260" r="4.5" fill="#ffffff"/>
+  <rect x="234" y="250" width="115" height="22" rx="4" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
+  <text x="291" y="266" font-size="10" fill="#93b4e8" font-weight="600" text-anchor="middle">Yonge-Dundas Sq.</text>
+
+  <circle cx="165" cy="320" r="7" fill="#2563eb" opacity="0.7"/>
+  <circle cx="165" cy="320" r="3.5" fill="#ffffff"/>
+  <rect x="100" y="310" width="56" height="20" rx="3" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
+  <text x="128" y="324" font-size="10" fill="#6a8fc0" font-weight="500" text-anchor="middle">TTC Path</text>
+
+  <circle cx="285" cy="340" r="7" fill="#2563eb" opacity="0.65"/>
+  <circle cx="285" cy="340" r="3.5" fill="#ffffff"/>
+  <rect x="297" y="330" width="56" height="20" rx="3" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
+  <text x="325" y="344" font-size="10" fill="#6a8fc0" font-weight="500" text-anchor="middle">The PATH</text>
+
+  <!-- AR badge -->
+  <rect x="24" y="28" width="120" height="26" rx="5" fill="#1a3a7c" stroke="#2563eb" stroke-width="0.5" stroke-opacity="0.5"/>
+  <text x="84" y="46" font-size="10" fill="#93b4e8" font-weight="600" text-anchor="middle" letter-spacing="0.05em">AR Coverage Zone</text>
+
+  <!-- Bottom label -->
+  <rect x="24" y="548" width="200" height="34" rx="5" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
+  <text x="124" y="562" font-size="9" fill="#2563eb" font-weight="700" text-anchor="middle" letter-spacing="0.08em">CONNECT TORONTO</text>
+  <text x="124" y="574" font-size="9" fill="#4a6888" text-anchor="middle">Permit &amp; AR discovery platform</text>
+
+  <!-- Divider -->
+  <line x1="480" y1="20" x2="480" y2="580" stroke="#131e35" stroke-width="1"/>
+
+  <!-- Phone outer -->
+  <rect x="503" y="28" width="268" height="544" rx="30" fill="#0c0c14"/>
+  <rect x="503" y="28" width="268" height="544" rx="30" fill="none" stroke="#1e2030" stroke-width="1.5"/>
+
+  <!-- Screen background -->
+  <rect x="515" y="52" width="244" height="496" rx="18" fill="#0f1117"/>
+
+  <!-- Notch -->
+  <rect x="597" y="52" width="88" height="18" rx="9" fill="#0c0c14"/>
+
+  <!-- App header -->
+  <rect x="515" y="70" width="244" height="44" fill="#0f1117"/>
+  <text x="637" y="98" font-size="13" fill="#e2eaf8" font-weight="700" text-anchor="middle">Busker Permit</text>
+  <line x1="515" y1="114" x2="759" y2="114" stroke="#1e2030" stroke-width="1"/>
+
+  <!-- Progress -->
+  <rect x="531" y="124" width="212" height="3" rx="1.5" fill="#1e2030"/>
+  <rect x="531" y="124" width="106" height="3" rx="1.5" fill="#2563eb"/>
+  <text x="531" y="142" font-size="9.5" fill="#2563eb" font-weight="500">Step 2 of 4 — Location</text>
+
+  <!-- Step heading -->
+  <text x="531" y="166" font-size="14" fill="#e2eaf8" font-weight="700">Where will you perform?</text>
+  <text x="531" y="182" font-size="10" fill="#4a6888">Tap a zone or search below</text>
+
+  <!-- Mini map inside phone -->
+  <rect x="531" y="192" width="212" height="116" rx="7" fill="#080d1a"/>
+  <line x1="531" y1="230" x2="743" y2="230" stroke="#131e35" stroke-width="1"/>
+  <line x1="531" y1="270" x2="743" y2="270" stroke="#131e35" stroke-width="1"/>
+  <line x1="591" y1="192" x2="591" y2="308" stroke="#131e35" stroke-width="1"/>
+  <line x1="671" y1="192" x2="671" y2="308" stroke="#131e35" stroke-width="1"/>
+  <ellipse cx="631" cy="248" rx="36" ry="26" fill="#2563eb" opacity="0.1"/>
+  <ellipse cx="631" cy="248" rx="36" ry="26" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+  <circle cx="631" cy="244" r="7" fill="#2563eb"/>
+  <circle cx="631" cy="244" r="3.5" fill="#ffffff"/>
+  <rect x="640" y="236" width="88" height="16" rx="3" fill="#1a3a7c"/>
+  <text x="684" y="248" font-size="8.5" fill="#93b4e8" font-weight="600" text-anchor="middle">Yonge-Dundas</text>
+
+  <!-- Selected location -->
+  <rect x="531" y="318" width="212" height="34" rx="6" fill="#111b30" stroke="#2563eb" stroke-width="0.75" stroke-opacity="0.5"/>
+  <circle cx="548" cy="335" r="5.5" fill="#2563eb" opacity="0.25"/>
+  <circle cx="548" cy="335" r="3" fill="#2563eb"/>
+  <text x="560" y="339" font-size="10.5" fill="#c8d8f0" font-weight="500">Yonge-Dundas Square</text>
+
+  <!-- Dates -->
+  <text x="531" y="378" font-size="10.5" fill="#e2eaf8" font-weight="600">Performance dates</text>
+  <rect x="531" y="388" width="100" height="30" rx="6" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
+  <text x="581" y="408" font-size="10" fill="#4a6888" text-anchor="middle">Start date</text>
+  <rect x="643" y="388" width="100" height="30" rx="6" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
+  <text x="693" y="408" font-size="10" fill="#4a6888" text-anchor="middle">End date</text>
+
+  <!-- Toggle -->
+  <text x="531" y="442" font-size="10" fill="#4a6888">Repeat weekly</text>
+  <rect x="703" y="430" width="34" height="18" rx="9" fill="#2563eb"/>
+  <circle cx="728" cy="439" r="7" fill="#ffffff"/>
+
+  <!-- CTA -->
+  <rect x="531" y="462" width="212" height="44" rx="10" fill="#2563eb"/>
+  <text x="637" y="490" font-size="13" fill="#ffffff" font-weight="600" text-anchor="middle">Continue</text>
+
+  <!-- Back -->
+  <text x="637" y="524" font-size="10" fill="#4a6888" text-anchor="middle">← Back</text>
+</svg>

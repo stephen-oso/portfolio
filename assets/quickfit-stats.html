@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickFit — Outcome Stats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1200px;
+      margin: 0;
+      background: #0d0d0d;
+      color: #f5f5f0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+
+    .asset {
+      width: 1200px;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stats-row {
+      display: flex;
+      align-items: stretch;
+      flex: 1;
+    }
+
+    .stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 56px;
+    }
+
+    .stat-number-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: #e8c97e;
+      display: block;
+    }
+
+    .stat-underline {
+      display: block;
+      height: 1px;
+      background: #e8c97e;
+      margin-top: 10px;
+      opacity: 0.5;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #888884;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 240px;
+    }
+
+    .divider {
+      width: 1px;
+      background: #222220;
+      margin: 48px 0;
+    }
+
+    .bottom-tag {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #333330;
+      padding-bottom: 32px;
+    }
+  </style>
+</head>
+<body>
+  <div class="asset">
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-number-wrap">
+          <span class="stat-number">&lt;10s</span>
+          <span class="stat-underline"></span>
+        </div>
+        <p class="stat-label">Time to key conversion signal</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="stat">
+        <div class="stat-number-wrap">
+          <span class="stat-number">100%</span>
+          <span class="stat-underline"></span>
+        </div>
+        <p class="stat-label">Client-managed content via AI</p>
+      </div>
+    </div>
+
+    <p class="bottom-tag">QuickFit Supply &middot; 2025 &middot; Toronto</p>
+  </div>
+</body>
+</html>

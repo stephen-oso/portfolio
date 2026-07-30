@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONNECT Toronto — Stephen Okulaja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav" id="nav">
+    <a class="nav-back" href="../index.html">&larr; Back to work</a>
+    <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
+  </nav>
+
+  <header class="cs-hero fade-in">
+    <p class="cs-num">02 &mdash; CONNECT Toronto</p>
+    <h1 class="cs-title">Started as a housing brief. Became a four-year project reimagining how street performers navigate the City of Toronto.</h1>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Client</span>
+        <span class="cs-meta-value">City of Toronto (Academic)</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">UX Designer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Year</span>
+        <span class="cs-meta-value">2021 — ongoing</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Type</span>
+        <span class="cs-meta-value">UX Design · AR · Civic Tech</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs-project-img fade-in">
+    <img src="../assets/connect-toronto.svg" alt="CONNECT Toronto app and AR overlay interface" />
+  </div>
+
+  <main class="cs-body">
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Context</p>
+      <h2>It started with housing. It became something more specific — and more interesting.</h2>
+      <p>In my final semester, the brief was to identify and pitch a solution to Toronto's housing crisis. The question underneath that brief — who gets to participate in city life, and what infrastructure exists to support them — led me somewhere unexpected: street performers.</p>
+      <p>Buskers are one of the most visible expressions of urban culture in Toronto, performing at Yonge-Dundas Square, the PATH, TTC platforms. But the system they navigate to do that legally is paper-heavy, slow, and designed without them in mind. It felt like a specific, solvable version of a much larger problem: cities that claim to value culture but make it difficult to actually practice it.</p>
+      <p>I pitched CONNECT Toronto as that solution — and kept building it after the semester ended. What started as a permit redesign has been iterated and expanded every year since 2021, growing in fidelity and scope. The AR layer came later, as an answer to a second question: what if the person watching a busker could actually follow that artist beyond that moment?</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Problem</p>
+      <h2>Three users. None of them well served by the existing system.</h2>
+      <p>Performers needed a fast permit flow they could manage from their phone between sets. City administrators needed a system that reduced their processing overhead without losing accountability or documentation. Visitors and residents encountering a performer had no way to connect, follow, or even know who they were watching.</p>
+      <p>Journey mapping the existing permit process revealed six distinct friction points — from initial registration through to renewal. Each one was a place where the system asked for more than was necessary or gave less than what was needed.</p>
+      <img src="../assets/connect-journey.svg" alt="Permit flow journey map with 6 friction points" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">The friction wasn't one big problem. It was six small ones compounding at every step — each solvable on its own, each invisible to whoever designed the original system.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Approach</p>
+      <h2>A 4-step mobile flow for performers. An AR discovery layer for everyone else.</h2>
+      <p>The permit application was redesigned as a guided mobile flow: registration, location selection, schedule, and payment. Each step was stripped to its minimum viable ask — no fields that didn't serve the performer or the administration, no ambiguity about what was required next.</p>
+      <p>The AR prototype is the more experimental piece. Built as a proof of concept, it lets visitors point their camera at a performing busker to surface their profile, upcoming locations, and links to their music. It turns a transient moment — you happen to hear someone great — into a persistent connection.</p>
+      <img src="../assets/connect-toronto.svg" alt="CONNECT Toronto app and AR overlay" style="width:100%;border-radius:10px;display:block;margin:1.5rem 0 0;" />
+      <p class="cs-img-caption">Left: Toronto street grid with pinned performance zones and an AR coverage overlay. Right: the permit flow — a 4-step mobile form replacing a multi-page paper process, with location selection and schedule built into the flow rather than bolted on separately.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Design System</p>
+      <h2>Light civic palette. Blue signal. Clarity for a city that moves fast.</h2>
+      <p>The brand language is built around civic trust and mobile legibility — light backgrounds, sharp navy type, and blue for every interactive element. The system needed to feel institutional without feeling bureaucratic: credible enough that a performer would trust it with a legal permit, simple enough to complete between sets.</p>
+
+      <img src="../assets/ct-design-hero.png" alt="CONNECT Toronto hero — city map with AR zones and mobile permit flow" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Portfolio thumbnail / hero — Toronto street grid with AR coverage zones on left, 4-step permit flow app on right.</p>
+
+      <img src="../assets/ct-design-users.png" alt="Three user types — Performer, Administrator, Visitor" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Three users — Performer, Administrator, Visitor — each with a distinct need the existing system failed to address.</p>
+
+      <img src="../assets/ct-design-ar.png" alt="AR discovery concept — phone camera overlay with performer profile card" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">AR discovery concept — phone camera pointed at a busker surfaces their profile, upcoming locations, and music links. A transient moment becomes a persistent connection.</p>
+
+      <img src="../assets/ct-design-friction.png" alt="Friction audit — 6 permit system failures and redesign fixes" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Friction audit — 6 permit system failures, each mapped to its redesign fix. Desktop-only → mobile-first. Zone codes → map tap. Cheque → online payment.</p>
+
+      <img src="../assets/ct-design-flow.png" alt="4-step permit flow — Registration, Location, Schedule, Payment" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">4-step permit flow — Registration, Location, Schedule, Payment. Ordered the way a performer actually thinks, not the way city admin layered requirements.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Process</p>
+      <h2>Three user interviews. Six friction points. One principle: don't ask for what you don't need.</h2>
+      <p>Research involved direct conversations with Toronto buskers about the existing permit experience. The recurring theme wasn't one broken step — it was a sequence of steps each slightly worse than necessary. Journey mapping the process surfaced six distinct friction points, each independently fixable, each invisible to whoever designed the original system.</p>
+      <p>The 4-step flow was designed around field order logic: who you are (registration), where you'll perform (map-based zone selection), when (date/schedule), and how you'll pay (online). That's the sequence a performer thinks in. The original process wasn't ordered that way. Admin requirements had been layered on top without restructuring the experience around the user.</p>
+      <p>The AR prototype was built in Figma as a high-fidelity interactive concept. The near-term realistic version: performers carry a QR code on their issued permit. Visitors scan it with their phone camera and get a profile — artist name, upcoming performance dates, links to music. The longer-term version — point your camera at a person and have the app recognise them — requires computer vision infrastructure a city permit system realistically won't have for years. The Figma prototype demonstrates both: the QR flow as the viable path, the camera recognition as the directional vision.</p>
+      <p>The hardest constraint was scoping. The AR concept generated genuine excitement but risked swallowing the permit redesign, which was the actual brief. Keeping them as distinct layers — one solves an admin problem, one solves a cultural discovery problem — was the framing that let both do their job clearly.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>A permit flow that respects the performer's time. An AR concept that earned real stakeholder interest.</h2>
+      <p>The redesigned permit flow is meaningfully shorter than the existing process — fewer steps, fewer fields, no physical attendance required. The AR prototype was validated with both performers and city stakeholders as a credible future direction, not an immediate implementation.</p>
+      <ul class="cs-tags">
+        <li>UX Design</li><li>AR Prototype</li><li>Civic Tech</li><li>Mobile</li><li>Figma</li>
+      </ul>
+      <div class="cs-links">
+        <a href="https://imaginative-cascaron-b00fae.netlify.app/connect" target="_blank" rel="noopener" class="cs-link-btn">View Project &rarr;</a>
+      </div>
+      <div class="cs-reflection">
+        <p class="cs-reflection-label">Reflection</p>
+        <p>The AR concept is the most interesting part of this project and I undersold it in early presentations. It reframes the busker not just as someone with a permit but as an artist with a discoverable identity — that's a fundamentally different relationship between performer and city. I'd push that angle harder if I were doing this again, and prototype the AR interaction in higher fidelity earlier.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-project-nav fade-in">
+    <a href="quickfit.html">&larr; QuickFit</a>
+    <a class="next" href="fanband.html">Next: FanBand &rarr;</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="case-study.js"></script>
+</body>
+</html>

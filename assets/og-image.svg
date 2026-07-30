@@ -1,0 +1,42 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#111110"/>
+
+  <!-- Subtle texture lines -->
+  <line x1="0" y1="1" x2="1200" y2="1" stroke="#1e1e1c" stroke-width="1"/>
+  <line x1="0" y1="629" x2="1200" y2="629" stroke="#1e1e1c" stroke-width="1"/>
+
+  <!-- Left accent bar -->
+  <rect x="72" y="180" width="3" height="120" fill="#c8b89a" opacity="0.6"/>
+
+  <!-- Name -->
+  <text x="100" y="268" font-size="72" fill="#f9f9f7" font-weight="700" letter-spacing="-0.02em">Stephen Okulaja</text>
+
+  <!-- Rule -->
+  <line x1="100" y1="296" x2="700" y2="296" stroke="#2a2a28" stroke-width="1"/>
+
+  <!-- Descriptor -->
+  <text x="100" y="338" font-size="24" fill="#9a9a94" font-family="'DM Sans', system-ui, sans-serif" font-weight="400" letter-spacing="0.01em">Designer &amp; Builder — AI tools, brand systems, civic tech</text>
+
+  <!-- Project pills -->
+  <rect x="100" y="374" width="140" height="32" rx="4" fill="#1e1e1c" stroke="#2a2a28" stroke-width="1"/>
+  <text x="170" y="395" font-size="13" fill="#6a6a64" font-family="'DM Sans', system-ui, sans-serif" font-weight="600" text-anchor="middle" letter-spacing="0.06em">QUICKFIT</text>
+
+  <rect x="252" y="374" width="180" height="32" rx="4" fill="#1e1e1c" stroke="#2a2a28" stroke-width="1"/>
+  <text x="342" y="395" font-size="13" fill="#6a6a64" font-family="'DM Sans', system-ui, sans-serif" font-weight="600" text-anchor="middle" letter-spacing="0.06em">CONNECT TORONTO</text>
+
+  <rect x="444" y="374" width="120" height="32" rx="4" fill="#1e1e1c" stroke="#2a2a28" stroke-width="1"/>
+  <text x="504" y="395" font-size="13" fill="#6a6a64" font-family="'DM Sans', system-ui, sans-serif" font-weight="600" text-anchor="middle" letter-spacing="0.06em">FANBAND</text>
+
+  <rect x="576" y="374" width="128" height="32" rx="4" fill="#1e1e1c" stroke="#2a2a28" stroke-width="1"/>
+  <text x="640" y="395" font-size="13" fill="#6a6a64" font-family="'DM Sans', system-ui, sans-serif" font-weight="600" text-anchor="middle" letter-spacing="0.06em">VERSECUE</text>
+
+  <!-- Bottom location -->
+  <text x="100" y="500" font-size="16" fill="#3a3a38" font-family="'DM Sans', system-ui, sans-serif" letter-spacing="0.12em">TORONTO — MARKHAM, ONTARIO</text>
+
+  <!-- SO monogram top right -->
+  <rect x="1080" y="50" width="72" height="72" rx="10" fill="#1a1a18"/>
+  <text x="1116" y="103" font-size="36" fill="#f9f9f7" font-weight="700" text-anchor="middle" font-style="italic">SO</text>
+
+</svg>

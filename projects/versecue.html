@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VerseCue — Stephen Okulaja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav" id="nav">
+    <a class="nav-back" href="../index.html">&larr; Back to work</a>
+    <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
+  </nav>
+
+  <header class="cs-hero fade-in">
+    <p class="cs-num">04 &mdash; VerseCue</p>
+    <h1 class="cs-title">An AI tool that finds the right Bible verse in seconds — built for worship operators running live services in real time.</h1>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Project Type</span>
+        <span class="cs-meta-value">AI Tool / Product</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Designer & Developer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Year</span>
+        <span class="cs-meta-value">2025</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Type</span>
+        <span class="cs-meta-value">AI · React · Worship Tech</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs-project-img fade-in">
+    <img src="../assets/versecue.svg" alt="VerseCue operator interface showing scripture retrieval" />
+  </div>
+
+  <main class="cs-body">
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Context</p>
+      <h2>Live worship media is a high-pressure, zero-margin-for-error environment.</h2>
+      <p>Media operators running live church services manage lyrics, scriptures, announcements, and transitions — simultaneously, in real time, in front of a congregation. One wrong slide, one missed cue, and it's visible to everyone in the room. It's a role that demands precision and gets almost no design attention.</p>
+      <p>VerseCue was built to solve one specific friction point: finding and queuing the right Bible verse mid-service, fast, without losing focus on everything else happening at once.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Problem</p>
+      <h2>When a pastor calls an unplanned verse, the operator has about four seconds.</h2>
+      <p>Existing tools require operators to know the exact scripture reference, or to search by keyword and then filter through results. That's a workflow designed for preparation — not for live execution under pressure. When a pastor calls a verse mid-sermon, or references it slightly wrong, or uses thematic language instead of a reference, operators scramble. The interface that works in a planning session is the wrong tool in the room.</p>
+      <p>The cost is small any individual Sunday. Multiplied across every service, it's a consistent source of operational stress for media teams who are already juggling too much.</p>
+      <img src="../assets/versecue-workflow.svg" alt="Live service timeline — scripture retrieval friction" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">When a verse is called mid-sermon, the operator needs to retrieve and project it immediately. Existing tools require switching apps and searching manually. VerseCue keeps it in one place, one step.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Approach</p>
+      <h2>Natural language in. Projection-ready verse out. As few steps between them as possible.</h2>
+      <p>VerseCue uses AI to interpret natural language queries — a partial reference, a theme, a sentence lifted from the sermon — and surface the most contextually relevant verses immediately. The operator types what they heard or half-remember, not what they know precisely. The AI handles the disambiguation.</p>
+      <p>The interface is minimal by design. Operators in a live service don't need features — they need the right result fast and a clear path to push it to screen. The display layer formats verses for immediate projection: correct translation, clean typography, ready to go.</p>
+      <img src="../assets/versecue-query.svg" alt="VerseCue query interface — natural language search and results" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">The operator types what they heard from the sermon. The AI interprets the theme, finds the most contextually relevant verses, and the top result is one click from the projection screen.</p>
+      <img src="../assets/versecue.svg" alt="VerseCue projection output" style="width:100%;border-radius:10px;display:block;margin:1.5rem 0 0;" />
+      <p class="cs-img-caption">Projection-ready output: correct translation, clean display typography, formatted for the room.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Process</p>
+      <h2>Every design decision came back to one constraint: operators can't look away from the main screen.</h2>
+      <p>The dark UI isn't aesthetic — it's functional. Media operators work in partially lit booths at the back or side of a room. A bright white interface creates glare and breaks the operator's visual adjustment to a dim environment. Every colour decision was made against that constraint.</p>
+      <p>The core design challenge was disambiguation. A query like "the lost sheep" is unambiguous. A query like "come back to the father" could be Luke 15, Romans 8, or a dozen other passages depending on sermon context. The AI layer is prompted to infer semantic intent — theme and context, not just keyword match — and surfaces ranked results rather than a flat list. The operator picks; the AI narrows.</p>
+      <p>The projection layer is a separate design problem. A verse that reads fine on a laptop at arm's length reads completely differently projected at distance. The display mode uses a larger type scale, increased line spacing, and a high-contrast palette tuned for projection — separate from the operator's query interface, which stays dark and compact.</p>
+      <p>The stack is React frontend with an AI API for natural language processing and a Bible API for verse data — kept deliberately separate so either can be swapped without breaking the other.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>A tool that removes the search and keeps the operator in flow.</h2>
+      <p>VerseCue is a fully functional React application. The AI layer handles retrieval — semantic matching against scripture, ranked by contextual relevance — and the operator makes the final call. The core shift isn't speed, it's cognitive load: the operator stays in one tool, in one mental context, instead of switching applications mid-service to chase a reference.</p>
+      <ul class="cs-tags">
+        <li>AI Integration</li><li>React</li><li>Worship Tech</li><li>UX Design</li><li>Tool Design</li>
+      </ul>
+      <div class="cs-reflection">
+        <p class="cs-reflection-label">Reflection</p>
+        <p>The narrow scope is the right call. Tools that try to replace an operator's full workflow fail; tools that solve one specific job within that workflow get used. If I were developing this further, I'd add service planning mode — the ability to pre-queue verses before the service starts, with the AI layer available for the inevitable improvisation. That would make VerseCue useful for both preparation and live execution without compromising either.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-project-nav fade-in">
+    <a href="fanband.html">&larr; FanBand</a>
+    <a class="next" href="elicit-furnishing.html">Next: Elicit Furnishing &rarr;</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="case-study.js"></script>
+</body>
+</html>

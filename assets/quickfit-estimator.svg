@@ -1,0 +1,116 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d0d0b"/>
+
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.06"/>
+    </pattern>
+    <linearGradient id="orangeGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8521a" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#e8521a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" fill="url(#grid)"/>
+
+  <!-- Warm glow top center -->
+  <ellipse cx="450" cy="30" rx="380" ry="120" fill="url(#orangeGlow)"/>
+
+  <!-- Left panel: Input -->
+  <rect x="40" y="60" width="360" height="380" rx="12" fill="#141412" stroke="#2a2a27" stroke-width="1"/>
+
+  <!-- Panel header -->
+  <rect x="40" y="60" width="360" height="48" rx="12" fill="#1a1a18"/>
+  <rect x="40" y="96" width="360" height="12" fill="#1a1a18"/>
+  <circle cx="68" cy="84" r="6" fill="#e8521a" opacity="0.9"/>
+  <text x="86" y="89" font-size="12" fill="#f0f0ed" font-weight="500" opacity="0.9">Job Estimator</text>
+  <rect x="348" y="75" width="40" height="18" rx="4" fill="#e8521a" opacity="0.15"/>
+  <text x="356" y="88" font-size="10" fill="#e8521a" font-weight="600">AI</text>
+
+  <!-- Input label -->
+  <text x="60" y="140" font-size="10" fill="#9a9a94" font-weight="600" letter-spacing="0.1em">DESCRIBE YOUR JOB</text>
+
+  <!-- Text input area -->
+  <rect x="56" y="152" width="328" height="96" rx="8" fill="#0d0d0b" stroke="#2a2a27" stroke-width="1"/>
+  <text x="72" y="175" font-size="13" fill="#f0f0ed" opacity="0.85">Replacing a bathroom vanity.</text>
+  <text x="72" y="193" font-size="13" fill="#f0f0ed" opacity="0.85">Need all supply connections,</text>
+  <text x="72" y="211" font-size="13" fill="#f0f0ed" opacity="0.85">shutoffs, and drain assembly.</text>
+  <!-- Cursor blink -->
+  <rect x="72" y="219" width="2" height="14" fill="#e8521a" opacity="0.8"/>
+
+  <!-- Options row -->
+  <text x="60" y="276" font-size="10" fill="#9a9a94" font-weight="600" letter-spacing="0.1em">TRADE TYPE</text>
+  <rect x="56" y="284" width="90" height="28" rx="6" fill="#e8521a" opacity="0.15" stroke="#e8521a" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="76" y="303" font-size="11" fill="#e8521a" font-weight="500">Plumbing</text>
+  <rect x="154" y="284" width="80" height="28" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="170" y="303" font-size="11" fill="#9a9a94">Electrical</text>
+  <rect x="242" y="284" width="60" height="28" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="256" y="303" font-size="11" fill="#9a9a94">HVAC</text>
+  <rect x="310" y="284" width="74" height="28" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="323" y="303" font-size="11" fill="#9a9a94">General</text>
+
+  <!-- Estimate button -->
+  <rect x="56" y="332" width="328" height="44" rx="8" fill="#e8521a"/>
+  <text x="220" y="360" font-size="13" fill="#ffffff" font-weight="600" text-anchor="middle">Generate Parts List</text>
+
+  <!-- Processing indicator -->
+  <text x="60" y="402" font-size="10" fill="#7a7a74">Powered by Claude API · Results in under 3 seconds</text>
+
+  <!-- Arrow -->
+  <text x="418" y="258" font-size="22" fill="#e8521a" opacity="0.6" text-anchor="middle">&#8594;</text>
+
+  <!-- Right panel: Output -->
+  <rect x="500" y="60" width="360" height="380" rx="12" fill="#141412" stroke="#2a2a27" stroke-width="1"/>
+
+  <!-- Output header -->
+  <rect x="500" y="60" width="360" height="48" rx="12" fill="#1a1a18"/>
+  <rect x="500" y="96" width="360" height="12" fill="#1a1a18"/>
+  <circle cx="528" cy="84" r="6" fill="#22c55e" opacity="0.9"/>
+  <text x="546" y="89" font-size="12" fill="#f0f0ed" font-weight="500" opacity="0.9">Parts List Generated</text>
+  <text x="780" y="89" font-size="11" fill="#9a9a94">7 items</text>
+
+  <!-- Parts list items -->
+  <!-- Item 1 -->
+  <rect x="516" y="120" width="328" height="42" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <rect x="516" y="120" width="4" height="42" rx="2" fill="#e8521a"/>
+  <text x="532" y="138" font-size="12" fill="#f0f0ed" font-weight="500">Braided Supply Lines (12")</text>
+  <text x="532" y="153" font-size="11" fill="#9a9a94">3/8" compression · Qty: 2</text>
+  <text x="800" y="145" font-size="12" fill="#f0f0ed" font-weight="500" text-anchor="end">$8.40</text>
+
+  <!-- Item 2 -->
+  <rect x="516" y="170" width="328" height="42" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <rect x="516" y="170" width="4" height="42" rx="2" fill="#e8521a"/>
+  <text x="532" y="188" font-size="12" fill="#f0f0ed" font-weight="500">Angle Stop Valve</text>
+  <text x="532" y="203" font-size="11" fill="#9a9a94">1/2" sweat &times; 3/8" compression · Qty: 2</text>
+  <text x="800" y="195" font-size="12" fill="#f0f0ed" font-weight="500" text-anchor="end">$22.60</text>
+
+  <!-- Item 3 -->
+  <rect x="516" y="220" width="328" height="42" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <rect x="516" y="220" width="4" height="42" rx="2" fill="#e8521a"/>
+  <text x="532" y="238" font-size="12" fill="#f0f0ed" font-weight="500">P-Trap Assembly</text>
+  <text x="532" y="253" font-size="11" fill="#9a9a94">1-1/4" plastic, adjustable · Qty: 1</text>
+  <text x="800" y="245" font-size="12" fill="#f0f0ed" font-weight="500" text-anchor="end">$11.20</text>
+
+  <!-- Item 4 -->
+  <rect x="516" y="270" width="328" height="42" rx="6" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <rect x="516" y="270" width="4" height="42" rx="2" fill="#e8521a"/>
+  <text x="532" y="288" font-size="12" fill="#f0f0ed" font-weight="500">Pop-Up Drain Assembly</text>
+  <text x="532" y="303" font-size="11" fill="#9a9a94">Chrome, with overflow · Qty: 1</text>
+  <text x="800" y="295" font-size="12" fill="#f0f0ed" font-weight="500" text-anchor="end">$18.90</text>
+
+  <!-- More items indicator -->
+  <text x="680" y="338" font-size="11" fill="#9a9a94" text-anchor="middle">+ 3 more items</text>
+
+  <!-- Total row -->
+  <line x1="516" y1="354" x2="844" y2="354" stroke="#2a2a27" stroke-width="1"/>
+  <text x="532" y="375" font-size="12" fill="#9a9a94">Estimated total</text>
+  <text x="800" y="375" font-size="14" fill="#f0f0ed" font-weight="700" text-anchor="end">$94.30</text>
+
+  <!-- Order button -->
+  <rect x="516" y="388" width="328" height="36" rx="6" fill="#e8521a" opacity="0.12" stroke="#e8521a" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="680" y="411" font-size="12" fill="#e8521a" font-weight="600" text-anchor="middle">Match to Suppliers &rarr;</text>
+
+  <!-- Bottom label -->
+  <text x="450" y="480" font-size="11" fill="#6a6a64" text-anchor="middle">QuickFit — AI Job Estimator · Plain language in. Parts list out.</text>
+</svg>

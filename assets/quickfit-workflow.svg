@@ -1,0 +1,85 @@
+<svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+
+  <rect width="900" height="440" fill="#0d0d0b"/>
+
+  <!-- Top label -->
+  <text x="48" y="48" font-size="11" fill="#e8521a" font-weight="600" letter-spacing="0.16em">THE SUPPLY RUN PROBLEM</text>
+
+  <!-- Two dominant stats -->
+  <rect x="48" y="66" width="382" height="160" rx="4" fill="#141412" stroke="#2a2a27" stroke-width="1"/>
+  <rect x="48" y="66" width="4" height="160" rx="2" fill="#ff4444"/>
+  <text x="80" y="116" font-size="72" fill="#ff4444" font-weight="700" font-family="Georgia, serif" letter-spacing="-0.04em">~90</text>
+  <text x="80" y="148" font-size="18" fill="#f0f0ed" font-weight="500">minutes lost per job</text>
+  <text x="80" y="170" font-size="13" fill="#8a8a84">avg. 2 supply store trips · 45 min each · contractor off-site</text>
+  <text x="80" y="210" font-size="11" fill="#6a6a64" letter-spacing="0.1em">WITHOUT QUICKFIT</text>
+
+  <rect x="470" y="66" width="382" height="160" rx="4" fill="#141412" stroke="#2a2a27" stroke-width="1"/>
+  <rect x="470" y="66" width="4" height="160" rx="2" fill="#e8521a"/>
+  <text x="502" y="116" font-size="72" fill="#e8521a" font-weight="700" font-family="Georgia, serif" letter-spacing="-0.04em">0</text>
+  <text x="502" y="148" font-size="18" fill="#f0f0ed" font-weight="500">trips off-site</text>
+  <text x="502" y="170" font-size="13" fill="#8a8a84">describe job → parts list → runner delivers → 30 min</text>
+  <text x="502" y="210" font-size="11" fill="#6a6a64" letter-spacing="0.1em">WITH QUICKFIT</text>
+
+  <!-- Timeline comparison -->
+  <text x="48" y="270" font-size="11" fill="#8a8a84" font-weight="600" letter-spacing="0.12em">TIMELINE COMPARISON</text>
+
+  <!-- Without row -->
+  <text x="48" y="298" font-size="12" fill="#a0a098">Without</text>
+
+  <rect x="148" y="285" width="70" height="26" rx="3" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="183" y="303" font-size="11" fill="#9a9a94" text-anchor="middle">Job starts</text>
+
+  <text x="228" y="303" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="248" y="285" width="100" height="26" rx="3" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="298" y="303" font-size="11" fill="#9a9a94" text-anchor="middle">Parts needed</text>
+
+  <text x="358" y="303" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="375" y="278" width="110" height="40" rx="3" fill="#1a0808" stroke="#ff4444" stroke-width="1"/>
+  <text x="430" y="296" font-size="11" fill="#ff6666" text-anchor="middle" font-weight="600">Store trip #1</text>
+  <text x="430" y="311" font-size="10" fill="#aa5555" text-anchor="middle">45 min gone</text>
+
+  <text x="495" y="303" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="510" y="278" width="110" height="40" rx="3" fill="#1a0808" stroke="#ff4444" stroke-width="1"/>
+  <text x="565" y="296" font-size="11" fill="#ff6666" text-anchor="middle" font-weight="600">Wrong part.</text>
+  <text x="565" y="311" font-size="10" fill="#aa5555" text-anchor="middle">Trip #2. 45 min.</text>
+
+  <text x="630" y="303" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="645" y="285" width="100" height="26" rx="3" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="695" y="303" font-size="11" fill="#9a9a94" text-anchor="middle">Back on site</text>
+
+  <!-- With row -->
+  <text x="48" y="348" font-size="12" fill="#a0a098">With</text>
+
+  <rect x="148" y="335" width="70" height="26" rx="3" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="183" y="353" font-size="11" fill="#9a9a94" text-anchor="middle">Job starts</text>
+
+  <text x="228" y="353" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="248" y="335" width="100" height="26" rx="3" fill="#1a1a18" stroke="#2a2a27" stroke-width="1"/>
+  <text x="298" y="353" font-size="11" fill="#9a9a94" text-anchor="middle">Parts needed</text>
+
+  <text x="358" y="353" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="375" y="328" width="110" height="40" rx="3" fill="#0d1a0d" stroke="#e8521a" stroke-width="1"/>
+  <text x="430" y="346" font-size="11" fill="#e8521a" text-anchor="middle" font-weight="600">AI estimates</text>
+  <text x="430" y="361" font-size="10" fill="#7a9a7a" text-anchor="middle">Order placed · 60s</text>
+
+  <text x="495" y="353" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="510" y="328" width="110" height="40" rx="3" fill="#0d1a0d" stroke="#e8521a" stroke-width="1"/>
+  <text x="565" y="346" font-size="11" fill="#e8521a" text-anchor="middle" font-weight="600">Runner delivers</text>
+  <text x="565" y="361" font-size="10" fill="#7a9a7a" text-anchor="middle">30 min to site</text>
+
+  <text x="630" y="353" font-size="11" fill="#5a5a56" text-anchor="middle">→</text>
+
+  <rect x="645" y="335" width="100" height="26" rx="3" fill="#1a1a18" stroke="#e8521a" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="695" y="353" font-size="11" fill="#e8521a" text-anchor="middle">Never left</text>
+
+  <!-- Divider + bottom note -->
+  <line x1="48" y1="394" x2="852" y2="394" stroke="#1e1e1c" stroke-width="1"/>
+  <text x="450" y="420" font-size="12" fill="#6a6a64" text-anchor="middle" font-style="italic">62% of GTA tradespeople make 2+ supply trips per job. QuickFit makes the trip unnecessary.</text>
+</svg>

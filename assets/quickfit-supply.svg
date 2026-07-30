@@ -1,0 +1,128 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+  <defs>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.05"/>
+    </pattern>
+    <linearGradient id="glow2" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#e8521a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#e8521a" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d0d0b"/>
+  <rect width="900" height="500" fill="url(#grid2)"/>
+  <ellipse cx="450" cy="0" rx="500" ry="180" fill="url(#glow2)"/>
+
+  <!-- Header bar -->
+  <rect x="40" y="40" width="820" height="50" rx="10" fill="#141412" stroke="#2a2a27" stroke-width="1"/>
+  <circle cx="68" cy="65" r="6" fill="#e8521a" opacity="0.9"/>
+  <text x="86" y="70" font-size="12" fill="#f0f0ed" font-weight="500" opacity="0.9">Supply Chain Analyzer</text>
+  <text x="450" y="70" font-size="11" fill="#9a9a94" text-anchor="middle">7 parts · Matching against GTA suppliers in real time</text>
+  <rect x="730" y="52" width="118" height="26" rx="5" fill="#22c55e" opacity="0.12" stroke="#22c55e" stroke-width="0.8" stroke-opacity="0.4"/>
+  <circle cx="748" cy="65" r="3" fill="#22c55e"/>
+  <text x="758" y="70" font-size="11" fill="#22c55e" font-weight="500">All items available</text>
+
+  <!-- Supplier columns header -->
+  <text x="220" y="124" font-size="9" fill="#7a7a74" font-weight="600" letter-spacing="0.12em" text-anchor="middle">HOME DEPOT PRO</text>
+  <text x="430" y="124" font-size="9" fill="#7a7a74" font-weight="600" letter-spacing="0.12em" text-anchor="middle">WOLSELEY</text>
+  <text x="620" y="124" font-size="9" fill="#7a7a74" font-weight="600" letter-spacing="0.12em" text-anchor="middle">EMCO</text>
+  <text x="790" y="124" font-size="9" fill="#e8521a" font-weight="600" letter-spacing="0.12em" text-anchor="middle">SELECTED</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="130" x2="860" y2="130" stroke="#2a2a27" stroke-width="1"/>
+
+  <!-- Row 1: Braided Supply Lines -->
+  <text x="40" y="157" font-size="12" fill="#f0f0ed" font-weight="500">Braided Supply Lines (12")</text>
+  <text x="40" y="172" font-size="10" fill="#9a9a94">Qty: 2</text>
+  <!-- HD Pro -->
+  <rect x="160" y="143" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="220" y="158" font-size="11" fill="#f0f0ed" text-anchor="middle">$8.97 ea</text>
+  <text x="220" y="172" font-size="10" fill="#22c55e" text-anchor="middle">In stock</text>
+  <!-- Wolseley -->
+  <rect x="370" y="143" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="430" y="158" font-size="11" fill="#f0f0ed" text-anchor="middle">$7.40 ea</text>
+  <text x="430" y="172" font-size="10" fill="#22c55e" text-anchor="middle">In stock</text>
+  <!-- Emco -->
+  <rect x="560" y="143" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="620" y="158" font-size="11" fill="#9a9a94" text-anchor="middle">$9.20 ea</text>
+  <text x="620" y="172" font-size="10" fill="#fbbf24" text-anchor="middle">2 left</text>
+  <!-- Selected badge -->
+  <rect x="736" y="143" width="108" height="36" rx="5" fill="#e8521a" opacity="0.15" stroke="#e8521a" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="790" y="158" font-size="11" fill="#e8521a" font-weight="600" text-anchor="middle">Wolseley</text>
+  <text x="790" y="172" font-size="10" fill="#e8521a" text-anchor="middle">$14.80 total</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="188" x2="860" y2="188" stroke="#1e1e1b" stroke-width="1"/>
+
+  <!-- Row 2: Angle Stop Valve -->
+  <text x="40" y="211" font-size="12" fill="#f0f0ed" font-weight="500">Angle Stop Valve</text>
+  <text x="40" y="226" font-size="10" fill="#9a9a94">1/2" sweat × 3/8" · Qty: 2</text>
+  <rect x="160" y="197" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="220" y="212" font-size="11" fill="#9a9a94" text-anchor="middle">Not stocked</text>
+  <text x="220" y="226" font-size="10" fill="#5a5a56" text-anchor="middle">&mdash;</text>
+  <rect x="370" y="197" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="430" y="212" font-size="11" fill="#f0f0ed" text-anchor="middle">$11.30 ea</text>
+  <text x="430" y="226" font-size="10" fill="#22c55e" text-anchor="middle">In stock</text>
+  <rect x="560" y="197" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="620" y="212" font-size="11" fill="#f0f0ed" text-anchor="middle">$10.90 ea</text>
+  <text x="620" y="226" font-size="10" fill="#22c55e" text-anchor="middle">In stock</text>
+  <rect x="736" y="197" width="108" height="36" rx="5" fill="#e8521a" opacity="0.15" stroke="#e8521a" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="790" y="212" font-size="11" fill="#e8521a" font-weight="600" text-anchor="middle">Emco</text>
+  <text x="790" y="226" font-size="10" fill="#e8521a" text-anchor="middle">$21.80 total</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="242" x2="860" y2="242" stroke="#1e1e1b" stroke-width="1"/>
+
+  <!-- Row 3: P-Trap -->
+  <text x="40" y="265" font-size="12" fill="#f0f0ed" font-weight="500">P-Trap Assembly</text>
+  <text x="40" y="280" font-size="10" fill="#9a9a94">1-1/4" plastic · Qty: 1</text>
+  <rect x="160" y="251" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="220" y="266" font-size="11" fill="#f0f0ed" text-anchor="middle">$11.47 ea</text>
+  <text x="220" y="280" font-size="10" fill="#22c55e" text-anchor="middle">In stock</text>
+  <rect x="370" y="251" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="430" y="266" font-size="11" fill="#f0f0ed" text-anchor="middle">$9.80 ea</text>
+  <text x="430" y="280" font-size="10" fill="#22c55e" text-anchor="middle">In stock</text>
+  <rect x="560" y="251" width="120" height="36" rx="5" fill="#1a1a18" stroke="#2a2a27" stroke-width="0.5"/>
+  <text x="620" y="266" font-size="11" fill="#9a9a94" text-anchor="middle">Not stocked</text>
+  <text x="620" y="280" font-size="10" fill="#5a5a56" text-anchor="middle">&mdash;</text>
+  <rect x="736" y="251" width="108" height="36" rx="5" fill="#e8521a" opacity="0.15" stroke="#e8521a" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="790" y="266" font-size="11" fill="#e8521a" font-weight="600" text-anchor="middle">Wolseley</text>
+  <text x="790" y="280" font-size="10" fill="#e8521a" text-anchor="middle">$9.80 total</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="296" x2="860" y2="296" stroke="#1e1e1b" stroke-width="1"/>
+
+  <!-- Rows hint -->
+  <text x="450" y="324" font-size="11" fill="#5a5a56" text-anchor="middle">+ 4 more items matched</text>
+
+  <!-- Summary footer -->
+  <rect x="40" y="345" width="820" height="100" rx="10" fill="#141412" stroke="#2a2a27" stroke-width="1"/>
+
+  <!-- Summary cols -->
+  <text x="100" y="372" font-size="10" fill="#9a9a94" font-weight="600" letter-spacing="0.1em" text-anchor="middle">SUPPLIERS NEEDED</text>
+  <text x="100" y="394" font-size="22" fill="#f0f0ed" font-weight="700" text-anchor="middle">2</text>
+  <text x="100" y="412" font-size="10" fill="#7a7a74" text-anchor="middle">Wolseley + Emco</text>
+
+  <line x1="190" y1="358" x2="190" y2="432" stroke="#2a2a27" stroke-width="1"/>
+
+  <text x="310" y="372" font-size="10" fill="#9a9a94" font-weight="600" letter-spacing="0.1em" text-anchor="middle">PARTS TOTAL</text>
+  <text x="310" y="394" font-size="22" fill="#f0f0ed" font-weight="700" text-anchor="middle">$94.30</text>
+  <text x="310" y="412" font-size="10" fill="#7a7a74" text-anchor="middle">All 7 items sourced</text>
+
+  <line x1="420" y1="358" x2="420" y2="432" stroke="#2a2a27" stroke-width="1"/>
+
+  <text x="550" y="372" font-size="10" fill="#9a9a94" font-weight="600" letter-spacing="0.1em" text-anchor="middle">ESTIMATED DELIVERY</text>
+  <text x="550" y="394" font-size="22" fill="#e8521a" font-weight="700" text-anchor="middle">28 min</text>
+  <text x="550" y="412" font-size="10" fill="#7a7a74" text-anchor="middle">Runner dispatched on order</text>
+
+  <line x1="660" y1="358" x2="660" y2="432" stroke="#2a2a27" stroke-width="1"/>
+
+  <!-- CTA -->
+  <rect x="690" y="363" width="154" height="48" rx="8" fill="#e8521a"/>
+  <text x="767" y="383" font-size="12" fill="#ffffff" font-weight="600" text-anchor="middle">Confirm Order</text>
+  <text x="767" y="400" font-size="10" fill="#ffffff" opacity="0.7" text-anchor="middle">15% delivery fee applies</text>
+
+  <!-- Bottom label -->
+  <text x="450" y="482" font-size="11" fill="#6a6a64" text-anchor="middle">QuickFit — Supply Chain Analyzer · Parts matched to real-time GTA supplier inventory</text>
+</svg>

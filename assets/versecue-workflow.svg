@@ -1,0 +1,74 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+  <defs>
+    <radialGradient id="vglow" cx="62%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#e8a030" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#e8a030" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="900" height="420" fill="#060608"/>
+  <rect width="900" height="420" fill="url(#vglow)"/>
+
+  <!-- Header -->
+  <text x="48" y="48" font-size="11" fill="#e8a030" font-weight="600" letter-spacing="0.16em">LIVE SERVICE — THE UNPLANNED VERSE PROBLEM</text>
+
+  <!-- Service timeline blocks -->
+  <text x="48" y="84" font-size="11" fill="#4a4a52" font-weight="600" letter-spacing="0.1em">SERVICE TIMELINE</text>
+
+  <rect x="48" y="96" width="96" height="36" rx="3" fill="#10101a" stroke="#1e1e2a" stroke-width="1"/>
+  <text x="96" y="119" font-size="12" fill="#6a6a78" text-anchor="middle">Pre-service</text>
+
+  <rect x="156" y="96" width="130" height="36" rx="3" fill="#10101a" stroke="#1e1e2a" stroke-width="1"/>
+  <text x="221" y="119" font-size="12" fill="#6a6a78" text-anchor="middle">Worship songs</text>
+
+  <rect x="298" y="96" width="110" height="36" rx="3" fill="#10101a" stroke="#1e1e2a" stroke-width="1"/>
+  <text x="353" y="119" font-size="12" fill="#6a6a78" text-anchor="middle">Announcements</text>
+
+  <rect x="420" y="96" width="120" height="36" rx="3" fill="#10101a" stroke="#1e1e2a" stroke-width="1"/>
+  <text x="480" y="119" font-size="12" fill="#6a6a78" text-anchor="middle">Sermon begins</text>
+
+  <!-- FRICTION BLOCK -->
+  <rect x="552" y="86" width="160" height="56" rx="3" fill="#180e06" stroke="#e8a030" stroke-width="1.5"/>
+  <text x="632" y="108" font-size="12" fill="#e8a030" font-weight="600" text-anchor="middle">Unplanned verse</text>
+  <text x="632" y="126" font-size="11" fill="#a07040" text-anchor="middle">Pastor calls it mid-sermon</text>
+  <text x="632" y="140" font-size="11" fill="#7a5030" text-anchor="middle">No time to lose</text>
+
+  <rect x="724" y="86" width="128" height="56" rx="3" fill="#1a0808" stroke="#ff4444" stroke-width="1.5"/>
+  <text x="788" y="108" font-size="12" fill="#ff5555" font-weight="600" text-anchor="middle">Operator</text>
+  <text x="788" y="124" font-size="12" fill="#ff5555" font-weight="600" text-anchor="middle">scrambles</text>
+  <text x="788" y="140" font-size="11" fill="#aa4444" text-anchor="middle">cue missed or delayed</text>
+
+  <!-- Connector line -->
+  <line x1="540" y1="114" x2="552" y2="114" stroke="#2a2a32" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="712" y1="114" x2="724" y2="114" stroke="#2a2a32" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- The core comparison -->
+  <line x1="48" y1="178" x2="852" y2="178" stroke="#14141e" stroke-width="1"/>
+
+  <text x="48" y="210" font-size="11" fill="#4a4a52" font-weight="600" letter-spacing="0.1em">RETRIEVAL WORKFLOW COMPARISON</text>
+
+  <!-- Without VerseCue -->
+  <rect x="48" y="226" width="380" height="130" rx="4" fill="#100808" stroke="#2a1a1a" stroke-width="1"/>
+  <rect x="48" y="226" width="4" height="130" rx="2" fill="#ff4444"/>
+  <text x="72" y="250" font-size="13" fill="#ff5555" font-weight="600">Without VerseCue</text>
+  <text x="72" y="270" font-size="12" fill="#7a5050">Switch apps → search by keyword → filter results</text>
+  <text x="72" y="288" font-size="12" fill="#7a5050">→ select verse → format for display → project</text>
+  <text x="72" y="316" font-size="36" fill="#ff4444" font-weight="700" font-family="Georgia, serif" letter-spacing="-0.02em">Many steps</text>
+  <text x="72" y="346" font-size="12" fill="#6a4040">While a pastor is speaking. Wrong tool for the moment.</text>
+
+  <!-- Arrow -->
+  <text x="450" y="298" font-size="24" fill="#2a2a32" text-anchor="middle">→</text>
+
+  <!-- With VerseCue -->
+  <rect x="470" y="226" width="382" height="130" rx="4" fill="#08100a" stroke="#1a2a1a" stroke-width="1"/>
+  <rect x="470" y="226" width="4" height="130" rx="2" fill="#e8a030"/>
+  <text x="494" y="250" font-size="13" fill="#e8a030" font-weight="600">With VerseCue</text>
+  <text x="494" y="270" font-size="12" fill="#7a8a6a">Type what you heard. AI retrieves and pre-selects.</text>
+  <text x="494" y="288" font-size="12" fill="#7a8a6a">One click to project.</text>
+  <text x="494" y="316" font-size="36" fill="#e8a030" font-weight="700" font-family="Georgia, serif" letter-spacing="-0.02em">1 step</text>
+  <text x="494" y="346" font-size="12" fill="#6a7a5a">Operator stays in the room. Flow unbroken.</text>
+
+  <!-- Bottom -->
+  <line x1="48" y1="380" x2="852" y2="380" stroke="#14141e" stroke-width="1"/>
+  <text x="450" y="404" font-size="11" fill="#3a3a40" text-anchor="middle">VerseCue — The 4-second problem and how the retrieval workflow changes</text>
+</svg>

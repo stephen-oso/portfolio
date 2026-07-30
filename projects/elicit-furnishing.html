@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elicit Furnishing — Stephen Okulaja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav" id="nav">
+    <a class="nav-back" href="../index.html">&larr; Back to work</a>
+    <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
+  </nav>
+
+  <header class="cs-hero fade-in">
+    <p class="cs-num">05 &mdash; Elicit Furnishing</p>
+    <h1 class="cs-title">A production web app replacing pen-and-paper sales tracking — built for a real furniture retail client who uses it every day.</h1>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Client</span>
+        <span class="cs-meta-value">Elicit Furnishing</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Designer & Developer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Year</span>
+        <span class="cs-meta-value">2025</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Type</span>
+        <span class="cs-meta-value">Full-Stack &middot; Supabase &middot; PWA</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs-project-img fade-in">
+    <img src="../assets/elicit-furnishing.svg" alt="Elicit Furnishing sales ledger — dashboard with revenue cards and 7-day chart" />
+  </div>
+
+  <main class="cs-body">
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Context</p>
+      <h2>A real client. A real problem. A daily tool with no margin for unreliability.</h2>
+      <p>Elicit Furnishing is a furniture retail shop whose owner was managing every sale by hand — pen on paper, tallied up at the end of the day. There was no search history, no revenue visibility, no way to generate reports, and no record of what was running low. When the brief came in, it wasn't for a concept or a prototype. It was for a tool the shop owner would use every single day, from their phone, without any technical support.</p>
+      <p>That changes the design constraint. The interface had to be immediate — open the app, log the sale, done — because anything slower competes with picking up the pen. A tool that requires explanation is a tool that gets abandoned.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Problem</p>
+      <h2>No visibility. No history. No way to know what's selling or what's running out.</h2>
+      <p>74 products across 8 categories. Cash and bank transfers mixed together with no separation. No mechanism to track which products were selling, in what quantities, or at what rates. Revenue trends were invisible. There was no way to know top performers, which items needed restocking, or what the month looked like compared to the last one.</p>
+      <p>The reporting problem was the sharpest edge. The client needed weekly and monthly revenue summaries — not on demand, but automatically. That ruled out spreadsheets and simple forms. It required a system with a backend that could schedule and deliver reports independently of whether the client thought to request them.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">What Was Built</p>
+      <h2>Five systems. One app. Zero technical knowledge required to operate any of it.</h2>
+      <p><strong>Sales logging</strong> — a searchable product picker with price auto-fill, quantity, payment method (Cash / Bank Transfer / Pending), and optional notes. Sales are timestamped and stored in the cloud, accessible from any device. Stock auto-deducts silently when a sale is logged — the sale is never blocked by a stock error.</p>
+      <p><strong>Dashboard</strong> — real-time revenue cards for today, this week, and all time. Top products by revenue. A 7-day chart built with Recharts. One-click report generation for any date range.</p>
+      <p><strong>Sales history</strong> — a filterable and sortable table with date range, category, payment method, and product search. PDF export of any filtered view with a grand total line. The client can find any sale and hand the PDF to their accountant.</p>
+      <p><strong>Inventory management</strong> — per-product stock tracking with add stock, set quantity, and inline product editing (name, category, base price). Low stock and out-of-stock indicators surface automatically. The client manages the full 74-product catalogue from within the app.</p>
+      <p><strong>Automated email reports</strong> — weekly and monthly reports delivered automatically via Brevo, with revenue breakdowns by product, category, and payment method, plus month-over-month comparison. The client doesn't generate anything. Reports arrive in their inbox.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Build</p>
+      <h2>The right tool for each problem. No overbuilding, no shortcuts.</h2>
+      <p>Supabase over local storage came down to one constraint: cross-device access. A shop owner logs sales on their phone at the counter and pulls reports on a laptop at month end. IndexedDB doesn't survive that. Supabase's PostgreSQL backend with row-level security gives the app cloud persistence without a custom server to maintain.</p>
+      <p>The email automation runs in Netlify serverless functions rather than the client side. Scheduled weekly and monthly crons trigger automatically — the client never has to initiate anything. Brevo handles the transactional delivery, including the full revenue breakdown tables in the email body.</p>
+      <p>PDF export uses jsPDF and jsPDF-AutoTable, generating formatted reports from any filtered sales view. The output is a printable document with column totals and a grand total line — the format the client actually needs when reconciling with their accountant.</p>
+      <p>The settings panel gives in-app control over store name, report email, and product management without touching code. Everything the app needs to stay current over time is editable from within the app itself.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>Live. Used daily. Pen and paper gone.</h2>
+      <p>The app is deployed at a live Netlify URL and in daily use by the client. 74 products catalogued across 8 categories. Sales logged from the counter. Weekly and monthly email reports arriving automatically. The shop owner hasn't tracked a sale by hand since launch.</p>
+      <ul class="cs-tags">
+        <li>React 18</li><li>Supabase</li><li>Netlify</li><li>Brevo</li><li>Full-Stack</li><li>Production</li>
+      </ul>
+      <div class="cs-links">
+        <a href="https://kerzys-ledger.netlify.app/" target="_blank" rel="noopener" class="cs-link-btn">Open the App &rarr;</a>
+      </div>
+      <div class="cs-reflection">
+        <p class="cs-reflection-label">Reflection</p>
+        <p>The hardest constraint was designing for a user who would never tolerate a learning curve. Every interaction had to be self-evident — not because the client is unsophisticated, but because a daily tool that requires thinking is a daily tool that gets replaced by a notebook. The password gate, the product picker, the payment method buttons — each one is designed around what someone who's never used the app would reach for first. Daily use without support is the only signal that that worked.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-project-nav fade-in">
+    <a href="versecue.html">&larr; VerseCue</a>
+    <a class="next" href="../index.html#work">All Projects &rarr;</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="case-study.js"></script>
+</body>
+</html>

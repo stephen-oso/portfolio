@@ -1,0 +1,64 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+
+  <rect width="900" height="500" fill="#f0f4fb"/>
+
+  <!-- Header -->
+  <text x="48" y="44" font-size="11" fill="#2563eb" font-weight="600" letter-spacing="0.16em">EXISTING PERMIT FLOW — 6 FRICTION POINTS</text>
+  <text x="48" y="64" font-size="13" fill="#4a6888">Each one solvable on its own. The system never bothered.</text>
+
+  <!-- Row 1 -->
+  <rect x="48" y="82" width="804" height="52" rx="4" fill="#ffffff" stroke="#d0daea" stroke-width="1"/>
+  <rect x="48" y="82" width="4" height="52" rx="2" fill="#e85555"/>
+  <text x="76" y="104" font-size="11" fill="#a0b0c8" font-weight="600" letter-spacing="0.1em">01</text>
+  <text x="110" y="104" font-size="14" fill="#c03030" font-weight="500">Desktop-only form</text>
+  <text x="110" y="122" font-size="12" fill="#4a6888">No mobile version existed. Performers applying between sets had no path forward.</text>
+  <text x="844" y="104" font-size="12" fill="#2563eb" text-anchor="end" font-weight="500">→ Rebuilt mobile-first</text>
+  <text x="844" y="122" font-size="11" fill="#5a7aaa" text-anchor="end">native app flow</text>
+
+  <!-- Row 2 -->
+  <rect x="48" y="144" width="804" height="52" rx="4" fill="#ffffff" stroke="#d0daea" stroke-width="1"/>
+  <rect x="48" y="144" width="4" height="52" rx="2" fill="#e85555"/>
+  <text x="76" y="166" font-size="11" fill="#a0b0c8" font-weight="600" letter-spacing="0.1em">02</text>
+  <text x="110" y="166" font-size="14" fill="#c03030" font-weight="500">Location required zone codes</text>
+  <text x="110" y="184" font-size="12" fill="#4a6888">Performers needed to know city permit zone codes to select a location. No map provided.</text>
+  <text x="844" y="166" font-size="12" fill="#2563eb" text-anchor="end" font-weight="500">→ Map-based tap selection</text>
+  <text x="844" y="184" font-size="11" fill="#5a7aaa" text-anchor="end">no codes required</text>
+
+  <!-- Row 3 -->
+  <rect x="48" y="206" width="804" height="52" rx="4" fill="#ffffff" stroke="#d0daea" stroke-width="1"/>
+  <rect x="48" y="206" width="4" height="52" rx="2" fill="#e85555"/>
+  <text x="76" y="228" font-size="11" fill="#a0b0c8" font-weight="600" letter-spacing="0.1em">03</text>
+  <text x="110" y="228" font-size="14" fill="#c03030" font-weight="500">Payment by cheque or in-person only</text>
+  <text x="110" y="246" font-size="12" fill="#4a6888">No online payment. Performers had to attend a city office or mail a cheque to complete the application.</text>
+  <text x="844" y="228" font-size="12" fill="#2563eb" text-anchor="end" font-weight="500">→ Online card payment</text>
+  <text x="844" y="246" font-size="11" fill="#5a7aaa" text-anchor="end">built into the flow</text>
+
+  <!-- Row 4 -->
+  <rect x="48" y="268" width="804" height="52" rx="4" fill="#ffffff" stroke="#d0daea" stroke-width="1"/>
+  <rect x="48" y="268" width="4" height="52" rx="2" fill="#e85555"/>
+  <text x="76" y="290" font-size="11" fill="#a0b0c8" font-weight="600" letter-spacing="0.1em">04</text>
+  <text x="110" y="290" font-size="14" fill="#c03030" font-weight="500">No status tracking after submission</text>
+  <text x="110" y="308" font-size="12" fill="#4a6888">After submitting, nothing. No confirmation, no timeline, no way to know if it was received.</text>
+  <text x="844" y="290" font-size="12" fill="#2563eb" text-anchor="end" font-weight="500">→ Confirmation email</text>
+  <text x="844" y="308" font-size="11" fill="#5a7aaa" text-anchor="end">+ in-app status view</text>
+
+  <!-- Row 5 -->
+  <rect x="48" y="330" width="804" height="52" rx="4" fill="#ffffff" stroke="#d0daea" stroke-width="1"/>
+  <rect x="48" y="330" width="4" height="52" rx="2" fill="#e85555"/>
+  <text x="76" y="352" font-size="11" fill="#a0b0c8" font-weight="600" letter-spacing="0.1em">05</text>
+  <text x="110" y="352" font-size="14" fill="#c03030" font-weight="500">Annual renewal required full re-entry</text>
+  <text x="110" y="370" font-size="12" fill="#4a6888">Every year, all fields re-entered from scratch. No memory of previous applications.</text>
+  <text x="844" y="352" font-size="12" fill="#2563eb" text-anchor="end" font-weight="500">→ Pre-filled from</text>
+  <text x="844" y="370" font-size="11" fill="#5a7aaa" text-anchor="end">previous year's data</text>
+
+  <!-- Row 6 -->
+  <rect x="48" y="392" width="804" height="52" rx="4" fill="#ffffff" stroke="#d0daea" stroke-width="1"/>
+  <rect x="48" y="392" width="4" height="52" rx="2" fill="#e85555"/>
+  <text x="76" y="414" font-size="11" fill="#a0b0c8" font-weight="600" letter-spacing="0.1em">06</text>
+  <text x="110" y="414" font-size="14" fill="#c03030" font-weight="500">No mobile-equivalent existed</text>
+  <text x="110" y="432" font-size="12" fill="#4a6888">The desktop form had no mobile version. Performers managing their careers from a phone had no path.</text>
+  <text x="844" y="414" font-size="12" fill="#2563eb" text-anchor="end" font-weight="500">→ App-native experience</text>
+  <text x="844" y="432" font-size="11" fill="#5a7aaa" text-anchor="end">PDF replaced entirely</text>
+
+  <text x="450" y="484" font-size="11" fill="#8a9ab8" text-anchor="middle">CONNECT Toronto · Friction audit — started 2021, iterated through 2025</text>
+</svg>

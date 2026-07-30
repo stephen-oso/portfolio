@@ -1,0 +1,117 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0b1221"/>
+
+  <!-- Nav bar -->
+  <rect width="900" height="50" fill="#12192e"/>
+  <rect y="50" width="900" height="1" fill="#1a2540"/>
+  <text x="24" y="31" font-size="14" font-weight="700" fill="#dde6f5">Elicit Furnishing</text>
+  <text x="252" y="31" font-size="12" fill="#6ec8d4" font-weight="600">Sales</text>
+  <rect x="252" y="46" width="36" height="2" rx="1" fill="#6ec8d4"/>
+  <text x="308" y="31" font-size="12" fill="#5a7090">History</text>
+  <text x="372" y="31" font-size="12" fill="#5a7090">Inventory</text>
+  <circle cx="866" cy="25" r="16" fill="#1a2540" stroke="#2a3560" stroke-width="1"/>
+  <text x="866" y="30" font-size="10" fill="#6ec8d4" text-anchor="middle" font-weight="600">K</text>
+
+  <!-- Revenue cards -->
+  <!-- Today -->
+  <rect x="24" y="66" width="273" height="82" rx="8" fill="#12192e" stroke="#1a2540" stroke-width="1"/>
+  <text x="40" y="88" font-size="9" fill="#5a7090" letter-spacing="0.06em" font-weight="600">TODAY'S REVENUE</text>
+  <text x="40" y="118" font-size="28" font-weight="700" fill="#dde6f5">£342.00</text>
+  <text x="40" y="138" font-size="9" fill="#6ec8d4">↑ £84 from yesterday</text>
+
+  <!-- This Week -->
+  <rect x="313" y="66" width="273" height="82" rx="8" fill="#12192e" stroke="#1a2540" stroke-width="1"/>
+  <text x="329" y="88" font-size="9" fill="#5a7090" letter-spacing="0.06em" font-weight="600">THIS WEEK</text>
+  <text x="329" y="118" font-size="28" font-weight="700" fill="#dde6f5">£1,840.50</text>
+  <text x="329" y="138" font-size="9" fill="#5a7090">6 sales · 4 days</text>
+
+  <!-- All Time -->
+  <rect x="602" y="66" width="274" height="82" rx="8" fill="#12192e" stroke="#1a2540" stroke-width="1"/>
+  <text x="618" y="88" font-size="9" fill="#5a7090" letter-spacing="0.06em" font-weight="600">ALL TIME</text>
+  <text x="618" y="118" font-size="28" font-weight="700" fill="#dde6f5">£28,491</text>
+  <text x="618" y="138" font-size="9" fill="#5a7090">across 74 products</text>
+
+  <!-- Chart label -->
+  <text x="24" y="174" font-size="11" font-weight="600" fill="#dde6f5">7-Day Revenue</text>
+  <text x="876" y="174" font-size="9" fill="#5a7090" text-anchor="end">This week</text>
+
+  <!-- Chart baseline -->
+  <line x1="24" y1="322" x2="876" y2="322" stroke="#1a2540" stroke-width="1"/>
+
+  <!-- Bars: bottom=322, max height=132 -->
+  <!-- Mon h=56 -->
+  <rect x="24"  y="266" width="113" height="56"  rx="3" fill="#d4a96a" opacity="0.65"/>
+  <text x="80"  y="336" font-size="9" fill="#5a7090" text-anchor="middle">Mon</text>
+  <!-- Tue h=68 -->
+  <rect x="147" y="254" width="113" height="68"  rx="3" fill="#d4a96a" opacity="0.65"/>
+  <text x="203" y="336" font-size="9" fill="#5a7090" text-anchor="middle">Tue</text>
+  <!-- Wed h=50 -->
+  <rect x="270" y="272" width="113" height="50"  rx="3" fill="#d4a96a" opacity="0.65"/>
+  <text x="326" y="336" font-size="9" fill="#5a7090" text-anchor="middle">Wed</text>
+  <!-- Thu h=88 -->
+  <rect x="393" y="234" width="113" height="88"  rx="3" fill="#d4a96a" opacity="0.75"/>
+  <text x="449" y="336" font-size="9" fill="#5a7090" text-anchor="middle">Thu</text>
+  <!-- Fri h=105 -->
+  <rect x="516" y="217" width="113" height="105" rx="3" fill="#d4a96a" opacity="0.80"/>
+  <text x="572" y="336" font-size="9" fill="#5a7090" text-anchor="middle">Fri</text>
+  <!-- Sat h=132 — tallest, teal highlight -->
+  <rect x="639" y="190" width="113" height="132" rx="3" fill="#6ec8d4" opacity="0.85"/>
+  <text x="695" y="336" font-size="9" fill="#6ec8d4" text-anchor="middle" font-weight="600">Sat</text>
+  <text x="695" y="184" font-size="8" fill="#6ec8d4" text-anchor="middle">£420</text>
+  <!-- Sun h=96 -->
+  <rect x="762" y="226" width="113" height="96"  rx="3" fill="#d4a96a" opacity="0.70"/>
+  <text x="818" y="336" font-size="9" fill="#5a7090" text-anchor="middle">Sun</text>
+
+  <!-- Sales table header -->
+  <rect x="24" y="348" width="852" height="26" rx="4" fill="#0e1628"/>
+  <text x="40"  y="365" font-size="8.5" fill="#5a7090" font-weight="600" letter-spacing="0.06em">DATE</text>
+  <text x="160" y="365" font-size="8.5" fill="#5a7090" font-weight="600" letter-spacing="0.06em">PRODUCT</text>
+  <text x="430" y="365" font-size="8.5" fill="#5a7090" font-weight="600" letter-spacing="0.06em">CATEGORY</text>
+  <text x="596" y="365" font-size="8.5" fill="#5a7090" font-weight="600" letter-spacing="0.06em">PAYMENT</text>
+  <text x="840" y="365" font-size="8.5" fill="#5a7090" font-weight="600" letter-spacing="0.06em" text-anchor="end">AMOUNT</text>
+
+  <!-- Row 1 -->
+  <rect x="24" y="374" width="852" height="36" fill="#12192e"/>
+  <line x1="24" y1="410" x2="876" y2="410" stroke="#1a2540" stroke-width="0.5"/>
+  <text x="40"  y="397" font-size="10" fill="#8a9ab8">12 Jul 2025</text>
+  <text x="160" y="397" font-size="10" fill="#dde6f5">Ortega Dining Chair</text>
+  <text x="430" y="397" font-size="10" fill="#8a9ab8">Chairs</text>
+  <rect x="590" y="384" width="42" height="18" rx="4" fill="#1a3a28"/>
+  <text x="611" y="397" font-size="9" fill="#4ade80" text-anchor="middle">Cash</text>
+  <text x="840" y="397" font-size="10" fill="#dde6f5" text-anchor="end">£280.00</text>
+
+  <!-- Row 2 -->
+  <rect x="24" y="410" width="852" height="36" fill="#0b1221"/>
+  <line x1="24" y1="446" x2="876" y2="446" stroke="#1a2540" stroke-width="0.5"/>
+  <text x="40"  y="433" font-size="10" fill="#8a9ab8">12 Jul 2025</text>
+  <text x="160" y="433" font-size="10" fill="#dde6f5">Nordic Study Desk</text>
+  <text x="430" y="433" font-size="10" fill="#8a9ab8">Desks</text>
+  <rect x="585" y="420" width="66" height="18" rx="4" fill="#172240"/>
+  <text x="618" y="433" font-size="9" fill="#60a5fa" text-anchor="middle">Bank Transfer</text>
+  <text x="840" y="433" font-size="10" fill="#dde6f5" text-anchor="end">£450.00</text>
+
+  <!-- Row 3 -->
+  <rect x="24" y="446" width="852" height="36" fill="#12192e"/>
+  <line x1="24" y1="482" x2="876" y2="482" stroke="#1a2540" stroke-width="0.5"/>
+  <text x="40"  y="469" font-size="10" fill="#8a9ab8">11 Jul 2025</text>
+  <text x="160" y="469" font-size="10" fill="#dde6f5">Valencia Mirror</text>
+  <text x="430" y="469" font-size="10" fill="#8a9ab8">Mirrors</text>
+  <rect x="588" y="456" width="52" height="18" rx="4" fill="#2a1e08"/>
+  <text x="614" y="469" font-size="9" fill="#d4a96a" text-anchor="middle">Pending</text>
+  <text x="840" y="469" font-size="10" fill="#dde6f5" text-anchor="end">£195.00</text>
+
+  <!-- Footer bar -->
+  <rect y="490" width="900" height="110" fill="#0b1221"/>
+  <rect y="490" width="900" height="1" fill="#1a2540"/>
+  <rect x="24"  y="508" width="190" height="40" rx="8" fill="#6ec8d4"/>
+  <text x="119" y="533" font-size="12" fill="#0b1221" font-weight="700" text-anchor="middle">+ Log New Sale</text>
+  <rect x="230" y="508" width="170" height="40" rx="8" fill="#12192e" stroke="#1a2540" stroke-width="1"/>
+  <text x="315" y="533" font-size="11" fill="#8a9ab8" text-anchor="middle">Generate Report</text>
+  <rect x="638" y="508" width="238" height="40" rx="8" fill="#12192e" stroke="#2a1e08" stroke-width="1"/>
+  <rect x="638" y="508" width="4"   height="40" rx="2" fill="#d4a96a"/>
+  <text x="658" y="524" font-size="8.5" fill="#d4a96a" font-weight="600">LOW STOCK</text>
+  <text x="658" y="539" font-size="9"   fill="#5a7090">3 products below threshold</text>
+
+</svg>

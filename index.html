@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stephen Okulaja — Designer & Builder</title>
+  <meta name="description" content="Stephen Okulaja — freelance designer and builder based in Toronto. Brand systems, web products, and AI-integrated tools built for specific audiences and real problems." />
+  <!-- Open Graph / Social sharing — UPDATE: replace YOUR-SITE-URL with your Netlify/custom domain -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stephen-okulaja-portfolio.netlify.app/" />
+  <meta property="og:title" content="Stephen Okulaja — Designer &amp; Builder" />
+  <meta property="og:description" content="Five years designing, building, and shipping. Brand systems, interactive products, and AI-integrated tools." />
+  <meta property="og:image" content="https://stephen-okulaja-portfolio.netlify.app/assets/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stephen Okulaja — Designer &amp; Builder" />
+  <meta name="twitter:description" content="Five years designing, building, and shipping. Brand systems, interactive products, and AI-integrated tools." />
+  <meta name="twitter:image" content="https://stephen-okulaja-portfolio.netlify.app/assets/og-image.svg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111110' rx='14'/><text y='71' x='50' font-family='Georgia,serif' font-size='48' fill='%23f9f9f7' text-anchor='middle' font-style='italic'>SO</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Stephen Okulaja</a>
+      <div class="nav-links">
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-visual">
+        <div class="ai-demo" id="ai-demo">
+          <div class="ai-demo-header">
+            <span class="ai-demo-status"></span>
+            <span class="ai-demo-label">Ask Stephen</span>
+          </div>
+          <div class="ai-demo-body" id="ai-demo-body">
+            <div class="ai-demo-hints" id="ai-hints">
+              <button class="ai-hint-btn" type="button">What does Stephen build?</button>
+              <button class="ai-hint-btn" type="button">Has he shipped AI products?</button>
+              <button class="ai-hint-btn" type="button">Is he available to hire?</button>
+            </div>
+          </div>
+          <form class="ai-demo-footer" id="ai-form" autocomplete="off">
+            <input
+              class="ai-demo-input"
+              id="ai-input"
+              type="text"
+              placeholder="Ask me anything..."
+              maxlength="400"
+              aria-label="Ask a question about Stephen"
+            />
+            <button class="ai-demo-send" type="submit" aria-label="Send">&#8593;</button>
+          </form>
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-top fade-in">
+          <p class="hero-location">Toronto &mdash; Markham, Ontario</p>
+          <span class="hero-status">Available for Freelance</span>
+        </div>
+        <h1 class="hero-name fade-in">I build products<br>that think.</h1>
+        <div class="hero-rule fade-in"></div>
+        <div class="hero-bottom fade-in">
+          <p class="hero-sub">I work best when the problem is specific, the audience is real, and the stakes are high enough to matter. Brand systems, web products, and AI-integrated tools — built to actually ship.</p>
+          <a class="hero-btn" href="#work">See My Work &darr;</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section id="work" class="projects">
+    <p class="section-label fade-in">Selected Work</p>
+
+    <!-- Featured card -->
+    <a class="card card--featured fade-in" href="projects/quickfit.html">
+      <div class="card-img"><img src="assets/quickfit.svg" alt="QuickFit — AI-powered trade supply interface" loading="lazy"/></div>
+      <div class="card-content">
+        <div class="card-top">
+          <div class="card-meta">
+            <span class="card-num">01</span>
+            <span class="card-name">QuickFit</span>
+          </div>
+          <ul class="card-tags">
+            <li>AI Integration</li><li>Claude API</li><li>Serverless</li>
+          </ul>
+        </div>
+        <h3 class="card-headline">AI embedded into a real trade supply workflow — not bolted on as a feature, but built into how the product thinks.</h3>
+        <span class="card-cta">View Case Study &rarr;</span>
+      </div>
+    </a>
+
+    <!-- 3-col grid -->
+    <div class="cards-grid">
+
+      <a class="card fade-in" href="projects/connect-toronto.html">
+        <div class="card-img"><img src="assets/connect-toronto.svg" alt="CONNECT Toronto — busker permit app" loading="lazy"/></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-num">02</span>
+              <span class="card-name">CONNECT Toronto</span>
+            </div>
+            <ul class="card-tags">
+              <li>UX Design</li><li>AR</li><li>Civic Tech</li>
+            </ul>
+          </div>
+          <h3 class="card-headline">Rethinking how the city meets its street performers.</h3>
+          <span class="card-cta">View Case Study &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card fade-in" href="projects/fanband.html">
+        <div class="card-img"><img src="assets/fanband.svg" alt="FanBand — music discovery platform" loading="lazy"/></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-num">03</span>
+              <span class="card-name">FanBand</span>
+            </div>
+            <ul class="card-tags">
+              <li>Product</li><li>Brand System</li><li>Music</li>
+            </ul>
+          </div>
+          <h3 class="card-headline">Where independent music finds its people.</h3>
+          <span class="card-cta">View Case Study &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card fade-in" href="projects/versecue.html">
+        <div class="card-img"><img src="assets/versecue.svg" alt="VerseCue — AI scripture display tool" loading="lazy"/></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-num">04</span>
+              <span class="card-name">VerseCue</span>
+            </div>
+            <ul class="card-tags">
+              <li>AI</li><li>React</li><li>Worship Tech</li>
+            </ul>
+          </div>
+          <h3 class="card-headline">The right verse. On screen. Right now.</h3>
+          <span class="card-cta">View Case Study &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card fade-in" href="projects/elicit-furnishing.html">
+        <div class="card-img"><img src="assets/elicit-furnishing.svg" alt="Elicit Furnishing — furniture sales ledger" loading="lazy"/></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-num">05</span>
+              <span class="card-name">Elicit Furnishing</span>
+            </div>
+            <ul class="card-tags">
+              <li>Full-Stack</li><li>Supabase</li><li>Production</li>
+            </ul>
+          </div>
+          <h3 class="card-headline">Pen and paper, replaced. A production app built for a real client — used daily.</h3>
+          <span class="card-cta">View Case Study &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Brand Systems</span><span class="marquee-dot">·</span>
+      <span>AI Integration</span><span class="marquee-dot">·</span>
+      <span>Motion Graphics</span><span class="marquee-dot">·</span>
+      <span>Web Development</span><span class="marquee-dot">·</span>
+      <span>Audio Production</span><span class="marquee-dot">·</span>
+      <span>UX Design</span><span class="marquee-dot">·</span>
+      <span>React</span><span class="marquee-dot">·</span>
+      <span>Claude API</span><span class="marquee-dot">·</span>
+      <span>Figma</span><span class="marquee-dot">·</span>
+      <span>Product Design</span><span class="marquee-dot">·</span>
+      <span>Social Strategy</span><span class="marquee-dot">·</span>
+      <span>Netlify</span><span class="marquee-dot">·</span>
+      <!-- duplicate for seamless loop -->
+      <span>Brand Systems</span><span class="marquee-dot">·</span>
+      <span>AI Integration</span><span class="marquee-dot">·</span>
+      <span>Motion Graphics</span><span class="marquee-dot">·</span>
+      <span>Web Development</span><span class="marquee-dot">·</span>
+      <span>Audio Production</span><span class="marquee-dot">·</span>
+      <span>UX Design</span><span class="marquee-dot">·</span>
+      <span>React</span><span class="marquee-dot">·</span>
+      <span>Claude API</span><span class="marquee-dot">·</span>
+      <span>Figma</span><span class="marquee-dot">·</span>
+      <span>Product Design</span><span class="marquee-dot">·</span>
+      <span>Social Strategy</span><span class="marquee-dot">·</span>
+      <span>Netlify</span><span class="marquee-dot">·</span>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <section class="approach">
+    <p class="section-label fade-in">How I Work</p>
+    <div class="approach-statement fade-in">
+      <p class="approach-lead">Most people design for a hypothetical user. I design for a specific person in a specific moment — the AV operator scrambling between songs on a Sunday morning, the indie artist trying to be found by the right 500 people, the business owner who can't afford a full team but still needs to show up professionally.</p>
+      <p>The details that make something work — the micro-copy, the load state, the fallback — those aren't polish. They're the product.</p>
+      <p>AI doesn't change that. It just raises the ceiling on what one person can build alone.</p>
+    </div>
+    <div class="tools fade-in">
+      <span class="tools-label">Tools</span>
+      <span>Figma</span>
+      <span>React</span>
+      <span>HTML / CSS / JS</span>
+      <span>Claude API</span>
+      <span>Adobe Creative Suite</span>
+      <span>Netlify</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <p class="section-label fade-in">About</p>
+    <div class="about-grid">
+      <div class="about-photo fade-in">
+        <img src="assets/stephen.jpg" alt="Stephen Okulaja" />
+      </div>
+      <div class="about-text fade-in">
+        <h2 class="about-title">I do the design,<br>the build,<br>and the launch.</h2>
+        <div class="about-body">
+          <p>I graduated from Humber College's Multimedia Design and Development program in 2021 and have been in market ever since — working full-time and freelancing simultaneously, which means I've had to think commercially about design from day one.</p>
+          <p>My background is genuinely cross-disciplinary. I've done digital operations, social strategy, motion graphics, branding, web development, and audio production — not as scattered side interests, but as a single integrated practice. I understand how a brand sounds, moves, looks, and converts.</p>
+          <p>What shifted my work in recent years was AI — not as a shortcut, but as a design material. I started integrating Claude and generative tools directly into the products I build, which opened up a new category of work: experiences that are interactive, adaptive, and genuinely intelligent.</p>
+          <p>I'm based in Markham, Ontario. I work best when the problem is specific, the audience is real, and the stakes are high enough to matter.</p>
+          <p>Outside of screens, I produce music — which probably explains why I care as much about the invisible parts of a product as the visible ones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <p class="section-label fade-in">Contact</p>
+    <h2 class="contact-headline fade-in">Got a real problem to solve?</h2>
+    <p class="contact-sub fade-in">I take on freelance projects in Toronto and remote. Brand systems, web products, AI tooling — if the brief is specific and the audience is real, I'm interested.</p>
+    <div class="contact-details fade-in">
+      <a href="mailto:okulajastephen@gmail.com">okulajastephen@gmail.com</a>
+    </div>
+
+    <form class="contact-form fade-in" name="contact" method="POST" netlify netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about the project or role..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message &rarr;</button>
+    </form>
+    <div class="form-success" id="form-success" hidden>
+      <p>Message received. I'll be in touch soon.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

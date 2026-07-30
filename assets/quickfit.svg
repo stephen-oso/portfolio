@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="0.9" fill="rgba(255,255,255,0.07)"/>
+    </pattern>
+    <radialGradient id="glow" cx="85%" cy="10%" r="55%">
+      <stop offset="0%" stop-color="#e8521a" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#e8521a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base -->
+  <rect width="900" height="600" fill="#0d0d0d"/>
+  <rect width="900" height="600" fill="url(#dots)"/>
+  <rect width="900" height="600" fill="url(#glow)"/>
+
+  <!-- Nav -->
+  <rect width="900" height="50" fill="#111111"/>
+  <rect y="50" width="900" height="1" fill="#252525"/>
+  <text x="28" y="31" font-family="DM Sans, sans-serif" font-size="14" font-weight="700" fill="#e8521a">QuickFit</text>
+  <text x="610" y="31" font-family="DM Sans, sans-serif" font-size="11" fill="#666">About</text>
+  <text x="666" y="31" font-family="DM Sans, sans-serif" font-size="11" fill="#666">App</text>
+  <text x="708" y="31" font-family="DM Sans, sans-serif" font-size="11" fill="#666">AI Layer</text>
+  <text x="764" y="31" font-family="DM Sans, sans-serif" font-size="11" fill="#666">Business</text>
+  <rect x="832" y="14" width="52" height="24" rx="5" fill="#e8521a"/>
+  <text x="858" y="30" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="white" text-anchor="middle">Launch</text>
+
+  <!-- Hero copy -->
+  <text x="28" y="100" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" letter-spacing="2.5" fill="#e8521a">AI-POWERED SUPPLY · GTA</text>
+  <text x="28" y="142" font-family="DM Sans, sans-serif" font-size="38" font-weight="800" fill="#eeebe6">Parts. On demand.</text>
+  <text x="28" y="172" font-family="DM Sans, sans-serif" font-size="13" fill="#666666">Powered by AI. Built for GTA tradespeople.</text>
+
+  <!-- Stats -->
+  <text x="28" y="224" font-family="DM Sans, sans-serif" font-size="26" font-weight="800" fill="#e8521a">2h</text>
+  <text x="28" y="242" font-family="DM Sans, sans-serif" font-size="9" fill="#555">avg trip waste eliminated</text>
+  <text x="130" y="224" font-family="DM Sans, sans-serif" font-size="26" font-weight="800" fill="#e8521a">87k</text>
+  <text x="130" y="242" font-family="DM Sans, sans-serif" font-size="9" fill="#555">GTA contractors</text>
+  <text x="232" y="224" font-family="DM Sans, sans-serif" font-size="26" font-weight="800" fill="#e8521a">$0</text>
+  <text x="232" y="242" font-family="DM Sans, sans-serif" font-size="9" fill="#555">infrastructure cost</text>
+
+  <!-- Part cards row -->
+  <!-- Card 1 -->
+  <rect x="28" y="272" width="268" height="148" rx="10" fill="#161616" stroke="#252525" stroke-width="1"/>
+  <rect x="28" y="272" width="268" height="3" rx="1" fill="#e8521a"/>
+  <text x="46" y="298" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#eeebe6">1/2" Copper Coupling</text>
+  <text x="46" y="314" font-family="DM Sans, sans-serif" font-size="9" fill="#555">SKU: CP-12-100 · Plumbing</text>
+  <rect x="46" y="326" width="60" height="18" rx="3" fill="#1f1f1f" stroke="#333" stroke-width="1"/>
+  <text x="76" y="338" font-family="DM Sans, sans-serif" font-size="9" fill="#888" text-anchor="middle">Brass</text>
+  <text x="46" y="376" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" fill="#eeebe6">$4.20</text>
+  <text x="46" y="392" font-family="DM Sans, sans-serif" font-size="9" fill="#555">per unit</text>
+  <rect x="186" y="375" width="90" height="26" rx="5" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+  <circle cx="200" cy="388" r="3" fill="#22c55e"/>
+  <text x="208" y="392" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#22c55e">In Stock</text>
+
+  <!-- Card 2 -->
+  <rect x="314" y="272" width="268" height="148" rx="10" fill="#161616" stroke="#252525" stroke-width="1"/>
+  <rect x="314" y="272" width="268" height="3" rx="1" fill="#e8521a"/>
+  <text x="332" y="298" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#eeebe6">PVC Elbow 90° 3/4"</text>
+  <text x="332" y="314" font-family="DM Sans, sans-serif" font-size="9" fill="#555">SKU: PVC-E90-34 · Plumbing</text>
+  <rect x="332" y="326" width="52" height="18" rx="3" fill="#1f1f1f" stroke="#333" stroke-width="1"/>
+  <text x="358" y="338" font-family="DM Sans, sans-serif" font-size="9" fill="#888" text-anchor="middle">White</text>
+  <text x="332" y="376" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" fill="#eeebe6">$1.85</text>
+  <text x="332" y="392" font-family="DM Sans, sans-serif" font-size="9" fill="#555">per unit</text>
+  <rect x="472" y="375" width="90" height="26" rx="5" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+  <circle cx="486" cy="388" r="3" fill="#f59e0b"/>
+  <text x="494" y="392" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#f59e0b">Low Stock</text>
+
+  <!-- Card 3 -->
+  <rect x="600" y="272" width="268" height="148" rx="10" fill="#161616" stroke="#252525" stroke-width="1"/>
+  <rect x="600" y="272" width="268" height="3" rx="1" fill="#e8521a"/>
+  <text x="618" y="298" font-family="DM Sans, sans-serif" font-size="10" font-weight="600" fill="#eeebe6">Wire Connectors 100ct</text>
+  <text x="618" y="314" font-family="DM Sans, sans-serif" font-size="9" fill="#555">SKU: WC-100 · Electrical</text>
+  <rect x="618" y="326" width="64" height="18" rx="3" fill="#1f1f1f" stroke="#333" stroke-width="1"/>
+  <text x="650" y="338" font-family="DM Sans, sans-serif" font-size="9" fill="#888" text-anchor="middle">Yellow</text>
+  <text x="618" y="376" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" fill="#eeebe6">$12.50</text>
+  <text x="618" y="392" font-family="DM Sans, sans-serif" font-size="9" fill="#555">per pack</text>
+  <rect x="758" y="375" width="90" height="26" rx="5" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+  <circle cx="772" cy="388" r="3" fill="#22c55e"/>
+  <text x="780" y="392" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#22c55e">In Stock</text>
+
+  <!-- AI Estimator strip -->
+  <rect y="446" width="900" height="154" fill="#0e0e0e"/>
+  <rect y="446" width="900" height="1" fill="#252525"/>
+  <text x="28" y="476" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#e8521a">AI JOB ESTIMATOR</text>
+  <rect x="28" y="488" width="620" height="36" rx="7" fill="#181818" stroke="#2e2e2e" stroke-width="1"/>
+  <text x="46" y="511" font-family="DM Sans, sans-serif" font-size="11" fill="#444">Replacing bathroom faucet — give me a full parts list...</text>
+  <rect x="664" y="488" width="110" height="36" rx="7" fill="#e8521a"/>
+  <text x="719" y="511" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">Estimate →</text>
+
+  <!-- AI response preview -->
+  <rect x="28" y="536" width="840" height="1" fill="#252525"/>
+  <text x="28" y="558" font-family="DM Sans, sans-serif" font-size="9" fill="#555">→  P-trap assembly kit · Teflon tape 1/2" · Faucet supply lines (2x) · Basin wrench</text>
+  <text x="28" y="574" font-family="DM Sans, sans-serif" font-size="9" fill="#e8521a">Estimated total: $34.60 · Available at 3 GTA suppliers</text>
+</svg>

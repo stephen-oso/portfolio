@@ -1,0 +1,89 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+
+  <rect width="900" height="480" fill="#0a0a10"/>
+
+  <!-- Header -->
+  <text x="48" y="48" font-size="11" fill="#b794f4" font-weight="600" letter-spacing="0.16em">DESIGN DIRECTION</text>
+  <text x="48" y="68" font-size="13" fill="#8a7aa0">Magazine, not app. Every decision reinforces the same idea: slow down, listen.</text>
+
+  <!-- Left: Type specimen -->
+  <line x1="48" y1="88" x2="430" y2="88" stroke="#2a2040" stroke-width="1"/>
+
+  <text x="48" y="116" font-size="11" fill="#6a5a88" font-weight="600" letter-spacing="0.12em">TYPEFACE — PLAYFAIR DISPLAY</text>
+
+  <!-- Large artist name -->
+  <text x="48" y="172" font-size="48" fill="#f0eaf8" font-weight="700" font-family="Georgia, serif" letter-spacing="-0.02em">Nadia Osei</text>
+  <text x="48" y="196" font-size="12" fill="#6a5a88">Artist name — 48px, weight 700. Feels like a byline, not a handle.</text>
+
+  <text x="48" y="240" font-size="22" fill="#c8a8ff" font-weight="400" font-family="Georgia, serif" font-style="italic">Afrobeat · Alternative · Lagos</text>
+  <text x="48" y="260" font-size="12" fill="#6a5a88">Genre + origin — italic serif. Editorial, not a tag cloud.</text>
+
+  <text x="48" y="300" font-size="15" fill="#a898c0" font-weight="400">Upcoming: The Basement Sessions Vol. 2</text>
+  <text x="48" y="318" font-size="12" fill="#6a5a88">Release label — DM Sans 400 muted. Information, not feature.</text>
+
+  <text x="48" y="356" font-size="11" fill="#7a6a90" font-weight="600" letter-spacing="0.14em">EARLY ACCESS · 3 DAYS</text>
+  <text x="48" y="374" font-size="12" fill="#6a5a88">Badge label — DM Sans 600, tracked. Sparse use only.</text>
+
+  <!-- Decision rationale -->
+  <rect x="48" y="400" width="382" height="52" rx="4" fill="#1a1428" stroke="#2a2040" stroke-width="1"/>
+  <text x="68" y="422" font-size="12" fill="#a898c0" font-style="italic">"Playfair for names. DM Sans for everything else.</text>
+  <text x="68" y="440" font-size="12" fill="#a898c0" font-style="italic"> Two fonts, two registers. No confusion about hierarchy."</text>
+
+  <!-- Divider -->
+  <line x1="468" y1="88" x2="468" y2="454" stroke="#2a2040" stroke-width="1"/>
+
+  <!-- Right: Artist card at scale -->
+  <text x="490" y="116" font-size="11" fill="#6a5a88" font-weight="600" letter-spacing="0.12em">ARTIST CARD — COMPONENT</text>
+  <line x1="490" y1="88" x2="852" y2="88" stroke="#2a2040" stroke-width="1"/>
+
+  <!-- Card -->
+  <rect x="490" y="130" width="362" height="300" rx="4" fill="#1a1428" stroke="#2a2040" stroke-width="1"/>
+
+  <!-- Art area -->
+  <rect x="490" y="130" width="362" height="160" rx="4" fill="#2a1a40"/>
+
+  <!-- Waveform -->
+  <rect x="514" y="180" width="4" height="42" rx="2" fill="#b794f4" opacity="0.5"/>
+  <rect x="522" y="168" width="4" height="54" rx="2" fill="#b794f4" opacity="0.7"/>
+  <rect x="530" y="186" width="4" height="36" rx="2" fill="#b794f4" opacity="0.5"/>
+  <rect x="538" y="172" width="4" height="50" rx="2" fill="#c8a8ff"/>
+  <rect x="546" y="190" width="4" height="32" rx="2" fill="#b794f4" opacity="0.5"/>
+  <rect x="554" y="176" width="4" height="46" rx="2" fill="#b794f4" opacity="0.6"/>
+  <rect x="562" y="184" width="4" height="38" rx="2" fill="#b794f4" opacity="0.5"/>
+  <rect x="570" y="170" width="4" height="52" rx="2" fill="#c8a8ff" opacity="0.8"/>
+  <rect x="578" y="188" width="4" height="34" rx="2" fill="#b794f4" opacity="0.5"/>
+  <rect x="586" y="175" width="4" height="47" rx="2" fill="#b794f4" opacity="0.6"/>
+  <rect x="594" y="182" width="4" height="40" rx="2" fill="#b794f4" opacity="0.4"/>
+  <rect x="602" y="167" width="4" height="55" rx="2" fill="#c8a8ff" opacity="0.7"/>
+  <rect x="610" y="185" width="4" height="37" rx="2" fill="#b794f4" opacity="0.5"/>
+  <rect x="618" y="173" width="4" height="49" rx="2" fill="#b794f4" opacity="0.6"/>
+
+  <!-- Early access badge -->
+  <rect x="718" y="142" width="114" height="22" rx="3" fill="#b794f4"/>
+  <text x="775" y="158" font-size="11" fill="#fff" font-weight="600" text-anchor="middle" letter-spacing="0.06em">EARLY ACCESS</text>
+
+  <!-- Play button -->
+  <circle cx="817" cy="210" r="18" fill="#0a0a10" opacity="0.8"/>
+  <polygon points="812,203 812,217 824,210" fill="#c8a8ff"/>
+
+  <!-- Card info -->
+  <text x="510" y="316" font-size="18" fill="#f0eaf8" font-weight="700" font-family="Georgia, serif">Nadia Osei</text>
+  <text x="510" y="338" font-size="13" fill="#c8a8ff" font-family="Georgia, serif" font-style="italic">Afrobeat · Alternative</text>
+
+  <text x="510" y="368" font-size="12" fill="#8a7aa0">24 fans following · Lagos, NG</text>
+
+  <!-- Genre tags -->
+  <rect x="510" y="386" width="68" height="22" rx="3" fill="#2a1a40" stroke="#b794f4" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="544" y="402" font-size="11" fill="#c8a8ff" text-anchor="middle">Afrobeat</text>
+  <rect x="585" y="386" width="48" height="22" rx="3" fill="#1a1428" stroke="#2a2040" stroke-width="1"/>
+  <text x="609" y="402" font-size="11" fill="#8a7aa0" text-anchor="middle">Jazz</text>
+  <rect x="640" y="386" width="44" height="22" rx="3" fill="#1a1428" stroke="#2a2040" stroke-width="1"/>
+  <text x="662" y="402" font-size="11" fill="#8a7aa0" text-anchor="middle">R&amp;B</text>
+
+  <!-- Follow CTA -->
+  <rect x="510" y="416" width="342" height="36" rx="4" fill="#b794f4"/>
+  <text x="681" y="439" font-size="13" fill="#fff" font-weight="600" text-anchor="middle">Follow Artist</text>
+
+  <!-- Bottom label -->
+  <text x="450" y="472" font-size="11" fill="#3a3050" text-anchor="middle">FanBand — Visual direction: Playfair Display, dark editorial palette, no vanity metrics shown at discovery stage</text>
+</svg>

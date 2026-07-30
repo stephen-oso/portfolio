@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickFit — Stephen Okulaja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav" id="nav">
+    <a class="nav-back" href="../index.html">&larr; Back to work</a>
+    <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
+  </nav>
+
+  <header class="cs-hero fade-in">
+    <p class="cs-num">01 &mdash; QuickFit</p>
+    <h1 class="cs-title">An AI-powered parts intelligence and delivery platform that eliminates the supply run for GTA tradespeople.</h1>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Client</span>
+        <span class="cs-meta-value">QuickFit Supply</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Designer & Developer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Year</span>
+        <span class="cs-meta-value">2025</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Type</span>
+        <span class="cs-meta-value">AI · Product · Web</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cs-project-img fade-in">
+    <img src="../assets/quickfit.svg" alt="QuickFit product interface showing parts browsing and AI estimator" />
+  </div>
+
+  <main class="cs-body">
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Context</p>
+      <h2>62% of tradespeople make two or more supply store trips per job. Each averages 45 minutes round trip.</h2>
+      <p>That's not a small inefficiency. For a contractor running multiple jobs a week, supply runs are one of the most consistent drains on billable time — and they're almost entirely avoidable. The materials exist, the suppliers are nearby, the problem is coordination: knowing what you need, knowing who has it, and getting it to site without stopping work.</p>
+      <p>QuickFit is designed around that exact gap. AI handles the intelligence layer — parts estimation and supplier matching. A runner handles the last mile. The contractor stays on site.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Problem</p>
+      <h2>The supply run problem is really three problems stacked.</h2>
+      <p>First: contractors often don't know the exact parts needed until they're mid-job. Estimating correctly upfront requires experience and time. Second: knowing which local supplier has the right part in stock requires calling around or making a trip to check. Third: physically leaving the job site to pick up materials breaks workflow and adds cost. Each problem compounds the others.</p>
+      <p>Existing solutions — supplier websites, phone orders, delivery services — address pieces of this. None address the intelligence layer: helping a contractor figure out what they need and where it is before they ever leave the site.</p>
+      <img src="../assets/quickfit-workflow.svg" alt="Contractor workflow gap — time lost on supply runs" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Without QuickFit: ~90 minutes lost per job across two store trips. With QuickFit: parts ordered in under 60 seconds, contractor never leaves the site.</p>
+      <div class="cs-embed fade-in">
+        <iframe src="../assets/quickfit-problem.html" data-h="600" scrolling="no" loading="lazy" title="Problem Audit — Before / After"></iframe>
+      </div>
+      <p class="cs-img-caption">Problem audit: four failure signals in the original site, four answers in the redesign — each mapped to what a contractor needs to decide within 10 seconds.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">How It Works</p>
+      <h2>Describe the job. Get the parts list. They arrive in 30 minutes.</h2>
+      <p>The product is built around two AI features powered by the Claude API, and a delivery model designed for the GTA market.</p>
+      <p><strong>Job Estimator:</strong> The contractor describes the task in plain language — "replacing a bathroom vanity, need supply connections and shutoffs" — and the AI returns a complete parts list with quantities, specifications, and estimated costs. No manual lookup, no guessing at SKUs.</p>
+      <p><strong>Supply Chain Analyzer:</strong> The parts list is matched against real-time inventory across GTA suppliers (Home Depot Pro, Wolseley, Emco). The AI flags availability issues, suggests substitutions where stock is low, and identifies which supplier fulfils the order most efficiently.</p>
+      <p>A runner then picks and delivers to the job site within 30 minutes. The contractor never left.</p>
+      <img src="../assets/quickfit-estimator.svg" alt="AI Job Estimator — plain language input to parts list" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Job Estimator: describe the task in plain language, get a complete parts list with quantities and estimated costs.</p>
+      <img src="../assets/quickfit-supply.svg" alt="Supply Chain Analyzer — parts matched to GTA suppliers" style="width:100%;border-radius:10px;display:block;margin:1.5rem 0 0;" />
+      <p class="cs-img-caption">Supply Chain Analyzer: every part matched against live GTA supplier inventory, cheapest available source selected, delivery time estimated.</p>
+      <div class="cs-embed fade-in">
+        <iframe src="../assets/quickfit-ai-layer.html" data-h="500" scrolling="no" loading="lazy" title="AI Content Layer"></iframe>
+      </div>
+      <p class="cs-img-caption">AI content layer: Claude API generates trade-specific product copy on demand — client describes a product in plain language, gets publish-ready content in seconds.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Build</p>
+      <h2>A landing page that explains the product. A prototype that demonstrates it.</h2>
+      <p>Two deliverables: a live marketing site and an interactive app prototype. The landing page is built to convert a contractor who lands cold — it leads with the time problem, walks through the three-step workflow, and positions the AI features as the differentiator. The prototype demonstrates the product experience end-to-end: browse, estimate, order.</p>
+      <p>The infrastructure runs on free tiers (Netlify, Make.com, Brevo) with Claude API as the only variable cost. The business model is commission per delivery at 15% — no subscription, no barrier to first use.</p>
+      <img src="../assets/quickfit.svg" alt="QuickFit landing page interface" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Landing page built around the contractor scan — trust, product depth, and a single conversion path, all before the second scroll.</p>
+      <div class="cs-embed fade-in">
+        <iframe src="../assets/quickfit-wireframe.html" data-h="480" scrolling="no" loading="lazy" title="Conversion Path"></iframe>
+      </div>
+      <p class="cs-img-caption">Conversion path architecture: every layout decision evaluated against three questions a contractor asks in the first scroll.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Design System</p>
+      <h2>Dark industrial palette. Amber accent. Precision over personality.</h2>
+      <p>The brand system is built to feel like the tool it is — not like a startup. Deep charcoal background, amber for every signal that matters, DM Sans for readability under site conditions. The assets below are the full design package: hero, stats, feature cards, workflow comparison, and app mockup.</p>
+
+      <img src="../assets/qf-design-hero.png" alt="QuickFit hero — AI Parts Intelligence for GTA Trades" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Portfolio thumbnail / hero — dark split layout, app UI mockup on right showing live parts list output.</p>
+
+      <img src="../assets/qf-design-stat.png" alt="QuickFit stat callout — 62% of tradespeople make 2+ supply runs per job" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Stat callout — 62% lead, with secondary breakdown of average run time, frequency, and daily revenue lost.</p>
+
+      <img src="../assets/qf-design-features.png" alt="QuickFit feature cards — Job Estimator and Supply Chain Analyzer" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Feature cards — Job Estimator (natural language → parts list) and Supply Chain Analyzer (live GTA supplier matching).</p>
+
+      <img src="../assets/qf-design-before-after.png" alt="Before/After — 90 min lost vs 60 seconds with QuickFit" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Before / after — 90 minutes lost per job vs. order placed in 60 seconds without leaving the site.</p>
+
+      <img src="../assets/qf-design-mobile.png" alt="QuickFit mobile app mockup — Browse, Parts & Supplies, GTA Stores" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
+      <p class="cs-img-caption">Mobile app mockup — mirroring the live app's dark header, Parts &amp; Supplies tabs, category chips, 2-column product grid with ⚡ delivery times and orange add-to-cart.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Process</p>
+      <h2>Design decisions, technical constraints, and what didn't make it.</h2>
+      <p>The Job Estimator prompt is engineered to be trade-specific — it knows not to return consumer hardware store alternatives when a contractor needs commercial-grade fittings. That required iteration: early versions returned overly generic lists that wouldn't fly on an actual job site. The final prompts include trade context, unit quantities, and cost estimation as structured outputs rather than prose, so the UI can parse and sort them reliably.</p>
+      <p>The Supply Chain Analyzer faced a harder constraint: real-time supplier inventory data isn't publicly accessible. In the current prototype it uses representative supplier data to demonstrate the UX. Connecting to live APIs (Home Depot Pro, Wolseley) is the gap between proof of concept and actual product — it requires supplier partnership agreements that don't yet exist.</p>
+      <p>The business model is designed to require almost no upfront cost. Netlify handles hosting, Make.com handles automation (order notifications, runner dispatch), Brevo handles transactional email. Claude API is the only meaningful variable cost. At 15% commission on a $100 delivery, the unit economics work from day one — the question is volume, not margin.</p>
+      <p>What didn't make it: an in-app runner tracking view and a contractor order history dashboard were scoped but deprioritized. Neither is necessary to validate the core hypothesis. They'd both be straightforward additions once the supplier data layer is real.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>A functioning proof of concept with a real business model behind it.</h2>
+      <p>The landing page is live. The prototype demonstrates the full product experience. The AI layers are functional — the Job Estimator and Supply Chain Analyzer are working integrations, not mock-ups.</p>
+      <div class="cs-embed fade-in">
+        <iframe src="../assets/quickfit-stats.html" data-h="320" scrolling="no" loading="lazy" title="Outcome Stats"></iframe>
+      </div>
+      <ul class="cs-tags">
+        <li>Claude API</li><li>AI Integration</li><li>Product Design</li><li>Web</li><li>Branding</li>
+      </ul>
+      <div class="cs-links">
+        <a href="https://quiet-cocada-47fba2.netlify.app/browse" target="_blank" rel="noopener" class="cs-link-btn">Open the App &rarr;</a>
+        <a href="https://imaginative-druid-10fce6.netlify.app" target="_blank" rel="noopener" class="cs-link-btn" style="border-color:var(--border);color:var(--muted);">View Landing Page</a>
+      </div>
+      <div class="cs-reflection">
+        <p class="cs-reflection-label">Reflection</p>
+        <p>The AI intelligence layer is genuinely useful and the problem is real. What's unproven is the operational side — specifically the runner network. A 30-minute delivery promise requires reliable last-mile execution that a prototype can't validate. The GTM strategy (3 GTA postal codes, 5 partner suppliers, 200 contractors via trade groups) is plausible but the actual constraint is supplier API access. Without real inventory data, the Supply Chain Analyzer is making educated guesses. That's the next thing to solve.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-project-nav fade-in">
+    <a href="../index.html#work">&larr; All Projects</a>
+    <a class="next" href="connect-toronto.html">Next: CONNECT Toronto &rarr;</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="case-study.js"></script>
+</body>
+</html>
