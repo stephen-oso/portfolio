@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
 
@@ -31,6 +31,7 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">Stephen Okulaja</a>
       <div class="nav-links">
+        <time class="nav-clock" id="nav-clock">—</time>
         <a class="nav-link" href="#work">Work</a>
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#contact">Contact</a>
@@ -68,17 +69,20 @@
         </div>
       </div>
       <div class="hero-content">
-        <div class="hero-top fade-in">
+        <div class="hero-top">
           <p class="hero-location">Toronto &mdash; Markham, Ontario</p>
           <span class="hero-status">Available for Freelance</span>
         </div>
-        <h1 class="hero-name fade-in">I build products<br>that think.</h1>
-        <div class="hero-rule fade-in"></div>
-        <div class="hero-bottom fade-in">
-          <p class="hero-sub">I work best when the problem is specific, the audience is real, and the stakes are high enough to matter. Brand systems, web products, and AI-integrated tools — built to actually ship.</p>
+        <h1 class="hero-name">I build products<br>that think.</h1>
+        <div class="hero-rule"></div>
+        <div class="hero-bottom">
+          <p class="hero-sub">Brand systems, web products, AI-integrated tools. I work best when the problem is real, the audience is specific, and there's something actual at stake.</p>
           <a class="hero-btn" href="#work">See My Work &darr;</a>
         </div>
       </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div id="lottie-scroll"></div>
     </div>
   </header>
 
@@ -87,7 +91,7 @@
     <p class="section-label fade-in">Selected Work</p>
 
     <!-- Featured card -->
-    <a class="card card--featured fade-in" href="projects/quickfit.html">
+    <a class="card card--featured" data-anime="card" href="projects/quickfit.html">
       <div class="card-img"><img src="assets/quickfit.svg" alt="QuickFit — AI-powered trade supply interface" loading="lazy"/></div>
       <div class="card-content">
         <div class="card-top">
@@ -107,46 +111,12 @@
     <!-- 3-col grid -->
     <div class="cards-grid">
 
-      <a class="card fade-in" href="projects/connect-toronto.html">
-        <div class="card-img"><img src="assets/connect-toronto.svg" alt="CONNECT Toronto — busker permit app" loading="lazy"/></div>
-        <div class="card-content">
-          <div class="card-top">
-            <div class="card-meta">
-              <span class="card-num">02</span>
-              <span class="card-name">CONNECT Toronto</span>
-            </div>
-            <ul class="card-tags">
-              <li>UX Design</li><li>AR</li><li>Civic Tech</li>
-            </ul>
-          </div>
-          <h3 class="card-headline">Rethinking how the city meets its street performers.</h3>
-          <span class="card-cta">View Case Study &rarr;</span>
-        </div>
-      </a>
-
-      <a class="card fade-in" href="projects/fanband.html">
-        <div class="card-img"><img src="assets/fanband.svg" alt="FanBand — music discovery platform" loading="lazy"/></div>
-        <div class="card-content">
-          <div class="card-top">
-            <div class="card-meta">
-              <span class="card-num">03</span>
-              <span class="card-name">FanBand</span>
-            </div>
-            <ul class="card-tags">
-              <li>Product</li><li>Brand System</li><li>Music</li>
-            </ul>
-          </div>
-          <h3 class="card-headline">Where independent music finds its people.</h3>
-          <span class="card-cta">View Case Study &rarr;</span>
-        </div>
-      </a>
-
-      <a class="card fade-in" href="projects/versecue.html">
+      <a class="card" data-anime="card" href="projects/versecue.html">
         <div class="card-img"><img src="assets/versecue.svg" alt="VerseCue — AI scripture display tool" loading="lazy"/></div>
         <div class="card-content">
           <div class="card-top">
             <div class="card-meta">
-              <span class="card-num">04</span>
+              <span class="card-num">02</span>
               <span class="card-name">VerseCue</span>
             </div>
             <ul class="card-tags">
@@ -158,12 +128,12 @@
         </div>
       </a>
 
-      <a class="card fade-in" href="projects/elicit-furnishing.html">
+      <a class="card" data-anime="card" href="projects/elicit-furnishing.html">
         <div class="card-img"><img src="assets/elicit-furnishing.svg" alt="Elicit Furnishing — furniture sales ledger" loading="lazy"/></div>
         <div class="card-content">
           <div class="card-top">
             <div class="card-meta">
-              <span class="card-num">05</span>
+              <span class="card-num">03</span>
               <span class="card-name">Elicit Furnishing</span>
             </div>
             <ul class="card-tags">
@@ -175,7 +145,43 @@
         </div>
       </a>
 
+      <a class="card" data-anime="card" href="projects/machineline.html">
+        <div class="card-img"><img src="assets/machineline.svg?v=2" alt="MachineLine — AI machine line configurator for African entrepreneurs" loading="lazy"/></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-num">04</span>
+              <span class="card-name">MachineLine</span>
+            </div>
+            <ul class="card-tags">
+              <li>AI</li><li>Claude API</li><li>Africa</li>
+            </ul>
+          </div>
+          <h3 class="card-headline">Describe your business. Get your full production line — machines, sourcing, permits, and budget in one AI response.</h3>
+          <span class="card-cta">View Case Study &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card" data-anime="card" href="projects/t2d-trial.html">
+        <div class="card-img"><img src="assets/t2d-trial.svg?v=2" alt="T2D Trial Pre-Screener — AI clinical trial matching" loading="lazy"/></div>
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="card-num">05</span>
+              <span class="card-name">T2D Trial Pre-Screener</span>
+            </div>
+            <ul class="card-tags">
+              <li>LangGraph</li><li>Claude API</li><li>FastAPI</li>
+            </ul>
+          </div>
+          <h3 class="card-headline">Paste a SOAP note. Get ranked T2D trial matches with per-criterion PASS / FAIL verdicts — in 30 seconds.</h3>
+          <span class="card-cta">View Case Study &rarr;</span>
+        </div>
+      </a>
+
     </div>
+
+    <p class="projects-footnote fade-in">More in the works — the catalog grows every week.</p>
   </section>
 
   <!-- MARQUEE -->
@@ -212,9 +218,78 @@
   <!-- APPROACH -->
   <section class="approach">
     <p class="section-label fade-in">How I Work</p>
+
+    <div class="process-steps">
+      <div class="step-card" data-anime="step">
+        <div class="step-visual">
+          <!-- Discover: rotating radar sweep -->
+          <svg class="step-anim" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="40" r="26" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
+            <circle cx="40" cy="40" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.18"/>
+            <circle cx="40" cy="40" r="3.5" fill="currentColor"/>
+            <g class="sa-sweep">
+              <line x1="40" y1="40" x2="40" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="40" cy="14" r="2.5" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+        <div class="step-body">
+          <span class="step-num">01</span>
+          <h3 class="step-title">Discover</h3>
+          <p class="step-desc">Research the audience, the constraints, and the gaps before any design decisions are made.</p>
+        </div>
+      </div>
+      <div class="step-card" data-anime="step">
+        <div class="step-visual">
+          <!-- Design: corner brackets draw in -->
+          <svg class="step-anim" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <polyline class="sa-br sa-br-a" points="22,34 22,22 34,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline class="sa-br sa-br-b" points="46,22 58,22 58,34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline class="sa-br sa-br-c" points="22,46 22,58 34,58" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline class="sa-br sa-br-d" points="58,46 58,58 46,58" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="step-body">
+          <span class="step-num">02</span>
+          <h3 class="step-title">Design</h3>
+          <p class="step-desc">Systems, not screens. Every component traces back to a decision about the person using it.</p>
+        </div>
+      </div>
+      <div class="step-card" data-anime="step">
+        <div class="step-visual">
+          <!-- Build: progress ring fills then checkmark draws -->
+          <svg class="step-anim" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="2" opacity="0.22"/>
+            <circle class="sa-prog" cx="40" cy="40" r="22" stroke="currentColor" stroke-width="2" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+            <path class="sa-ck" d="M31 40 L37 46 L50 33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="step-body">
+          <span class="step-num">03</span>
+          <h3 class="step-title">Build</h3>
+          <p class="step-desc">Design is only halfway done until it's in the browser. I write my own code.</p>
+        </div>
+      </div>
+      <div class="step-card" data-anime="step">
+        <div class="step-visual">
+          <!-- Launch: orb rises up dotted track -->
+          <svg class="step-anim" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <line x1="40" y1="16" x2="40" y2="62" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.3" stroke-linecap="round"/>
+            <circle cx="40" cy="16" r="2" fill="currentColor" opacity="0.25"/>
+            <circle class="sa-orb" cx="40" cy="60" r="5.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="step-body">
+          <span class="step-num">04</span>
+          <h3 class="step-title">Launch</h3>
+          <p class="step-desc">Ship, measure, iterate. Shipping is a skill. I've done it solo and on teams.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="approach-statement fade-in">
-      <p class="approach-lead">Most people design for a hypothetical user. I design for a specific person in a specific moment — the AV operator scrambling between songs on a Sunday morning, the indie artist trying to be found by the right 500 people, the business owner who can't afford a full team but still needs to show up professionally.</p>
-      <p>The details that make something work — the micro-copy, the load state, the fallback — those aren't polish. They're the product.</p>
+      <p>I design for a specific person in a specific moment &mdash; the AV operator scrambling between songs on a Sunday morning, the indie artist trying to reach the right 500 people. Not a persona. An actual human with a deadline.</p>
+      <p>The details that make something work &mdash; the micro-copy, the load state, the fallback &mdash; those aren't polish. They're the product.</p>
       <p>AI doesn't change that. It just raises the ceiling on what one person can build alone.</p>
     </div>
     <div class="tools fade-in">
@@ -236,13 +311,13 @@
         <img src="assets/stephen.jpg" alt="Stephen Okulaja" />
       </div>
       <div class="about-text fade-in">
-        <h2 class="about-title">I do the design,<br>the build,<br>and the launch.</h2>
+        <h2 class="about-title">Design, build, launch &mdash;<br>one person, no handoff.</h2>
         <div class="about-body">
-          <p>I graduated from Humber College's Multimedia Design and Development program in 2021 and have been in market ever since — working full-time and freelancing simultaneously, which means I've had to think commercially about design from day one.</p>
-          <p>My background is genuinely cross-disciplinary. I've done digital operations, social strategy, motion graphics, branding, web development, and audio production — not as scattered side interests, but as a single integrated practice. I understand how a brand sounds, moves, looks, and converts.</p>
-          <p>What shifted my work in recent years was AI — not as a shortcut, but as a design material. I started integrating Claude and generative tools directly into the products I build, which opened up a new category of work: experiences that are interactive, adaptive, and genuinely intelligent.</p>
-          <p>I'm based in Markham, Ontario. I work best when the problem is specific, the audience is real, and the stakes are high enough to matter.</p>
-          <p>Outside of screens, I produce music — which probably explains why I care as much about the invisible parts of a product as the visible ones.</p>
+          <p>I graduated from Humber College's Multimedia Design and Development program in 2021. Since then I've worked full-time and freelanced at the same time &mdash; which means I've had to think commercially about design from the start, not eventually.</p>
+          <p>My background covers digital operations, social strategy, motion graphics, branding, web development, and audio production. Not scattered side interests &mdash; one integrated practice. I understand how a brand sounds, moves, looks, and converts.</p>
+          <p>In recent years I started integrating Claude and generative tools directly into the products I build. That opened up a new category of work: experiences that are interactive, adaptive, and genuinely intelligent. I don't use AI as a shortcut. I use it as a design material.</p>
+          <p>I'm based in Markham, Ontario. I work with clients in Toronto and remotely. If the brief is specific and the problem is real, I'm interested.</p>
+          <p>I also produce music. It's probably why I care as much about the invisible parts of a product &mdash; the timing, the silence, the transition &mdash; as the parts you can see.</p>
         </div>
       </div>
     </div>
@@ -252,7 +327,7 @@
   <section id="contact" class="contact-section">
     <p class="section-label fade-in">Contact</p>
     <h2 class="contact-headline fade-in">Got a real problem to solve?</h2>
-    <p class="contact-sub fade-in">I take on freelance projects in Toronto and remote. Brand systems, web products, AI tooling — if the brief is specific and the audience is real, I'm interested.</p>
+    <p class="contact-sub fade-in">If you know what you're building, who it's for, and why it matters &mdash; reach out. That's enough to start a conversation.</p>
     <div class="contact-details fade-in">
       <a href="mailto:okulajastephen@gmail.com">okulajastephen@gmail.com</a>
     </div>
@@ -291,6 +366,9 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="main.js?v=3"></script>
 </body>
 </html>
