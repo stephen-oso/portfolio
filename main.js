@@ -1,4 +1,100 @@
 // =====================
+// LOTTIE ANIMATIONS
+// =====================
+(function () {
+  if (typeof lottie === 'undefined') return;
+
+  // Scroll indicator
+  const scrollEl = document.getElementById('lottie-scroll');
+  if (scrollEl) {
+    lottie.loadAnimation({
+      container: scrollEl,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/lottie/scroll.json'
+    });
+    // Hide after user scrolls
+    window.addEventListener('scroll', () => {
+      scrollEl.parentElement.style.opacity = window.scrollY > 80 ? '0' : '';
+    }, { passive: true });
+  }
+})();
+
+// =====================
+// HERO ENTRANCE
+// =====================
+(function () {
+  if (typeof anime === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const heroName = document.querySelector('.hero-name');
+  const heroTop  = document.querySelector('.hero-top');
+  const heroRule = document.querySelector('.hero-rule');
+  const heroBot  = document.querySelector('.hero-bottom');
+
+  if (!heroName) return;
+
+  // Split headline into per-word spans with an overflow mask
+  heroName.innerHTML = heroName.innerHTML
+    .split(/(\s+|<br\s*\/?>)/i)
+    .map(part =>
+      /^(\s+|<br\s*\/?>)$/i.test(part)
+        ? part
+        : `<span style="display:inline-block;overflow:hidden"><span class="hw" style="display:inline-block;opacity:0;transform:translateY(20px)">${part}</span></span>`
+    )
+    .join('');
+
+  // Set supporting elements to hidden before animation fires
+  [heroTop, heroRule, heroBot].forEach(el => {
+    if (!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+  });
+
+  anime.timeline({ easing: 'easeOutQuart' })
+    .add({
+      targets: heroName.querySelectorAll('.hw'),
+      translateY: [20, 0],
+      opacity:    [0, 1],
+      duration:   700,
+      delay:      anime.stagger(70),
+    })
+    .add({
+      targets:  [heroTop, heroRule, heroBot].filter(Boolean),
+      translateY: [20, 0],
+      opacity:    [0, 1],
+      duration:   600,
+      delay:      anime.stagger(60),
+    }, '-=300');
+})();
+
+// =====================
+// LENIS SMOOTH SCROLL
+// =====================
+if (typeof Lenis !== 'undefined') {
+  const _lenis = new Lenis({ duration: 1.2 });
+  function _raf(time) { _lenis.raf(time); requestAnimationFrame(_raf); }
+  requestAnimationFrame(_raf);
+}
+
+// =====================
+// LIVE CLOCK — Toronto
+// =====================
+(function () {
+  const el = document.getElementById('nav-clock');
+  if (!el) return;
+  function tick() {
+    el.textContent = new Date().toLocaleTimeString('en-CA', {
+      hour: '2-digit', minute: '2-digit',
+      timeZone: 'America/Toronto', hour12: false,
+    });
+  }
+  tick();
+  setInterval(tick, 10000);
+})();
+
+// =====================
 // AI CHAT WIDGET
 // =====================
 (function () {
@@ -55,21 +151,32 @@
 
     addMessage(message, 'user');
 
-    // Typing indicator
+    // Typing indicator with Lottie
     const indicator = document.createElement('div');
     indicator.className = 'ai-msg ai-msg--typing';
-    indicator.textContent = '···';
     body.appendChild(indicator);
     body.scrollTop = body.scrollHeight;
 
+    let typingAnim = null;
+    if (typeof lottie !== 'undefined') {
+      typingAnim = lottie.loadAnimation({
+        container: indicator,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/lottie/typing.json'
+      });
+    }
+
     try {
-      const res = await fetch('/.netlify/functions/chat', {
+      const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, history })
       });
 
       const data = await res.json();
+      if (typingAnim) typingAnim.destroy();
       indicator.remove();
 
       const reply = data.reply || 'Something went wrong. Try emailing okulajastephen@gmail.com.';
@@ -83,6 +190,7 @@
       await typeMessage(aiMsg, reply);
 
     } catch {
+      if (typingAnim) typingAnim.destroy();
       indicator.remove();
       addMessage('Connection issue — email okulajastephen@gmail.com directly.', 'ai');
     }
@@ -121,6 +229,43 @@ if (!isTouch && dot && ring) {
   document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
+
+// =====================
+// CURSOR LABEL ON CARDS
+// =====================
+if (!isTouch) {
+  const label = document.createElement('span');
+  label.className = 'cursor-label';
+  label.textContent = 'View';
+  document.body.appendChild(label);
+
+  document.addEventListener('mousemove', e => {
+    label.style.left = e.clientX + 'px';
+    label.style.top  = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => label.classList.add('visible'));
+    card.addEventListener('mouseleave', () => label.classList.remove('visible'));
+  });
+}
+
+// =====================
+// MAGNETIC BUTTONS
+// =====================
+if (!isTouch) {
+  document.querySelectorAll('.hero-btn, .form-submit').forEach(btn => {
+    btn.addEventListener('mouseenter', () => { btn.style.transition = 'transform 0.1s ease'; });
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.28}px, ${(e.clientY - r.top - r.height / 2) * 0.28}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+      btn.style.transform = '';
+    });
   });
 }
 
