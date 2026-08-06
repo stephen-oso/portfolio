@@ -407,6 +407,11 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
+    document.querySelectorAll('.sa-br, .sa-prog, .sa-ck').forEach(el => {
+      el.style.strokeDashoffset = '0';
+      if (el.classList.contains('sa-ck')) el.style.opacity = '0.7';
+      else if (el.classList.contains('sa-br')) el.style.opacity = '0.6';
+    });
     return;
   }
 
