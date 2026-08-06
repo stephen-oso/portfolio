@@ -145,6 +145,37 @@ body.cursor-hover .cursor-ring {
 
 .nav-link:hover { color: var(--text); }
 
+.nav-clock {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--subtle);
+  letter-spacing: 0.04em;
+}
+
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  transform: translate(-50%, -220%) scale(0.7);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.cursor-label.visible {
+  transform: translate(-50%, -220%) scale(1);
+  opacity: 1;
+}
+
 /* =====================
    HERO
    ===================== */
@@ -267,12 +298,12 @@ body.cursor-hover .cursor-ring {
 }
 
 .ai-msg--typing {
-  color: #3a3a36;
   align-self: flex-start;
   padding: 0;
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
+  width: 52px;
+  height: 24px;
   animation: msg-appear 0.2s ease;
+  flex-shrink: 0;
 }
 
 .ai-demo-footer {
@@ -417,10 +448,10 @@ body.cursor-hover .cursor-ring {
 }
 
 .hero-sub {
-  font-size: 1rem;
+  font-size: 0.97rem;
   color: var(--muted);
   max-width: 380px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 .hero-btn {
@@ -503,6 +534,14 @@ body.cursor-hover .cursor-ring {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+}
+
+.projects-footnote {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* =====================
@@ -667,6 +706,165 @@ body.cursor-hover .cursor-ring {
 }
 
 /* =====================
+   HERO SCROLL INDICATOR
+   ===================== */
+.hero {
+  position: relative;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 32px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.hero-scroll:hover { opacity: 0.8; }
+
+/* =====================
+   PROCESS STEPS (Lottie)
+   ===================== */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin: 3.5rem 0;
+}
+
+.step-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.step-card:hover {
+  border-color: var(--muted);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
+}
+
+.step-visual {
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.step-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, var(--bg) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lottie-icon-lg {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  z-index: 1;
+}
+
+.lottie-icon-lg svg { overflow: visible; }
+
+@media (prefers-color-scheme: dark) {
+  .lottie-icon-lg { filter: invert(1) brightness(0.75); }
+}
+
+/* =====================
+   STEP CARD SVG ANIMATIONS
+   ===================== */
+.step-anim {
+  position: relative;
+  z-index: 1;
+  color: var(--text);
+  opacity: 0.85;
+  width: 60px;
+  height: 60px;
+  overflow: visible;
+}
+
+/* DISCOVER: radar arm rotates around center */
+.sa-sweep {
+  transform-origin: 50% 50%;
+}
+
+/* DESIGN: four corner brackets draw in simultaneously */
+.sa-br {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  opacity: 0;
+}
+
+/* BUILD: progress ring fills, then checkmark draws */
+.sa-prog {
+  stroke-dasharray: 138.2;
+  stroke-dashoffset: 138.2;
+}
+
+.sa-ck {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  opacity: 0;
+}
+
+/* LAUNCH: orb rises along dotted track, resets */
+.sa-orb {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sa-br   { stroke-dashoffset: 0; opacity: 0.6; }
+  .sa-prog { stroke-dashoffset: 0; }
+  .sa-ck   { stroke-dashoffset: 0; opacity: 0.7; }
+  .sa-orb  { opacity: 1; }
+  [data-anime] { opacity: 1; transform: none; }
+}
+
+.step-body {
+  padding: 1.1rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.step-num {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--subtle);
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* =====================
    APPROACH
    ===================== */
 .approach {
@@ -689,13 +887,8 @@ body.cursor-hover .cursor-ring {
 }
 
 .approach-statement p {
-  font-size: 1rem;
+  font-size: 0.97rem;
   line-height: 1.85;
-  color: var(--text);
-}
-
-.approach-statement .approach-lead {
-  font-size: 1.08rem;
   color: var(--text);
 }
 
@@ -784,8 +977,8 @@ body.cursor-hover .cursor-ring {
 }
 
 .about-body p {
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 0.97rem;
+  line-height: 1.85;
   color: var(--muted);
 }
 
@@ -813,9 +1006,9 @@ body.cursor-hover .cursor-ring {
 }
 
 .contact-sub {
-  font-size: 0.95rem;
+  font-size: 0.97rem;
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.8;
   max-width: 46ch;
   margin-bottom: 2.5rem;
 }
@@ -969,6 +1162,14 @@ body.cursor-hover .cursor-ring {
 }
 
 /* =====================
+   ANIME.JS INITIAL STATES
+   ===================== */
+[data-anime] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* =====================
    RESPONSIVE
    ===================== */
 /* Hide cursor on touch devices */
@@ -980,11 +1181,13 @@ body.cursor-hover .cursor-ring {
   .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 3rem max(2rem, 4vw); }
   .hero-content { order: -1; }
   .hero-visual { min-height: unset; aspect-ratio: 4 / 3; }
+  .hero-scroll { display: none; }
   .cards-grid { grid-template-columns: 1fr 1fr; }
   .card--featured { grid-template-columns: 1fr; min-height: unset; }
   .card--featured .card-img { aspect-ratio: 16 / 9; height: auto; }
   .card--featured .card-content { padding: 1.5rem 1.75rem 1.75rem; justify-content: flex-start; }
   .card--featured .card-headline { font-size: 1.1rem; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 1rem; }
 }
 
 @media (max-width: 600px) {
@@ -1004,6 +1207,8 @@ body.cursor-hover .cursor-ring {
   .cards-grid { grid-template-columns: 1fr; }
   .approach { padding: 4rem 1.5rem 5rem; }
   .approach-statement { margin: 2rem 0 3rem; }
+  .process-steps { grid-template-columns: 1fr; margin: 2.5rem 0; gap: 0.75rem; }
+  .step-visual { height: 110px; }
   .form-row { grid-template-columns: 1fr; }
   .about { padding: 4rem 1.5rem 5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
