@@ -452,6 +452,92 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 })();
 
 // =====================
+// PROCESS ICON TIMELINES
+// =====================
+(function () {
+  if (typeof anime === 'undefined') return;
+
+  const steps = document.querySelector('.process-steps');
+  if (!steps) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const stepObserver = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    stepObserver.disconnect();
+
+    // Reduced motion: show step cards immediately, skip icon animations
+    if (reducedMotion) {
+      steps.querySelectorAll('[data-anime="step"]').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
+
+    // Stagger step cards in
+    anime({
+      targets:    steps.querySelectorAll('[data-anime="step"]'),
+      translateY: [24, 0],
+      opacity:    [0, 1],
+      duration:   700,
+      easing:     'easeOutQuart',
+      delay:      anime.stagger(80),
+    });
+
+    const icons = steps.querySelectorAll('.step-anim');
+    const BASE  = 150; // ms stagger between icons
+
+    // DISCOVER (icon 0): radar arm rotates 360°
+    anime({
+      targets:  icons[0]?.querySelector('.sa-sweep'),
+      rotate:   360,
+      duration: 1200,
+      easing:   'easeInOutSine',
+      delay:    BASE * 0,
+    });
+
+    // DESIGN (icon 1): four brackets draw in via strokeDashoffset, 100ms stagger
+    anime({
+      targets:          icons[1]?.querySelectorAll('.sa-br'),
+      strokeDashoffset: [24, 0],
+      opacity:          [0, 1],
+      duration:         600,
+      easing:           'easeOutCubic',
+      delay:            (el, i) => BASE * 1 + i * 100,
+    });
+
+    // BUILD (icon 2): ring fills then checkmark draws
+    const buildTl = anime.timeline({ easing: 'easeOutCubic' });
+    buildTl
+      .add({
+        targets:          icons[2]?.querySelector('.sa-prog'),
+        strokeDashoffset: [138.2, 0],
+        duration:         800,
+        delay:            BASE * 2,
+      })
+      .add({
+        targets:          icons[2]?.querySelector('.sa-ck'),
+        strokeDashoffset: [30, 0],
+        opacity:          [0, 1],
+        duration:         400,
+      }, '-=100');
+
+    // LAUNCH (icon 3): orb rises via cy attribute
+    anime({
+      targets:  icons[3]?.querySelector('.sa-orb'),
+      cy:       [60, 16],
+      duration: 900,
+      easing:   'easeOutCubic',
+      delay:    BASE * 3,
+    });
+
+  }, { threshold: 0.08 });
+
+  stepObserver.observe(steps);
+})();
+
+// =====================
 // CONTACT FORM (AJAX)
 // =====================
 const contactForm = document.querySelector('.contact-form');
