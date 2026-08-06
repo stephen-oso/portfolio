@@ -41,7 +41,7 @@
     .map(part =>
       /^(\s+|<br\s*\/?>)$/i.test(part)
         ? part
-        : `<span style="display:inline-block;overflow:hidden"><span class="hw" style="display:inline-block;opacity:0;transform:translateY(20px)">${part}</span></span>`
+        : `<span style="display:inline-block;overflow:hidden"><span class="hw" style="display:inline-block;opacity:0;transform:translateY(28px)">${part}</span></span>`
     )
     .join('');
 
@@ -49,24 +49,25 @@
   [heroTop, heroRule, heroBot].forEach(el => {
     if (!el) return;
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
+    el.style.transform = 'translateY(24px)';
   });
 
-  anime.timeline({ easing: 'easeOutQuart' })
+  anime.timeline({ easing: 'easeOutExpo' })
     .add({
-      targets: heroName.querySelectorAll('.hw'),
-      translateY: [20, 0],
+      targets:  heroName.querySelectorAll('.hw'),
+      translateY: [28, 0],
       opacity:    [0, 1],
-      duration:   700,
-      delay:      anime.stagger(70),
+      duration:   1100,
+      delay:      anime.stagger(90, { start: 120 }),
     })
     .add({
       targets:  [heroTop, heroRule, heroBot].filter(Boolean),
-      translateY: [20, 0],
+      translateY: [24, 0],
       opacity:    [0, 1],
-      duration:   600,
-      delay:      anime.stagger(60),
-    }, '-=300');
+      duration:   900,
+      easing:     'easeOutQuart',
+      delay:      anime.stagger(70),
+    }, '-=600');
 })();
 
 // =====================
