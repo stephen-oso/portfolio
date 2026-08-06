@@ -397,6 +397,59 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+// =====================
+// CARD STAGGER (anime.js)
+// =====================
+(function () {
+  // Fallback: if anime.js CDN failed, show all data-anime elements immediately
+  if (typeof anime === 'undefined') {
+    document.querySelectorAll('[data-anime]').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('[data-anime]').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
+  }
+
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      cardObserver.unobserve(entry.target);
+      const el = entry.target;
+
+      if (el.classList.contains('card--featured')) {
+        anime({
+          targets:    el,
+          translateY: [24, 0],
+          opacity:    [0, 1],
+          duration:   700,
+          easing:     'easeOutQuart',
+        });
+      } else if (el.classList.contains('cards-grid')) {
+        anime({
+          targets:    el.querySelectorAll('[data-anime="card"]'),
+          translateY: [24, 0],
+          opacity:    [0, 1],
+          duration:   700,
+          easing:     'easeOutQuart',
+          delay:      anime.stagger(90),
+        });
+      }
+    });
+  }, { threshold: 0.08 });
+
+  const featured = document.querySelector('.card--featured');
+  const grid     = document.querySelector('.cards-grid');
+  if (featured) cardObserver.observe(featured);
+  if (grid)     cardObserver.observe(grid);
+})();
 
 // =====================
 // CONTACT FORM (AJAX)
