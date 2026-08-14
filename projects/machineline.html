@@ -37,7 +37,7 @@
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Type</span>
-        <span class="cs-meta-value">AI &middot; React &middot; Africa</span>
+        <span class="cs-meta-value">Claude API &middot; React &middot; Vite &middot; Tailwind &middot; Vercel</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Live</span>
@@ -60,27 +60,47 @@
     </section>
 
     <section class="cs-section fade-in">
+      <p class="cs-section-label">Origin</p>
+      <h2>This started with someone I know &mdash; not a market report.</h2>
+      <p class="cs-body-text">My mum was thinking about pivoting to a different production line. Watching her navigate it made the gap obvious: she'd either have to go to China without knowing what to ask for, rely on intermediaries who might not give the right information, or spend weeks piecing together a plan from people with conflicting advice. That's the experience for most African entrepreneurs at this stage. MachineLine skips the middleman entirely.</p>
+    </section>
+
+    <section class="cs-section fade-in">
       <p class="cs-section-label">What Was Built</p>
-      <h2>Describe your business. Get a complete production plan &mdash; machines, sourcing, permits, cost breakdown, and production flow &mdash; in about 20 seconds.</h2>
+      <h2>Describe your business. Get a complete production plan in about 20 seconds.</h2>
       <ul class="cs-feature-list">
-        <li>Single AI call returns a full machine list, production sequence, startup cost estimate, space requirements, and power note</li>
-        <li>New vs. used machine price toggle &mdash; costs update across the plan in real time</li>
-        <li>Risk flag system surfaces warnings automatically &mdash; permit issues, power requirements, sourcing gaps</li>
-        <li>Data verified badge confirms live market data was used, not cached estimates</li>
-        <li>Validated against a real Nigeria sachet water factory plan &mdash; 6,700 litres/day, $5,000&ndash;$15,000 budget</li>
+        <li>Machine list with production sequence, Africa-specific specs, and startup cost estimates &mdash; new and used prices on every item</li>
+        <li>Sourcing panel across three channels: local markets and dealers, Alibaba with exact search terms and trusted suppliers, and secondhand platforms (Jiji, Tonaton, OLX Africa)</li>
+        <li>Live rental rates, country-specific permits with fees and processing times, and space requirements &mdash; all pulled from the web in the same API call</li>
+        <li>Risk flag system surfaces warnings automatically with specific mitigations &mdash; permit issues, power requirements, budget gaps</li>
+        <li>PDF export and WhatsApp share so the plan goes where the entrepreneur actually works</li>
+      </ul>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Design Decisions</p>
+      <h2>Built around capital constraints, not ideal conditions.</h2>
+      <p class="cs-body-text">The new vs. used price toggle on every machine isn't a feature — it's a philosophy. African entrepreneurs don't plan around what the ideal setup costs. They plan around what they can actually afford right now. The tool respects that from the start.</p>
+      <p class="cs-body-text">Budget-aware logic is baked into the prompt: if someone enters under $500, the plan explicitly recommends a manual or artisanal setup and states exactly what budget they'd need to run a proper machine line. No false confidence about what's achievable.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Iterations</p>
+      <h2>The architecture changed significantly before it was right.</h2>
+      <ul class="cs-feature-list">
+        <li><span><strong>6 API calls &rarr; 1</strong> &mdash; the original build made separate calls for machines, sourcing, permits, space costs, and warnings. Collapsed into a single structured call with web search built in &mdash; faster, cheaper, and more coherent output.</span></li>
+        <li><span><strong>30s function timeout</strong> &mdash; Netlify's default 10s limit caused 504 errors on complex plans. Extended to 30s with explicit error handling so users always know what happened.</span></li>
+        <li><span><strong>2-step onboarding</strong> &mdash; the initial single-form approach was too heavy. Split into product + location first, then scale + budget, so users reach the plan faster with less friction.</span></li>
+        <li><span><strong>PDF sanitization</strong> &mdash; special characters in machine names caused corruption in the exported PDF. Built a sanitizeForPDF pass before rendering to catch and strip them.</span></li>
       </ul>
     </section>
 
     <section class="cs-section fade-in">
       <p class="cs-section-label">Outcome</p>
-      <h2>One AI call. Six research steps replaced.</h2>
-      <ul class="cs-feature-list">
-        <li><span><strong>Single API call</strong> covers machine selection, sequencing, cost estimation, space planning, permit research, and sourcing paths &mdash; what previously required a consultant</span></li>
-        <li><span><strong>Validated against a real factory</strong> &mdash; AI output matched the production plan a local industry expert would produce for a Nigeria sachet water business</span></li>
-        <li><span><strong>New/used toggle</strong> designs around the core constraint: African SMEs plan around capital availability, not ideal spend</span></li>
-      </ul>
+      <h2>One AI call. What previously required a consultant.</h2>
+      <p class="cs-body-text">The output was validated against a real Nigeria sachet water factory plan &mdash; 6,700 litres per day, $5,000&ndash;$15,000 budget. The AI plan matched what a local industry expert with 20 years of market knowledge would produce. Machine selection, production sequence, sourcing paths, permits, space costs &mdash; all in one call.</p>
       <ul class="cs-tags">
-        <li>Claude API</li><li>AI Integration</li><li>Product Design</li><li>React</li><li>Vercel</li>
+        <li>Claude API</li><li>Web Search</li><li>React</li><li>Vite</li><li>Tailwind</li><li>jsPDF</li><li>Vercel</li><li>AI Integration</li><li>Product Design</li>
       </ul>
       <div class="cs-links">
         <a class="cs-link-btn" href="https://machineline.vercel.app" target="_blank" rel="noopener">Open MachineLine &rarr;</a>
