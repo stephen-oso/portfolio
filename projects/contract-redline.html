@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contract Redline — Stephen Okulaja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="case-study.css" />
+  <style>
+    .pipeline-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .pipeline-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pipeline-step:last-child { border-bottom: none; }
+    .pipeline-step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1.2rem 0;
+    }
+    .pipeline-step-body {
+      padding: 1.1rem 1.25rem;
+      background: var(--bg);
+    }
+    .pipeline-step-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .pipeline-step-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .pipeline-step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      border-radius: 99px;
+      padding: 2px 8px;
+      margin-top: 0.5rem;
+    }
+    .verdict-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    @media (max-width: 640px) {
+      .verdict-grid { grid-template-columns: 1fr; }
+    }
+    .verdict-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      background: var(--surface);
+    }
+    .verdict-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 0.6rem;
+    }
+    .verdict-badge--flagged { background: #3d1a1a; color: #f87171; }
+    .verdict-badge--partial { background: #2e2410; color: #fbbf24; }
+    .verdict-badge--clear   { background: #0f2e1a; color: #4ade80; }
+    .verdict-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .verdict-desc {
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress-bar"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav" id="nav">
+    <a class="nav-back" href="../index.html">&larr; Back to work</a>
+    <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
+  </nav>
+
+  <header class="cs-hero">
+    <p class="cs-num">07 &mdash; Contract Redline</p>
+    <h1 class="cs-title">Freelancers sign bad contracts because contract review is slow, expensive, and most people don&rsquo;t know what to look for.</h1>
+    <div class="cs-project-img">
+      <img src="../assets/contract-redline.svg" alt="Contract Redline — AI contract risk analyser for freelancers" />
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Designer &amp; Developer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Year</span>
+        <span class="cs-meta-value">2026</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Type</span>
+        <span class="cs-meta-value">Claude API &middot; FastAPI &middot; React &middot; Vercel</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Live</span>
+        <a class="cs-meta-link" href="https://frontend-gray-chi-cjlfezgi0t.vercel.app" target="_blank" rel="noopener">Open the App &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="cs-body">
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Problem</p>
+      <div class="cs-stat">
+        <span class="cs-stat-num">$300</span>
+        <span class="cs-stat-desc">per hour &mdash; what a lawyer charges to review what a freelancer needs reviewed in ten minutes. Most skip it entirely. That&rsquo;s where they get hurt.</span>
+      </div>
+      <h2>A missing kill clause means working for free when a client ghosts. A vague IP clause means surrendering work you didn&rsquo;t intend to. The information to catch these exists &mdash; most freelancers just can&rsquo;t access it.</h2>
+      <p class="cs-subtext">Contract Redline runs a freelance contract through a three-stage AI pipeline and returns a severity-ranked report across the eight risk categories that actually matter in project-based work &mdash; with the verbatim clause and a specific suggested fix for every finding.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">What You Get</p>
+      <h2>Paste a contract. Every finding includes five things &mdash; not just a flag.</h2>
+      <p class="cs-body-text">Each result in the report surfaces: a verdict (FLAGGED / PARTIAL / CLEAR), a severity level (HIGH / MED / LOW), a plain-English explanation of the risk, the verbatim clause that triggered it, and a concrete suggested fix &mdash; what specifically to ask for in negotiation. Not a summary. Not a score. Actionable output.</p>
+
+      <div class="verdict-grid">
+        <div class="verdict-card">
+          <span class="verdict-badge verdict-badge--flagged">Flagged &mdash; High</span>
+          <p class="verdict-title">Kill Clause / Early Termination</p>
+          <p class="verdict-desc">No termination provision found. Client can end the engagement at any point with no obligation to pay for work completed.</p>
+        </div>
+        <div class="verdict-card">
+          <span class="verdict-badge verdict-badge--partial">Partial &mdash; Med</span>
+          <p class="verdict-title">IP Ownership</p>
+          <p class="verdict-desc">Work-for-hire clause present but no carve-out for pre-existing tools or frameworks. Everything you bring to the project transfers on delivery.</p>
+        </div>
+        <div class="verdict-card">
+          <span class="verdict-badge verdict-badge--clear">Clear</span>
+          <p class="verdict-title">Payment Terms</p>
+          <p class="verdict-desc">Net-15 payment terms with a 1.5% monthly late fee. Standard and enforceable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Eight Categories</p>
+      <h2>Opinionated scope. Deliberate exclusions.</h2>
+      <p class="cs-body-text">The eight categories cover the highest-frequency risks in project-based freelance work: Payment Terms, IP Ownership, Kill Clause &amp; Early Termination, Scope &amp; Revision Limits, Liability Cap, Non-Compete &amp; Exclusivity, Indemnification, and Dispute Resolution.</p>
+      <p class="cs-body-text">NDA and non-solicitation were deliberately excluded from v1. NDA analysis requires understanding what&rsquo;s actually confidential &mdash; which needs more context than a general-purpose tool can reliably provide. The disclaimer &ldquo;thresholds reflect one freelancer&rsquo;s risk tolerance &mdash; not legal advice&rdquo; is a visible callout on every report, not fine print.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">How the Pipeline Works</p>
+      <h2>Three stages. One request. No streaming required.</h2>
+
+      <div class="pipeline-steps">
+        <div class="pipeline-step">
+          <span class="pipeline-step-num">01</span>
+          <div class="pipeline-step-body">
+            <p class="pipeline-step-title">Extraction &mdash; Claude Haiku via tools parameter</p>
+            <p class="pipeline-step-desc">A single Haiku call extracts every legally significant clause and tags each one by type (payment, ip, termination, scope, liability, noncompete, dispute, indemnification, other). Structured output is enforced via the Anthropic SDK&rsquo;s <code style="font-size:.72rem">tools</code> parameter &mdash; not JSON prompting. If no clauses are found at all, the tool returns a distinct error immediately rather than fabricating eight FLAGGED results for blank input.</p>
+            <span class="pipeline-step-badge">structured output &middot; no hallucinated results</span>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <span class="pipeline-step-num">02</span>
+          <div class="pipeline-step-body">
+            <p class="pipeline-step-title">Evaluation &mdash; 8 parallel asyncio tasks</p>
+            <p class="pipeline-step-desc">Eight concurrent tasks evaluate each risk category simultaneously via <code style="font-size:.72rem">asyncio.gather(return_exceptions=True)</code>. Each task only receives the clauses whose type matches that category &mdash; extraction tags gate evaluation, so evaluators never re-scan the full document. If a category has no matching clauses, the verdict is constructed deterministically with no LLM call. If a task fails, it returns an ERROR sentinel &mdash; one bad category never blanks the full report.</p>
+            <span class="pipeline-step-badge">parallel &middot; isolated failures &middot; zero-clause short-circuit</span>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <span class="pipeline-step-num">03</span>
+          <div class="pipeline-step-body">
+            <p class="pipeline-step-title">Assembly &mdash; pure Python, no LLM</p>
+            <p class="pipeline-step-desc">Results sorted HIGH &rarr; MED &rarr; LOW &rarr; CLEAR &rarr; ERROR. Flagged count and high-severity count computed. Report returned. No third AI call.</p>
+            <span class="pipeline-step-badge">deterministic &middot; no extra latency</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Design Decisions</p>
+      <h2>Small calls that add up.</h2>
+      <ul class="cs-feature-list">
+        <li><span><strong>CLEAR cards collapsed by default</strong> &mdash; the report leads with what needs attention, not with confirmation that most things are fine. You scroll to the all-clear, not past it.</span></li>
+        <li><span><strong>Loading screen cycles through category names</strong> &mdash; makes the parallel pipeline visible without streaming complexity. The user sees evaluation happening, not a spinner with no signal.</span></li>
+        <li><span><strong>Opinionated thresholds, disclosed</strong> &mdash; the scoring reflects one freelancer&rsquo;s real experience negotiating contracts, not an average of legal standards. That&rsquo;s a strength if you&rsquo;re building for the same kind of freelancer. It&rsquo;s said clearly on every report.</span></li>
+        <li><span><strong>Warmup ping on page load</strong> &mdash; fires a lightweight request to keep Render&rsquo;s free tier warm before the user submits a contract. The first real request isn&rsquo;t the cold start.</span></li>
+        <li><span><strong>No auth, no file upload, paste-only</strong> &mdash; deliberate for the demo. Zero friction between landing and result.</span></li>
+      </ul>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>A working risk analyser. Built from real experience, not averaged legal standards.</h2>
+      <p class="cs-body-text">The pipeline runs end-to-end: extraction, parallel evaluation, and deterministic assembly in one request. Structured output enforcement means the tool fails loudly on bad input rather than returning fabricated confidence. The scoring is opinionated because vague tools give vague advice &mdash; and freelancers negotiating a contract need something actionable, not a disclaimer.</p>
+      <ul class="cs-tags">
+        <li>Claude API</li><li>Claude Haiku</li><li>FastAPI</li><li>Pydantic v2</li><li>asyncio</li><li>React 18</li><li>Vite</li><li>Render</li><li>Vercel</li><li>AI Integration</li>
+      </ul>
+      <div class="cs-links">
+        <a class="cs-link-btn" href="https://frontend-gray-chi-cjlfezgi0t.vercel.app" target="_blank" rel="noopener">Open Contract Redline &rarr;</a>
+        <a class="cs-link-btn cs-link-btn--ghost" href="https://github.com/stephen-oso/contract-redline" target="_blank" rel="noopener">GitHub &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-project-nav fade-in">
+    <a href="versecue.html">&larr; VerseCue</a>
+    <a href="../index.html#work">All Projects &rarr;</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="case-study.js"></script>
+</body>
+</html>
