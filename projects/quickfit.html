@@ -37,7 +37,7 @@
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Type</span>
-        <span class="cs-meta-value">AI &middot; Product &middot; Web</span>
+        <span class="cs-meta-value">Claude API &middot; React &middot; Vite &middot; Netlify</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Live</span>
@@ -52,38 +52,44 @@
       <p class="cs-section-label">The Problem</p>
       <div class="cs-stat">
         <span class="cs-stat-num">90 min</span>
-        <span class="cs-stat-desc">lost per job to supply runs</span>
+        <span class="cs-stat-desc">lost per job to supply runs &mdash; parts exist at local suppliers, but finding and fetching them costs a crew half a morning</span>
       </div>
-      <h2>The parts exist. There's no intelligence layer between the site and the supplier.</h2>
+      <h2>The parts exist. There's no intelligence layer between the job site and the supplier.</h2>
+      <p class="cs-subtext">A plumber mid-job realises they need a part. They leave the site, drive to Ferguson or Wolseley, wait, drive back. The client waits. The next job shifts. QuickFit puts an order in while they're still on the floor — parts arrive before they'd have been back from the run.</p>
     </section>
 
     <section class="cs-section fade-in">
       <p class="cs-section-label">What Was Built</p>
-      <div class="cs-split">
-        <div class="cs-split-text">
-          <h2>Describe the job. Get the parts. They arrive in 30 minutes.</h2>
-          <ul class="cs-feature-list">
-            <li>Job Estimator &mdash; plain language to a parts list with quantities and costs</li>
-            <li>Supply Chain Analyzer &mdash; cheapest path across live GTA supplier inventory</li>
-            <li>Runner delivers to site. The contractor never left.</li>
-          </ul>
-        </div>
-        <div class="cs-split-visual">
-          <img src="../assets/quickfit-estimator.svg" alt="AI Job Estimator interface" />
-        </div>
-      </div>
+      <h2>A full tradesperson parts platform &mdash; five pages, two AI tools, real GTA suppliers.</h2>
+      <ul class="cs-feature-list">
+        <li>Parts marketplace with 8 trade categories (Plumbing, Electrical, HVAC, Gas, Drywall, Tools, Safety) sourced from real GTA suppliers &mdash; Ferguson, Wolseley, Rexel, Home Depot Pro, National Plumbing</li>
+        <li>Token-based search with relevance scoring and symbol-stripped model number matching &mdash; searching "r410a", "r-410a", or "R-410A" all return the same result</li>
+        <li>Three delivery tiers: Standard (45&ndash;60 min), Express (25&ndash;35 min), Rush (15&ndash;20 min) &mdash; with HST calculation and cart state persisted across pages</li>
+        <li>Full checkout and live order tracking flow &mdash; driver card, map, and progress tracker</li>
+        <li>Job Estimator &mdash; describe the job in plain language, Claude returns a structured parts list with quantities and cost estimates</li>
+        <li>Supply Chain Analyzer &mdash; describe what you need, Claude finds the cheapest fulfilment path across GTA supplier inventory</li>
+      </ul>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Design Decisions</p>
+      <h2>Built for how tradespeople actually work, not how consumers shop.</h2>
+      <p class="cs-body-text">Categories are trade verticals, not home improvement aisles. ETA is a primary filter, not a detail &mdash; a tradesperson mid-job doesn't browse, they need to know what arrives fastest. The search algorithm handles model numbers with symbols stripped because that's how parts are actually searched on a job site.</p>
+      <p class="cs-body-text">The AI tools sit on top of the marketplace, not beside it. The Job Estimator outputs a parts list you can order directly. The Supply Chain Analyzer routes across real suppliers. The intelligence layer feeds the fulfilment layer.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Constraint</p>
+      <h2>The intelligence layer is done. What&rsquo;s left isn&rsquo;t a technical problem.</h2>
+      <p class="cs-body-text">No public API exists for live GTA hardware supplier pricing and inventory. The Supply Chain Analyzer works &mdash; but it needs a live data feed to be production-ready. The moment a supplier like Ferguson or Wolseley opens an inventory API, this product is ready to connect to it. The build was a deliberate demonstration of that: ship the intelligence, be honest about the dependency.</p>
     </section>
 
     <section class="cs-section fade-in">
       <p class="cs-section-label">Outcome</p>
-      <h2>The intelligence layer is done. What&rsquo;s left isn&rsquo;t a technical problem &mdash; it&rsquo;s a supplier partnership.</h2>
-      <ul class="cs-feature-list">
-        <li><span><strong>Both AI tools work end-to-end</strong> &mdash; the Job Estimator and Supply Chain Analyzer handle natural language input, call Claude, and return structured, accurate outputs</span></li>
-        <li><span><strong>The only gap is live inventory data</strong> &mdash; no public API exists for GTA hardware supplier pricing; the moment a supplier opens one, this product is ready</span></li>
-        <li><span><strong>Full product thinking, solo</strong> &mdash; research, branding, design, AI integration, and deployment; and honest communication about what a real product would need next</span></li>
-      </ul>
+      <h2>Full product thinking, solo. Research, branding, AI, and a working app.</h2>
+      <p class="cs-body-text">End-to-end: market research, brand identity, product design, AI integration, and deployment. Both AI tools call Claude and return structured, accurate outputs. The marketplace, cart, checkout, and tracking flow are fully functional. The only thing keeping this from production is a supplier data partnership.</p>
       <ul class="cs-tags">
-        <li>Claude API</li><li>AI Integration</li><li>Product Design</li><li>Web App</li><li>Branding</li>
+        <li>Claude API</li><li>React</li><li>Vite</li><li>React Router</li><li>Netlify Functions</li><li>AI Integration</li><li>Product Design</li><li>Branding</li>
       </ul>
       <div class="cs-links">
         <a class="cs-link-btn" href="https://quiet-cocada-47fba2.netlify.app/browse" target="_blank" rel="noopener">Open QuickFit &rarr;</a>
