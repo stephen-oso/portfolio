@@ -1,10 +1,6 @@
-// =====================
-// LOTTIE ANIMATIONS
-// =====================
 (function () {
   if (typeof lottie === 'undefined') return;
 
-  // Scroll indicator
   const scrollEl = document.getElementById('lottie-scroll');
   if (scrollEl) {
     lottie.loadAnimation({
@@ -14,16 +10,12 @@
       autoplay: true,
       path: 'assets/lottie/scroll.json'
     });
-    // Hide after user scrolls
     window.addEventListener('scroll', () => {
       scrollEl.parentElement.style.opacity = window.scrollY > 80 ? '0' : '';
     }, { passive: true });
   }
 })();
 
-// =====================
-// HERO ENTRANCE
-// =====================
 (function () {
   if (typeof anime === 'undefined') return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -35,7 +27,6 @@
 
   if (!heroName) return;
 
-  // Split headline into per-word spans with an overflow mask
   heroName.innerHTML = heroName.innerHTML
     .split(/(\s+|<br\s*\/?>)/i)
     .map(part =>
@@ -45,7 +36,6 @@
     )
     .join('');
 
-  // Set supporting elements to hidden before animation fires
   [heroTop, heroRule, heroBot].forEach(el => {
     if (!el) return;
     el.style.opacity = '0';
@@ -70,18 +60,12 @@
     }, '-=600');
 })();
 
-// =====================
-// LENIS SMOOTH SCROLL
-// =====================
 if (typeof Lenis !== 'undefined') {
   const _lenis = new Lenis({ duration: 1.2 });
   function _raf(time) { _lenis.raf(time); requestAnimationFrame(_raf); }
   requestAnimationFrame(_raf);
 }
 
-// =====================
-// LIVE CLOCK — Toronto
-// =====================
 (function () {
   const el = document.getElementById('nav-clock');
   if (!el) return;
@@ -95,9 +79,6 @@ if (typeof Lenis !== 'undefined') {
   setInterval(tick, 10000);
 })();
 
-// =====================
-// AI CHAT WIDGET
-// =====================
 (function () {
   const form  = document.getElementById('ai-form');
   const input = document.getElementById('ai-input');
@@ -107,7 +88,6 @@ if (typeof Lenis !== 'undefined') {
   let history = [];
   let busy = false;
 
-  // Prompt hint buttons
   document.querySelectorAll('.ai-hint-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       input.value = btn.textContent;
@@ -135,7 +115,6 @@ if (typeof Lenis !== 'undefined') {
     }
   }
 
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (busy) return;
@@ -143,7 +122,6 @@ if (typeof Lenis !== 'undefined') {
     const message = input.value.trim();
     if (!message) return;
 
-    // Remove hints if present
     document.getElementById('ai-hints')?.remove();
 
     input.value = '';
@@ -152,7 +130,6 @@ if (typeof Lenis !== 'undefined') {
 
     addMessage(message, 'user');
 
-    // Typing indicator with Lottie
     const indicator = document.createElement('div');
     indicator.className = 'ai-msg ai-msg--typing';
     body.appendChild(indicator);
@@ -182,7 +159,6 @@ if (typeof Lenis !== 'undefined') {
 
       const reply = data.reply || 'Something went wrong. Try emailing okulajastephen@gmail.com.';
 
-      // Update history
       history.push({ role: 'user', content: message });
       history.push({ role: 'assistant', content: reply });
       if (history.length > 10) history = history.slice(-10);
@@ -202,9 +178,6 @@ if (typeof Lenis !== 'undefined') {
   });
 })();
 
-// =====================
-// CUSTOM CURSOR (desktop only)
-// =====================
 const dot  = document.querySelector('.cursor-dot');
 const ring = document.querySelector('.cursor-ring');
 const isTouch = window.matchMedia('(hover: none)').matches;
@@ -233,9 +206,6 @@ if (!isTouch && dot && ring) {
   });
 }
 
-// =====================
-// CURSOR LABEL ON CARDS
-// =====================
 if (!isTouch) {
   const label = document.createElement('span');
   label.className = 'cursor-label';
@@ -253,9 +223,6 @@ if (!isTouch) {
   });
 }
 
-// =====================
-// MAGNETIC BUTTONS
-// =====================
 if (!isTouch) {
   document.querySelectorAll('.hero-btn, .form-submit').forEach(btn => {
     btn.addEventListener('mouseenter', () => { btn.style.transition = 'transform 0.1s ease'; });
@@ -270,9 +237,6 @@ if (!isTouch) {
   });
 }
 
-// =====================
-// 3D CARD TILT (desktop only)
-// =====================
 if (!isTouch) {
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mouseenter', () => {
@@ -299,9 +263,6 @@ if (!isTouch) {
   });
 }
 
-// =====================
-// HERO CANVAS AURORA
-// =====================
 (function () {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
@@ -362,9 +323,6 @@ if (!isTouch) {
   rafId = requestAnimationFrame(tick);
 })();
 
-// =====================
-// HERO MOUSE GRADIENT
-// =====================
 const hero = document.getElementById('hero');
 if (hero && !isTouch) {
   hero.addEventListener('mousemove', e => {
@@ -376,17 +334,11 @@ if (hero && !isTouch) {
   });
 }
 
-// =====================
-// STICKY NAV
-// =====================
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-// =====================
-// SCROLL FADE-IN
-// =====================
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -398,9 +350,6 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// =====================
-// CARD STAGGER (anime.js)
-// =====================
 (function () {
   // Fallback: if anime.js CDN failed, show all data-anime elements immediately
   if (typeof anime === 'undefined') {
@@ -457,9 +406,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   if (grid)     cardObserver.observe(grid);
 })();
 
-// =====================
-// PROCESS ICON TIMELINES
-// =====================
 (function () {
   if (typeof anime === 'undefined') return;
 
@@ -472,7 +418,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     if (!entries[0].isIntersecting) return;
     stepObserver.disconnect();
 
-    // Reduced motion: show step cards immediately, skip icon animations
     if (reducedMotion) {
       steps.querySelectorAll('[data-anime="step"]').forEach(el => {
         el.style.opacity = '1';
@@ -481,7 +426,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
       return;
     }
 
-    // Stagger step cards in
     anime({
       targets:    steps.querySelectorAll('[data-anime="step"]'),
       translateY: [24, 0],
@@ -494,7 +438,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     const icons = steps.querySelectorAll('.step-anim');
     const BASE  = 150; // ms stagger between icons
 
-    // DISCOVER (icon 0): radar arm rotates 360°
     anime({
       targets:  icons[0]?.querySelector('.sa-sweep'),
       rotate:   360,
@@ -503,7 +446,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
       delay:    BASE * 0,
     });
 
-    // DESIGN (icon 1): four brackets draw in via strokeDashoffset, 100ms stagger
     anime({
       targets:          icons[1]?.querySelectorAll('.sa-br'),
       strokeDashoffset: [24, 0],
@@ -513,7 +455,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
       delay:            (el, i) => BASE * 1 + i * 100,
     });
 
-    // BUILD (icon 2): ring fills then checkmark draws
     const buildTl = anime.timeline({ easing: 'easeOutCubic' });
     buildTl
       .add({
@@ -529,7 +470,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         duration:         400,
       }, '-=100');
 
-    // LAUNCH (icon 3): orb rises via cy attribute
     anime({
       targets:  icons[3]?.querySelector('.sa-orb'),
       cy:       [60, 16],
@@ -543,9 +483,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   stepObserver.observe(steps);
 })();
 
-// =====================
-// PAGE TRANSITION — card click exit
-// =====================
 (function () {
   if ('startViewTransition' in document) return; // VT handles it natively
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -565,9 +502,6 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   });
 })();
 
-// =====================
-// CONTACT FORM (AJAX)
-// =====================
 const contactForm = document.querySelector('.contact-form');
 const formSuccess = document.getElementById('form-success');
 if (contactForm && formSuccess) {
