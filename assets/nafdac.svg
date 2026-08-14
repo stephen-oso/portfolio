@@ -1,0 +1,66 @@
+<svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+
+  <!-- Page background -->
+  <rect width="860" height="340" fill="#f5f5f3" rx="12"/>
+
+  <!-- White app panel -->
+  <rect x="90" y="12" width="680" height="316" rx="8" fill="#ffffff"/>
+  <rect x="90" y="12" width="680" height="316" rx="8" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Header: NAFDAC (green) Drug Verifier (dark) centered -->
+  <text x="420" y="42" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="-0.01em">
+    <tspan fill="#008751" font-weight="700">NAFDAC</tspan><tspan fill="#111827"> Drug Verifier</tspan>
+  </text>
+  <!-- Info icon -->
+  <circle cx="748" cy="38" r="10" fill="none" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="748" y="42.5" font-size="9" fill="#9ca3af" text-anchor="middle" font-weight="600">i</text>
+
+  <!-- Search input -->
+  <rect x="106" y="54" width="556" height="34" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="122" y="75.5" font-size="11" fill="#111827">Emzor Mebendazole Tablet</text>
+
+  <!-- Verify button -->
+  <rect x="666" y="54" width="88" height="34" rx="6" fill="#008751"/>
+  <text x="710" y="75.5" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="600">Verify</text>
+
+  <!-- VERIFIED banner -->
+  <rect x="106" y="96" width="648" height="50" rx="6" fill="#008751"/>
+  <text x="122" y="113" font-size="8.5" fill="rgba(255,255,255,0.85)" font-weight="600" letter-spacing="0.04em">✓ VERIFIED</text>
+  <text x="122" y="133" font-size="13.5" fill="#ffffff" font-weight="700">Emzor Mebendazole Tablet</text>
+
+  <!-- Detail rows -->
+
+  <!-- Row 1 -->
+  <line x1="106" y1="154" x2="754" y2="154" stroke="#f3f4f6" stroke-width="1"/>
+  <text x="122" y="172" font-size="9.5" fill="#9ca3af">Active Ingredient</text>
+  <text x="738" y="172" font-size="9.5" fill="#111827" font-weight="600" text-anchor="end">Mebendazole</text>
+
+  <!-- Row 2 -->
+  <line x1="106" y1="181" x2="754" y2="181" stroke="#f3f4f6" stroke-width="1"/>
+  <text x="122" y="199" font-size="9.5" fill="#9ca3af">Strength</text>
+  <text x="738" y="199" font-size="9.5" fill="#111827" font-weight="600" text-anchor="end">100 mg</text>
+
+  <!-- Row 3 -->
+  <line x1="106" y1="208" x2="754" y2="208" stroke="#f3f4f6" stroke-width="1"/>
+  <text x="122" y="226" font-size="9.5" fill="#9ca3af">Route of Admin.</text>
+  <text x="738" y="226" font-size="9.5" fill="#111827" font-weight="600" text-anchor="end">Oral</text>
+
+  <!-- Row 4 -->
+  <line x1="106" y1="235" x2="754" y2="235" stroke="#f3f4f6" stroke-width="1"/>
+  <text x="122" y="253" font-size="9.5" fill="#9ca3af">Manufacturer</text>
+  <text x="738" y="253" font-size="9.5" fill="#111827" font-weight="600" text-anchor="end">Emzor Pharmaceutical Industries Limited</text>
+
+  <!-- Row 5 -->
+  <line x1="106" y1="262" x2="754" y2="262" stroke="#f3f4f6" stroke-width="1"/>
+  <text x="122" y="280" font-size="9.5" fill="#9ca3af">Reg. Number</text>
+  <text x="738" y="280" font-size="9.5" fill="#111827" font-weight="600" text-anchor="end">A11-100065</text>
+
+  <!-- Row 6 -->
+  <line x1="106" y1="289" x2="754" y2="289" stroke="#f3f4f6" stroke-width="1"/>
+  <text x="122" y="307" font-size="9.5" fill="#9ca3af">Dosage Form</text>
+  <text x="738" y="307" font-size="9.5" fill="#111827" font-weight="600" text-anchor="end">Tablet</text>
+
+  <!-- Footer -->
+  <text x="430" y="323" font-size="7.5" fill="#d1d5db" text-anchor="middle">DB last updated: 2026-08-07</text>
+
+</svg>

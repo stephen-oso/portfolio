@@ -8,9 +8,210 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="case-study.css" />
+  <style>
+    /* ── Screenshot block ───────────────────────────────────── */
+    .cs-img-block {
+      margin: 2rem 0 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cs-img-block img {
+      width: 100%;
+      display: block;
+    }
+    .cs-img-caption {
+      font-size: 0.72rem;
+      color: var(--subtle);
+      padding: 8px 14px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    /* ── Try it input ───────────────────────────────────────── */
+    .try-wrap {
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .try-input-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .try-input {
+      flex: 1;
+      background: var(--surface);
+      border: none;
+      outline: none;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 14px 16px;
+      min-width: 0;
+    }
+    .try-input::placeholder { color: var(--subtle); }
+    .try-clear {
+      background: none;
+      border: none;
+      border-left: 1px solid var(--border);
+      color: var(--subtle);
+      font-size: 1rem;
+      padding: 0 14px;
+      height: 100%;
+      cursor: pointer;
+      line-height: 1;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      transition: color .15s;
+    }
+    .try-clear:hover { color: var(--text); }
+    .try-result {
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      transition: background .2s;
+    }
+    .try-result.hit { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+    .try-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      background: var(--border);
+      transition: background .2s;
+    }
+    .try-result.hit .try-dot { background: var(--accent); }
+    .try-ref {
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .try-history {
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-height: 0;
+    }
+    .try-history:empty { display: none; }
+    .try-chip {
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      color: var(--accent);
+      border-radius: 99px;
+      padding: 2px 10px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      animation: chip-in .18s ease;
+    }
+    @keyframes chip-in {
+      from { transform: scale(.85); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    /* ── Accuracy chart ──────────────────────────────────────── */
+    .acc-headline {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin: 2rem 0 2.5rem;
+    }
+    .acc-big {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 5.5rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .acc-big-label {
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 180px;
+      line-height: 1.4;
+    }
+    .acc-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .acc-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 52px;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+    }
+    .acc-row-label {
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .acc-bar-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .acc-bar-fill {
+      height: 100%;
+      width: 0;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width 0.7s cubic-bezier(.22,1,.36,1);
+    }
+    .acc-bar-fill.perfect { background: var(--accent); }
+    .acc-bar-fill.partial { background: #c8a070; }
+    .acc-count {
+      font-size: 0.72rem;
+      color: var(--subtle);
+      text-align: right;
+      white-space: nowrap;
+    }
+    .acc-subtext {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .acc-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+      border-radius: 99px;
+      padding: 3px 10px;
+      margin-bottom: 1.5rem;
+    }
+    .acc-live-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse-dot 1.8s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(.7); }
+    }
+    @media (max-width: 600px) {
+      .acc-row { grid-template-columns: 130px 1fr 44px; }
+    }
+  </style>
 </head>
 <body>
 
+  <div class="progress-bar" id="progress-bar"></div>
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
 
@@ -19,88 +220,129 @@
     <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
   </nav>
 
-  <header class="cs-hero fade-in">
+  <header class="cs-hero">
     <p class="cs-num">04 &mdash; VerseCue</p>
-    <h1 class="cs-title">An AI tool that finds the right Bible verse in seconds — built for worship operators running live services in real time.</h1>
+    <h1 class="cs-title">A real-time church media tool that listens to the pastor and pushes Bible verses to the projector &mdash; no API costs, no second operator needed.</h1>
+    <div class="cs-project-img">
+      <img src="../assets/versecue.svg" alt="VerseCue operator interface" />
+    </div>
     <div class="cs-meta">
       <div class="cs-meta-item">
-        <span class="cs-meta-label">Project Type</span>
-        <span class="cs-meta-value">AI Tool / Product</span>
-      </div>
-      <div class="cs-meta-item">
         <span class="cs-meta-label">Role</span>
-        <span class="cs-meta-value">Designer & Developer</span>
+        <span class="cs-meta-value">Designer &amp; Developer</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Year</span>
-        <span class="cs-meta-value">2025</span>
+        <span class="cs-meta-value">2026</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Type</span>
-        <span class="cs-meta-value">AI · React · Worship Tech</span>
+        <span class="cs-meta-value">Vanilla JS &middot; Speech Recognition &middot; Worship Tech</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Live</span>
+        <a class="cs-meta-link" href="https://versecue-one.vercel.app/" target="_blank" rel="noopener">Open the App &rarr;</a>
       </div>
     </div>
   </header>
 
-  <div class="cs-project-img fade-in">
-    <img src="../assets/versecue.svg" alt="VerseCue operator interface showing scripture retrieval" />
-  </div>
-
   <main class="cs-body">
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">Context</p>
-      <h2>Live worship media is a high-pressure, zero-margin-for-error environment.</h2>
-      <p>Media operators running live church services manage lyrics, scriptures, announcements, and transitions — simultaneously, in real time, in front of a congregation. One wrong slide, one missed cue, and it's visible to everyone in the room. It's a role that demands precision and gets almost no design attention.</p>
-      <p>VerseCue was built to solve one specific friction point: finding and queuing the right Bible verse mid-service, fast, without losing focus on everything else happening at once.</p>
-    </section>
-
-    <section class="cs-section fade-in">
       <p class="cs-section-label">The Problem</p>
-      <h2>When a pastor calls an unplanned verse, the operator has about four seconds.</h2>
-      <p>Existing tools require operators to know the exact scripture reference, or to search by keyword and then filter through results. That's a workflow designed for preparation — not for live execution under pressure. When a pastor calls a verse mid-sermon, or references it slightly wrong, or uses thematic language instead of a reference, operators scramble. The interface that works in a planning session is the wrong tool in the room.</p>
-      <p>The cost is small any individual Sunday. Multiplied across every service, it's a consistent source of operational stress for media teams who are already juggling too much.</p>
-      <img src="../assets/versecue-workflow.svg" alt="Live service timeline — scripture retrieval friction" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
-      <p class="cs-img-caption">When a verse is called mid-sermon, the operator needs to retrieve and project it immediately. Existing tools require switching apps and searching manually. VerseCue keeps it in one place, one step.</p>
+      <div class="cs-stat">
+        <span class="cs-stat-num">3&ndash;8 sec</span>
+        <span class="cs-stat-desc">the gap when a pastor calls an unplanned verse mid-sermon</span>
+      </div>
+      <h2>Church media operators run two jobs at once: advancing planned slides and hunting for surprise references. When the pastor improvises, something gets dropped.</h2>
     </section>
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">Approach</p>
-      <h2>Natural language in. Projection-ready verse out. As few steps between them as possible.</h2>
-      <p>VerseCue uses AI to interpret natural language queries — a partial reference, a theme, a sentence lifted from the sermon — and surface the most contextually relevant verses immediately. The operator types what they heard or half-remember, not what they know precisely. The AI handles the disambiguation.</p>
-      <p>The interface is minimal by design. Operators in a live service don't need features — they need the right result fast and a clear path to push it to screen. The display layer formats verses for immediate projection: correct translation, clean typography, ready to go.</p>
-      <img src="../assets/versecue-query.svg" alt="VerseCue query interface — natural language search and results" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
-      <p class="cs-img-caption">The operator types what they heard from the sermon. The AI interprets the theme, finds the most contextually relevant verses, and the top result is one click from the projection screen.</p>
-      <img src="../assets/versecue.svg" alt="VerseCue projection output" style="width:100%;border-radius:10px;display:block;margin:1.5rem 0 0;" />
-      <p class="cs-img-caption">Projection-ready output: correct translation, clean display typography, formatted for the room.</p>
+      <p class="cs-section-label">What Was Built</p>
+      <h2>Listen, detect, display &mdash; under two seconds.</h2>
+      <ul class="cs-feature-list">
+        <li>Auto-detect mode &mdash; mic listens continuously; a custom detection engine recognises all 66 Bible books by spoken name, abbreviation, and number words</li>
+        <li>Cue list mode &mdash; build a service plan in the Builder tab, arm it, and advance with the Space bar</li>
+        <li>Projector output &mdash; verse appears in the display panel and a full-screen window instantly; operator never loses focus</li>
+        <li>Custom text &mdash; push lyrics, announcements, or blank slides at any moment during the service</li>
+        <li>Custom test harness &mdash; 80+ adversarial test cases across 12 categories including false-positive traps, number words, verse ranges, and mid-sentence detection; results generated live in the browser</li>
+      </ul>
     </section>
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">The Process</p>
-      <h2>Every design decision came back to one constraint: operators can't look away from the main screen.</h2>
-      <p>The dark UI isn't aesthetic — it's functional. Media operators work in partially lit booths at the back or side of a room. A bright white interface creates glare and breaks the operator's visual adjustment to a dim environment. Every colour decision was made against that constraint.</p>
-      <p>The core design challenge was disambiguation. A query like "the lost sheep" is unambiguous. A query like "come back to the father" could be Luke 15, Romans 8, or a dozen other passages depending on sermon context. The AI layer is prompted to infer semantic intent — theme and context, not just keyword match — and surfaces ranked results rather than a flat list. The operator picks; the AI narrows.</p>
-      <p>The projection layer is a separate design problem. A verse that reads fine on a laptop at arm's length reads completely differently projected at distance. The display mode uses a larger type scale, increased line spacing, and a high-contrast palette tuned for projection — separate from the operator's query interface, which stays dark and compact.</p>
-      <p>The stack is React frontend with an AI API for natural language processing and a Bible API for verse data — kept deliberately separate so either can be swapped without breaking the other.</p>
+      <p class="cs-section-label">Try It</p>
+      <h2>Type any spoken Bible reference and watch the engine detect it.</h2>
+      <div class="try-wrap">
+        <div class="try-input-row">
+          <input id="try-input" class="try-input" type="text"
+            placeholder="e.g. &ldquo;turn to John chapter 3 verse 16&rdquo; or &ldquo;first Corinthians thirteen one&rdquo;" />
+          <button class="try-clear" id="try-clear" aria-label="Clear">&times;</button>
+        </div>
+        <div class="try-result" id="try-result">
+          <span class="try-dot"></span>
+          <span id="try-msg">Waiting for input&hellip;</span>
+        </div>
+        <div class="try-history" id="try-history"></div>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in" id="acc-section">
+      <p class="cs-section-label">Accuracy</p>
+      <h2>The detection engine was tested against 67 spoken variations before deployment.</h2>
+      <div class="acc-live-badge">Live results — computed on this page</div>
+      <p class="acc-subtext">The engine runs inline here. Every figure below is generated by actually executing the detection logic against the test suite right now &mdash; not hardcoded.</p>
+      <div class="acc-headline">
+        <span class="acc-big" id="acc-pct">—</span>
+        <span class="acc-big-label">accuracy across all spoken variations</span>
+      </div>
+      <div class="acc-chart" id="acc-chart"></div>
+      <div class="cs-img-block">
+        <img src="../assets/versecue-test-suite.png" alt="VerseCue detection test suite running 67 cases — all passing" loading="lazy" />
+        <p class="cs-img-caption">The test suite running in the browser &mdash; 67 spoken variations, 0 failures. Includes adversarial cases designed to expose false positives.</p>
+      </div>
+      <div class="cs-links">
+        <a class="cs-link-btn" href="https://versecue-one.vercel.app/test.html" target="_blank" rel="noopener">Run the full test suite &rarr;</a>
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Decision</p>
+      <h2>Replaced a paid AI API with a local regex engine. Zero running cost.</h2>
+      <ul class="cs-feature-list">
+        <li>Local detection handles all 66 Bible books by name, abbreviation, and number words &mdash; no subscription, no latency, no credits burning</li>
+        <li>Number-word normalisation converts spoken phrases like &ldquo;one hundred and nineteen&rdquo; to 119 before matching &mdash; every chapter and verse in the Bible, spoken naturally</li>
+        <li>Ambiguous-word filter suppresses false positives on common English words that double as book names &mdash; &ldquo;job&rdquo;, &ldquo;mark&rdquo;, &ldquo;acts&rdquo;, &ldquo;numbers&rdquo;, &ldquo;ruth&rdquo; only fire when accompanied by &ldquo;chapter&rdquo;, &ldquo;verse&rdquo;, or a colon</li>
+        <li>&ldquo;And&rdquo; as verse separator &mdash; &ldquo;Philippians four and thirteen&rdquo; now resolves to Philippians 4:13, not just chapter 4</li>
+      </ul>
     </section>
 
     <section class="cs-section fade-in">
       <p class="cs-section-label">Outcome</p>
-      <h2>A tool that removes the search and keeps the operator in flow.</h2>
-      <p>VerseCue is a fully functional React application. The AI layer handles retrieval — semantic matching against scripture, ranked by contextual relevance — and the operator makes the final call. The core shift isn't speed, it's cognitive load: the operator stays in one tool, in one mental context, instead of switching applications mid-service to chase a reference.</p>
-      <ul class="cs-tags">
-        <li>AI Integration</li><li>React</li><li>Worship Tech</li><li>UX Design</li><li>Tool Design</li>
+      <h2>Deployed. Free for any church. Detection runs entirely in the browser.</h2>
+      <ul class="cs-feature-list">
+        <li><span><strong>No backend, no server costs, no API key</strong> &mdash; any church can open the URL and use it today</span></li>
+        <li><span><strong>Custom NLP without a model</strong> &mdash; the regex engine is faster and cheaper than any AI API for this specific matching task, and verifiably correct</span></li>
+        <li><span><strong>Self-proving portfolio piece</strong> &mdash; the accuracy chart on this page runs the actual test suite on load; the number is never hardcoded</span></li>
+        <li><span><strong>Demonstrates knowing when not to use AI</strong> &mdash; a deliberate constraint, not a gap; adversarial testing exposed three failure modes that were fixed before release</span></li>
       </ul>
-      <div class="cs-reflection">
-        <p class="cs-reflection-label">Reflection</p>
-        <p>The narrow scope is the right call. Tools that try to replace an operator's full workflow fail; tools that solve one specific job within that workflow get used. If I were developing this further, I'd add service planning mode — the ability to pre-queue verses before the service starts, with the AI layer available for the inevitable improvisation. That would make VerseCue useful for both preparation and live execution without compromising either.</p>
+      <ul class="cs-tags">
+        <li>Product Design</li>
+        <li>Vanilla JS</li>
+        <li>Regex NLP</li>
+        <li>Speech Recognition API</li>
+        <li>Test-Driven QA</li>
+        <li>Worship Tech</li>
+      </ul>
+      <div class="cs-links">
+        <a class="cs-link-btn" href="https://versecue-one.vercel.app/" target="_blank" rel="noopener">Open VerseCue &rarr;</a>
+        <a class="cs-link-btn" href="https://versecue-one.vercel.app/test.html" target="_blank" rel="noopener" style="background:transparent;color:var(--accent);border:1px solid var(--accent);">Test suite &rarr;</a>
       </div>
     </section>
 
   </main>
 
   <nav class="cs-project-nav fade-in">
-    <a href="fanband.html">&larr; FanBand</a>
+    <a href="machineline.html">&larr; MachineLine</a>
     <a class="next" href="elicit-furnishing.html">Next: Elicit Furnishing &rarr;</a>
   </nav>
 
@@ -113,6 +355,185 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
   <script src="case-study.js"></script>
+
+  <script>
+  /* ── Detection engine (mirrored from index.html) ─────────────────── */
+  var _BOOKS=[['Genesis',['genesis','gen']],['Exodus',['exodus','exo','exod']],['Leviticus',['leviticus','lev']],['Numbers',['numbers','num']],['Deuteronomy',['deuteronomy','deut','deu']],['Joshua',['joshua','josh']],['Judges',['judges','judg']],['Ruth',['ruth']],['1 Samuel',['1 samuel','samuel']],['2 Samuel',['2 samuel']],['1 Kings',['1 kings','kings']],['2 Kings',['2 kings']],['1 Chronicles',['1 chronicles','chronicles']],['2 Chronicles',['2 chronicles']],['Ezra',['ezra']],['Nehemiah',['nehemiah','neh']],['Esther',['esther']],['Job',['job']],['Psalms',['psalms','psalm','psa']],['Proverbs',['proverbs','prov']],['Ecclesiastes',['ecclesiastes','eccl']],['Song of Solomon',['song of solomon','song of songs','songs','song']],['Isaiah',['isaiah','isa']],['Jeremiah',['jeremiah','jer']],['Lamentations',['lamentations','lam']],['Ezekiel',['ezekiel','ezek']],['Daniel',['daniel','dan']],['Hosea',['hosea','hos']],['Joel',['joel']],['Amos',['amos']],['Obadiah',['obadiah','obad']],['Jonah',['jonah']],['Micah',['micah','mic']],['Nahum',['nahum','nah']],['Habakkuk',['habakkuk','hab']],['Zephaniah',['zephaniah','zeph']],['Haggai',['haggai','hag']],['Zechariah',['zechariah','zech']],['Malachi',['malachi','mal']],['Matthew',['matthew','matt']],['Mark',['mark']],['Luke',['luke']],['John',['john']],['Acts',['acts']],['Romans',['romans','rom']],['1 Corinthians',['1 corinthians','corinthians']],['2 Corinthians',['2 corinthians']],['Galatians',['galatians','gal']],['Ephesians',['ephesians','eph']],['Philippians',['philippians','phil']],['Colossians',['colossians','col']],['1 Thessalonians',['1 thessalonians','thessalonians']],['2 Thessalonians',['2 thessalonians']],['1 Timothy',['1 timothy','timothy']],['2 Timothy',['2 timothy']],['Titus',['titus']],['Philemon',['philemon']],['Hebrews',['hebrews','heb']],['James',['james']],['1 Peter',['1 peter','peter']],['2 Peter',['2 peter']],['1 John',['1 john']],['2 John',['2 john']],['3 John',['3 john']],['Jude',['jude']],['Revelation',['revelation','revelations','rev']]];
+  var _be=null,_bp=null;
+  function _ed(){if(_bp)return;var e=[];_BOOKS.forEach(function(b){b[1].forEach(function(a){e.push({a:a,c:b[0]});});});e.sort(function(x,y){return y.a.length-x.a.length;});_be=e;var alt=e.map(function(x){return x.a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|');_bp=new RegExp('(?:the\\s+(?:book\\s+of\\s+)?)?\\b('+alt+')\\b\\s+(?:chapter\\s+)?(\\d+)(?:(?::| +and +| +(?:verse +)?)(\\d+)(?:\\s*(?:through|thru|to|-|and)\\s*(\\d+))?)?','i');}
+  function _ns(t){t=t.toLowerCase().replace(/[,;!?'"]/g,' ').replace(/\s+/g,' ').trim();t=t.replace(/\bfirst\b/g,'1').replace(/\bsecond\b/g,'2').replace(/\bthird\b/g,'3').replace(/\b1st\b/g,'1').replace(/\b2nd\b/g,'2').replace(/\b3rd\b/g,'3');t=t.replace(/\bone hundred (?:and )?((?:(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[- ](?:one|two|three|four|five|six|seven|eight|nine))|(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)|(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen))\b/g,function(_,r){var T={twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90},O={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19};var p=r.replace(/-/g,' ').split(/\s+/),n=0;p.forEach(function(x){if(T[x])n+=T[x];else if(O[x])n+=O[x];});return String(100+(n||0));});t=t.replace(/\bone hundred\b/g,'100');t=t.replace(/\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[- ](one|two|three|four|five|six|seven|eight|nine)\b/g,function(_,a,b){var T={twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90},O={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9};return String(T[a]+O[b]);});var W={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90};t=t.replace(/\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b/g,function(m){return String(W[m]);});return t;}
+  var _AMB={Job:1,Ruth:1,Mark:1,Acts:1,Numbers:1};
+  function _dbr(raw){_ed();var t=_ns(raw),m=_bp.exec(t);if(!m)return null;var alias=m[1].toLowerCase(),canon=null;for(var i=0;i<_be.length;i++){if(_be[i].a===alias){canon=_be[i].c;break;}}if(!canon)return null;if(_AMB[canon]&&!/chapter[\s\d]|verse[\s\d]|:/i.test(m[0]))return null;var ch=parseInt(m[2],10),vs=m[3]?parseInt(m[3],10):null,ev=m[4]?parseInt(m[4],10):null;if(!ch||ch<1||ch>150)return null;var ref=canon+' '+ch;if(vs&&vs>=1&&vs<=176){ref+=':'+vs;if(ev&&ev>vs)ref+='-'+ev;}return{reference:ref};}
+
+  /* ── Test cases ───────────────────────────────────────────────────── */
+  var SUITE = [
+    {cat:'Standard typed refs',      input:'John 3:16',                                          expect:'John 3:16'},
+    {cat:'Standard typed refs',      input:'Genesis 1:1',                                        expect:'Genesis 1:1'},
+    {cat:'Standard typed refs',      input:'Psalms 23:1',                                        expect:'Psalms 23:1'},
+    {cat:'Standard typed refs',      input:'Revelation 22:21',                                   expect:'Revelation 22:21'},
+    {cat:'Standard typed refs',      input:'Proverbs 3:5',                                       expect:'Proverbs 3:5'},
+    {cat:'Standard typed refs',      input:'Romans 8:28',                                        expect:'Romans 8:28'},
+    {cat:'Standard typed refs',      input:'Isaiah 40:31',                                       expect:'Isaiah 40:31'},
+    {cat:'Standard typed refs',      input:'Matthew 5:3',                                        expect:'Matthew 5:3'},
+    {cat:'Spoken natural phrasing',  input:'turn to John chapter 3 verse 16',                    expect:'John 3:16'},
+    {cat:'Spoken natural phrasing',  input:'let us read from Psalms chapter 23',                 expect:'Psalms 23'},
+    {cat:'Spoken natural phrasing',  input:'open your Bibles to Romans chapter 8 verse 28',      expect:'Romans 8:28'},
+    {cat:'Spoken natural phrasing',  input:'the book of Genesis chapter 1 verse 1',              expect:'Genesis 1:1'},
+    {cat:'Spoken natural phrasing',  input:'go to Matthew chapter five verse three',             expect:'Matthew 5:3'},
+    {cat:'Spoken natural phrasing',  input:'read Isaiah chapter forty verse thirty one',         expect:'Isaiah 40:31'},
+    {cat:'Spoken natural phrasing',  input:'Acts chapter two verse thirty eight',                expect:'Acts 2:38'},
+    {cat:'Spoken natural phrasing',  input:'Hebrews chapter eleven verse one',                   expect:'Hebrews 11:1'},
+    {cat:'Spoken natural phrasing',  input:'turn to the book of Revelation chapter twenty two verse twenty one', expect:'Revelation 22:21'},
+    {cat:'Number words',             input:'Philippians four thirteen',                          expect:'Philippians 4:13'},
+    {cat:'Number words',             input:'Jeremiah twenty nine eleven',                        expect:'Jeremiah 29:11'},
+    {cat:'Number words',             input:'Proverbs three five',                                expect:'Proverbs 3:5'},
+    {cat:'Number words',             input:'John chapter three verse sixteen',                   expect:'John 3:16'},
+    {cat:'Number words',             input:'Psalms one hundred and nineteen verse one hundred five', expect:'Psalms 119:105'},
+    {cat:'Number words',             input:'Psalms one hundred nineteen one hundred five',       expect:'Psalms 119:105'},
+    {cat:'Number words',             input:'Isaiah sixty six verse two',                         expect:'Isaiah 66:2'},
+    {cat:'Number words',             input:'Revelation chapter twenty two verse twenty one',     expect:'Revelation 22:21'},
+    {cat:'Numbered books',           input:'first Corinthians thirteen one',                     expect:'1 Corinthians 13:1'},
+    {cat:'Numbered books',           input:'second Timothy chapter three verse sixteen',         expect:'2 Timothy 3:16'},
+    {cat:'Numbered books',           input:'third John chapter one verse four',                  expect:'3 John 1:4'},
+    {cat:'Numbered books',           input:'1st Peter chapter five verse seven',                 expect:'1 Peter 5:7'},
+    {cat:'Numbered books',           input:'2nd Corinthians twelve nine',                        expect:'2 Corinthians 12:9'},
+    {cat:'Numbered books',           input:'first John four eight',                              expect:'1 John 4:8'},
+    {cat:'Numbered books',           input:'second Samuel chapter seven verse sixteen',          expect:'2 Samuel 7:16'},
+    {cat:'Numbered books',           input:'first Kings eight twenty two',                       expect:'1 Kings 8:22'},
+    {cat:'Abbreviations',            input:'gen 1:1',                                            expect:'Genesis 1:1'},
+    {cat:'Abbreviations',            input:'psa 23',                                             expect:'Psalms 23'},
+    {cat:'Abbreviations',            input:'prov 3:5',                                           expect:'Proverbs 3:5'},
+    {cat:'Abbreviations',            input:'isa 40:31',                                          expect:'Isaiah 40:31'},
+    {cat:'Abbreviations',            input:'jer 29:11',                                          expect:'Jeremiah 29:11'},
+    {cat:'Abbreviations',            input:'matt 5:3',                                           expect:'Matthew 5:3'},
+    {cat:'Abbreviations',            input:'rom 8:28',                                           expect:'Romans 8:28'},
+    {cat:'Abbreviations',            input:'eph 2:8',                                            expect:'Ephesians 2:8'},
+    {cat:'Abbreviations',            input:'heb 11:1',                                           expect:'Hebrews 11:1'},
+    {cat:'Abbreviations',            input:'rev 22:21',                                          expect:'Revelation 22:21'},
+    {cat:'Abbreviations',            input:'phil 4:13',                                          expect:'Philippians 4:13'},
+    {cat:'Abbreviations',            input:'col 3:23',                                           expect:'Colossians 3:23'},
+    {cat:'Abbreviations',            input:'gal 2:20',                                           expect:'Galatians 2:20'},
+    {cat:'Verse ranges',             input:'John 3:16 through 17',                               expect:'John 3:16-17'},
+    {cat:'Verse ranges',             input:'Romans 8:28 to 30',                                  expect:'Romans 8:28-30'},
+    {cat:'Verse ranges',             input:'Psalms 23:1 thru 3',                                 expect:'Psalms 23:1-3'},
+    {cat:'Verse ranges',             input:'Isaiah 40:31 and 32',                                expect:'Isaiah 40:31-32'},
+    {cat:'Chapter-only refs',        input:'open to Psalms chapter 23',                          expect:'Psalms 23'},
+    {cat:'Chapter-only refs',        input:'read Romans chapter eight',                          expect:'Romans 8'},
+    {cat:'Chapter-only refs',        input:'John chapter three',                                 expect:'John 3'},
+    {cat:'Special books',            input:'Song of Solomon chapter one verse one',              expect:'Song of Solomon 1:1'},
+    {cat:'Special books',            input:'song of songs 2 verse fifteen',                      expect:'Song of Solomon 2:15'},
+    {cat:'Special books',            input:'songs 3:11',                                         expect:'Song of Solomon 3:11'},
+    {cat:'Mid-sentence detection',   input:'as Paul wrote in Philippians 4:13 we can do all things', expect:'Philippians 4:13'},
+    {cat:'Mid-sentence detection',   input:"today's message comes from John chapter 3 verse 16 which says", expect:'John 3:16'},
+    {cat:'Mid-sentence detection',   input:'I want us to look at Hebrews eleven one this morning', expect:'Hebrews 11:1'},
+    {cat:'Mid-sentence detection',   input:"let's close in prayer with Psalms 23 as our backdrop", expect:'Psalms 23'},
+    {cat:'False positive rejection', input:'Good morning everyone welcome to service today',     expect:null},
+    {cat:'False positive rejection', input:'Let us pray together',                               expect:null},
+    {cat:'False positive rejection', input:'God is so good all the time',                        expect:null},
+    {cat:'False positive rejection', input:'I want to thank everyone who came out today',        expect:null},
+    {cat:'False positive rejection', input:'see you next Sunday for part two of this series',    expect:null},
+    {cat:'False positive rejection', input:'he lost his job 3 years ago',                        expect:null},
+    {cat:'False positive rejection', input:'the numbers 3 and 4 are wrong',                      expect:null},
+    {cat:'False positive rejection', input:'she acts 2 years younger than she is',               expect:null},
+    {cat:'False positive rejection', input:'mark 2 items on the list',                           expect:null},
+  ];
+
+  /* ── Run + render ─────────────────────────────────────────────────── */
+  function runAccuracy() {
+    var byCategory = {};
+    SUITE.forEach(function(t) {
+      if (!byCategory[t.cat]) byCategory[t.cat] = {pass:0, total:0};
+      var result = _dbr(t.input);
+      var got = result ? result.reference : null;
+      var pass = t.expect === null ? got === null : got === t.expect;
+      byCategory[t.cat].total++;
+      if (pass) byCategory[t.cat].pass++;
+    });
+
+    var totalPass = 0, totalAll = 0;
+    Object.values(byCategory).forEach(function(c){ totalPass += c.pass; totalAll += c.total; });
+    var overallPct = Math.round(totalPass / totalAll * 100);
+
+    document.getElementById('acc-pct').textContent = overallPct + '%';
+
+    var chart = document.getElementById('acc-chart');
+    chart.innerHTML = '';
+    Object.entries(byCategory).forEach(function(entry) {
+      var cat = entry[0], data = entry[1];
+      var pct = Math.round(data.pass / data.total * 100);
+      var row = document.createElement('div');
+      row.className = 'acc-row';
+      row.innerHTML =
+        '<span class="acc-row-label">' + cat + '</span>' +
+        '<div class="acc-bar-track"><div class="acc-bar-fill ' + (pct===100?'perfect':'partial') + '" data-pct="' + pct + '"></div></div>' +
+        '<span class="acc-count">' + data.pass + '/' + data.total + '</span>';
+      chart.appendChild(row);
+    });
+
+    /* Animate bars in when section scrolls into view */
+    function animateBars() {
+      document.querySelectorAll('.acc-bar-fill').forEach(function(bar) {
+        bar.style.width = bar.dataset.pct + '%';
+      });
+    }
+
+    var section = document.getElementById('acc-section');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) { animateBars(); obs.disconnect(); }
+      }, { threshold: 0.2 });
+      obs.observe(section);
+    } else {
+      animateBars();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    runAccuracy();
+
+    var tryInput   = document.getElementById('try-input');
+    var tryResult  = document.getElementById('try-result');
+    var tryMsg     = document.getElementById('try-msg');
+    var tryHistory = document.getElementById('try-history');
+    var tryClear   = document.getElementById('try-clear');
+    var lastRef    = null;
+
+    tryInput.addEventListener('input', function() {
+      var text = tryInput.value;
+      if (!text.trim()) { resetTry(); return; }
+      var result = _dbr(text);
+      if (result) {
+        tryResult.className = 'try-result hit';
+        tryMsg.innerHTML = 'Detected: <span class="try-ref">' + result.reference + '</span>';
+        if (result.reference !== lastRef) {
+          lastRef = result.reference;
+          var chip = document.createElement('span');
+          chip.className = 'try-chip';
+          chip.textContent = result.reference;
+          tryHistory.prepend(chip);
+        }
+      } else {
+        tryResult.className = 'try-result';
+        tryMsg.textContent = 'No reference detected yet…';
+        lastRef = null;
+      }
+    });
+
+    tryClear.addEventListener('click', function() {
+      tryInput.value = '';
+      tryHistory.innerHTML = '';
+      resetTry();
+      tryInput.focus();
+    });
+
+    function resetTry() {
+      tryResult.className = 'try-result';
+      tryMsg.textContent = 'Waiting for input…';
+      lastRef = null;
+    }
+  });
+  </script>
 </body>
 </html>

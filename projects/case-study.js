@@ -1,4 +1,90 @@
 // =====================
+// PAGE CURTAIN REVEAL (non-VT entry animation)
+// =====================
+(function () {
+  if ('startViewTransition' in document) return; // VT handles transitions
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const curtain = document.createElement('div');
+  curtain.className = 'cs-curtain';
+  document.body.appendChild(curtain);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      curtain.classList.add('cs-curtain--out');
+      curtain.addEventListener('transitionend', () => curtain.remove(), { once: true });
+    });
+  });
+})();
+
+// =====================
+// PAGE EXIT on nav-back (non-VT)
+// =====================
+(function () {
+  if ('startViewTransition' in document) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.nav-back, .cs-project-nav a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.href;
+      if (!href || href.includes('#')) return;
+      e.preventDefault();
+      document.body.style.opacity = '0';
+      document.body.style.transform = 'translateY(-8px)';
+      document.body.style.transition = 'opacity 260ms ease, transform 260ms ease';
+      setTimeout(() => { window.location.href = href; }, 280);
+    });
+  });
+})();
+
+// =====================
+// LENIS SMOOTH SCROLL
+// =====================
+if (typeof Lenis !== 'undefined') {
+  const _lenis = new Lenis({ duration: 1.2 });
+  function _raf(time) { _lenis.raf(time); requestAnimationFrame(_raf); }
+  requestAnimationFrame(_raf);
+}
+
+// =====================
+// READING PROGRESS BAR
+// =====================
+const progressBar = document.getElementById('progress-bar');
+if (progressBar) {
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.setProperty('--p', (window.scrollY / max).toFixed(4));
+  }, { passive: true });
+}
+
+// =====================
+// STAT COUNTER
+// =====================
+function animateStat(el) {
+  const raw = el.textContent.trim();
+  const m = raw.match(/^([\d.]+)(.*)/);
+  if (!m) return;
+  const end = parseFloat(m[1]);
+  const suffix = m[2];
+  const t0 = performance.now();
+  const dur = 1400;
+  (function frame(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(end * eased) + suffix;
+    if (p < 1) requestAnimationFrame(frame);
+  })(t0);
+}
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateStat(e.target); statObs.unobserve(e.target); }
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll('.cs-stat-num').forEach(el => statObs.observe(el));
+
+// =====================
 // CUSTOM CURSOR (desktop only)
 // =====================
 const dot  = document.querySelector('.cursor-dot');
@@ -70,3 +156,26 @@ function scaleEmbeds() {
 }
 window.addEventListener('load', scaleEmbeds);
 window.addEventListener('resize', scaleEmbeds);
+
+// =====================
+// VP-CARD SCROLL REVEAL (NAFDAC verification paths)
+// =====================
+(function () {
+  const cards = document.querySelectorAll('.vp-card');
+  if (!cards.length) return;
+  cards.forEach(c => c.classList.add('vp-will-animate'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.prototype.indexOf.call(cards, e.target);
+          setTimeout(() => e.target.classList.add('vp-in'), idx * 75);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    cards.forEach(c => io.observe(c));
+  } else {
+    cards.forEach(c => c.classList.add('vp-in'));
+  }
+})();

@@ -11,6 +11,7 @@
 </head>
 <body>
 
+  <div class="progress-bar" id="progress-bar"></div>
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
 
@@ -19,17 +20,16 @@
     <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
   </nav>
 
-  <header class="cs-hero fade-in">
+  <header class="cs-hero">
     <p class="cs-num">03 &mdash; FanBand</p>
-    <h1 class="cs-title">A music discovery and community platform designed for the gap between indie artists and the fans who would follow them early.</h1>
+    <h1 class="cs-title">A music discovery and community platform for the gap between indie artists and the fans who would follow them first.</h1>
+    <div class="cs-project-img">
+      <img src="../assets/fanband.svg" alt="FanBand artist discovery interface" />
+    </div>
     <div class="cs-meta">
       <div class="cs-meta-item">
-        <span class="cs-meta-label">Project Type</span>
-        <span class="cs-meta-value">Product Design & Dev</span>
-      </div>
-      <div class="cs-meta-item">
         <span class="cs-meta-label">Role</span>
-        <span class="cs-meta-value">Designer & Developer</span>
+        <span class="cs-meta-value">Designer &amp; Developer</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Year</span>
@@ -37,63 +37,41 @@
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Type</span>
-        <span class="cs-meta-value">Product · Music · Web App</span>
+        <span class="cs-meta-value">Product &middot; Music &middot; Web App</span>
       </div>
     </div>
   </header>
 
-  <div class="cs-project-img fade-in">
-    <img src="../assets/fanband.svg" alt="FanBand artist discovery interface" />
-  </div>
-
   <main class="cs-body">
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">Context</p>
-      <h2>Streaming is great at giving you more of what you already like. It's broken for everything else.</h2>
-      <p>Spotify and Apple Music have optimised for retention — keeping you in the platform, on music you've already signalled you enjoy. That works well for listeners who want comfort. It's a dead end for artists who need first exposure, and for the listeners who would genuinely connect with them if the introduction ever happened.</p>
-      <p>FanBand started as a question: what does a platform look like if it's built specifically for that first introduction — before the algorithm knows who an artist is?</p>
-    </section>
-
-    <section class="cs-section fade-in">
       <p class="cs-section-label">The Problem</p>
-      <h2>Artists need early fans. Fans need a reason to care before the crowd does. No existing platform solves both.</h2>
-      <p>Streaming platforms give artists analytics. Social platforms give them reach but no monetisation or real community infrastructure. Neither is designed for the moment before an artist breaks — when they most need an audience and when fans have the most to gain from finding them.</p>
-      <p>The discovery gap isn't a technical problem. Spotify has the catalogue. The gap is structural: the incentives of a scale platform don't reward early-stage artists or early-adopter listeners. FanBand needed to be designed around that specific moment, not as a feature on top of an existing model.</p>
-      <img src="../assets/fanband-landscape.svg" alt="Platform landscape — discovery vs community" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
-      <p class="cs-img-caption">Spotify owns discovery at scale. Instagram owns reach. Neither owns depth for early-stage artists. FanBand is designed for that quadrant.</p>
+      <div class="cs-split">
+        <div class="cs-split-text">
+          <h2>Streaming algorithms reward momentum. Early artists and the fans who'd find them first have nowhere to meet.</h2>
+        </div>
+        <div class="cs-split-visual">
+          <img src="../assets/fanband-landscape.svg" alt="Platform landscape showing the discovery gap" />
+        </div>
+      </div>
     </section>
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">Approach</p>
-      <h2>Designed around two distinct users with interlocking needs.</h2>
-      <p>Artists and fans want different things, but they need each other. The product was built around that dependency. Artists get a dedicated profile with music upload, posting, and a subscriber base they own. Fans get curated discovery — new artists surfaced by genre and taste, early access signals when an artist they follow releases, and a space to engage before the mainstream catches on.</p>
-      <p>The design deliberately avoids social platform conventions. No feed designed for infinite scroll, no vanity metrics front-and-centre. The visual direction — editorial, unhurried, built around cover art and listening — is closer to a music magazine than an app. That was a deliberate positioning choice: depth over volume.</p>
-      <img src="../assets/fanband-design.svg" alt="FanBand design system — type, colour, components" style="width:100%;border-radius:10px;display:block;margin:2rem 0 0;" />
-      <img src="../assets/fanband.svg" alt="FanBand discovery feed and artist profiles" style="width:100%;border-radius:10px;display:block;margin:1.5rem 0 0;" />
-      <p class="cs-img-caption">Discovery feed: genre-tagged artist cards, waveform previews, early-access signals. No infinite scroll, no vanity metrics in view — designed to surface one artist worth your full attention, not twenty you'll scroll past.</p>
-    </section>
-
-    <section class="cs-section fade-in">
-      <p class="cs-section-label">The Process</p>
-      <h2>Two account types, two completely different interfaces — built on the same design system.</h2>
-      <p>Artist and fan accounts see different things when they log in. Artists get an upload dashboard, a post editor, and subscriber analytics — the tools of someone building an audience. Fans get a curated discovery feed, artist follow lists, and early-access release notifications — the tools of someone looking for their next favourite. The permission model was an early architectural decision that shaped everything downstream, including what the navigation even looks like.</p>
-      <p>The discovery feed was the trickiest design problem. Algorithmic ranking creates filter bubbles and rewards whoever already has momentum — exactly the problem FanBand was built to avoid. The feed is curated by genre and listener preference, but the display is deliberately non-ranked: cards are equal in size, there's no play count or follower number shown at discovery stage. You're responding to the music, not the metrics.</p>
-      <p>The editorial visual direction required constraint. The temptation was to use the dark purple palette to look "premium." The actual reason for it: music deserves contrast. Cover art pops on dark backgrounds. White space forces the listener to stop and pay attention rather than scanning a dense grid. Playfair Display for artist names gives the platform a different register than a social app — it reads like a magazine byline, not a username.</p>
-      <p>React handles routing and state. The build includes 10 distinct page types: discover, artist profile, fan profile, release detail, artist posts, notifications, upload, settings, and a now-playing persistent overlay. The design system holds consistently across all of them.</p>
+      <p class="cs-section-label">What Was Built</p>
+      <h2>Built around the music, not the numbers.</h2>
+      <ul class="cs-feature-list">
+        <li>Artists own their subscriber base &mdash; no algorithm between them and fans</li>
+        <li>Fans discover by taste, not popularity &mdash; genre-curated, not trending</li>
+        <li>10 page types built in React with a consistent design system throughout</li>
+      </ul>
     </section>
 
     <section class="cs-section fade-in">
       <p class="cs-section-label">Outcome</p>
-      <h2>A fully built platform with a clear point of view on what music community should feel like.</h2>
-      <p>FanBand is a complete web application — artist and fan accounts, music uploads, community features, and a design system that holds together across all screens. The platform differentiates clearly from both streaming and social conventions. Whether the market would respond is a different question. The product thinking is sound.</p>
+      <h2>Fully built web app. The product thinking is sound. The open question is getting the first 50 artists at launch.</h2>
       <ul class="cs-tags">
-        <li>Product Design</li><li>Web App</li><li>Music</li><li>React</li><li>Community</li>
+        <li>Product Design</li><li>Web App</li><li>Visual Design</li><li>React</li><li>Design Systems</li>
       </ul>
-      <div class="cs-reflection">
-        <p class="cs-reflection-label">Reflection</p>
-        <p>The design direction is right. The go-to-market thinking isn't fully worked out. A platform like this lives or dies on artist supply at launch — without a critical mass of interesting artists, there's nothing for fans to discover. I'd want a much tighter answer to "how do you get the first 50 artists" before treating this as a viable product rather than a strong design exercise.</p>
-      </div>
     </section>
 
   </main>
@@ -112,6 +90,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
   <script src="case-study.js"></script>
 </body>
 </html>

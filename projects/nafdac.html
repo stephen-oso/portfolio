@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAFDAC Drug Verifier — Stephen Okulaja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+
+  <div class="progress-bar" id="progress-bar"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav" id="nav">
+    <a class="nav-back" href="../index.html">&larr; Back to work</a>
+    <a class="nav-logo" href="../index.html">Stephen Okulaja</a>
+  </nav>
+
+  <header class="cs-hero">
+    <p class="cs-num">06 &mdash; NAFDAC Drug Verifier</p>
+    <h1 class="cs-title">Nigerian pharmacists verify thousands of drugs every day. The official registry was never built for them.</h1>
+    <div class="cs-project-img">
+      <img src="../assets/nafdac.svg" alt="NAFDAC Drug Verifier — drug authentication tool for Nigerian pharmacists" />
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Role</span>
+        <span class="cs-meta-value">Designer &amp; Developer</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Year</span>
+        <span class="cs-meta-value">2026</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Type</span>
+        <span class="cs-meta-value">AI &middot; FastAPI &middot; Healthcare</span>
+      </div>
+      <div class="cs-meta-item">
+        <span class="cs-meta-label">Live</span>
+        <a class="cs-meta-link" href="https://nafdac-verifier-sooty.vercel.app/" target="_blank" rel="noopener">View App &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="cs-body">
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">The Problem</p>
+      <div class="cs-stat">
+        <span class="cs-stat-num">42%</span>
+        <span class="cs-stat-desc">of medicines in low- and middle-income countries are substandard or falsified &mdash; Nigeria among the highest-risk markets in sub-Saharan Africa</span>
+        <span class="cs-stat-source">WHO / Lancet Infectious Diseases</span>
+      </div>
+      <h2>NAFDAC maintains a public registry of 8,727 registered drugs. Pharmacists can't use it at the counter &mdash; it's not built for lookups under pressure.</h2>
+      <p class="cs-subtext">A pharmacist receiving a suspicious batch has two options: trust the packaging, or dig through a registry not designed for search. This tool closes that gap.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">v1 &rarr; v2</p>
+      <h2>v1 answered one question: is this drug name registered? v2 answers the one that matters more &mdash; is the specific pack in your hand genuine?</h2>
+      <p class="cs-subtext">v1 shipped with 8,727 drugs, FTS5 full-text search, and a 5-path verification engine. VERIFIED in under 3 seconds. Claude only called on ambiguous results, never on the clean path.</p>
+      <p class="cs-subtext">But VERIFIED only confirmed the name existed in the registry. It said nothing about expiry, tampered packaging, or whether the manufacturer on the box matched the record. v2 closes that gap.</p>
+      <ul class="cs-feature-list">
+        <li><span><strong>Dual-mode platform</strong> &mdash; same backend, two audiences. Pharmacist mode: clinical language, technical Claude risk assessment, collapsible inspection checklist. Community mode: plain language, prominent warnings, checklist open by default, NAFDAC hotline on every card. Toggled in the header, persisted in localStorage.</span></li>
+        <li><span><strong>Expiry checker</strong> &mdash; inline on the VERIFIED card. Two inputs (MM/YY), client-side only, zero extra API calls. Returns VALID, EXPIRES SOON (within 30 days), or EXPIRED with mode-aware copy.</span></li>
+        <li><span><strong>Physical inspection checklist</strong> &mdash; 5 tap-targets (seal, print quality, lot number, colour/smell, heat damage) on every NOT FOUND card. Also on VERIFIED cards in Community mode &mdash; because registration doesn't guarantee the specific pack is genuine.</span></li>
+        <li><span><strong>Reporting pipeline</strong> &mdash; anonymous report form on NOT FOUND cards routes to NAFDAC's sf.alert inbox in WHO Rapid Alert System format. Reference numbers follow the SF-{YEAR}-{id} convention used in official WHO substandard/falsified classification. Email failure never blocks the user-facing response.</span></li>
+      </ul>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Verification Logic</p>
+      <h2>Five paths. One right answer. Claude only enters where judgment is genuinely needed.</h2>
+      <p class="cs-subtext">The system tries the fastest, most certain signal first. Only when that fails does it run FTS5. Claude is called only on paths where the database result alone is insufficient.</p>
+
+      <div class="vp-list">
+
+        <div class="vp-card vp-verified">
+          <div class="vp-body">
+            <span class="vp-num">01</span>
+            <p class="vp-title">Exact match on drug name or reg number</p>
+            <p class="vp-desc">Instant lookup — the first check returns a definitive record. Fuzzy search never runs.</p>
+          </div>
+          <div class="vp-outcome">
+            <span class="vp-badge vp-badge--v">✓ VERIFIED</span>
+            <span class="vp-tag vp-tag--v">no AI called</span>
+          </div>
+        </div>
+
+        <div class="vp-card vp-notfound">
+          <div class="vp-body">
+            <span class="vp-num">02</span>
+            <p class="vp-title">FTS5 returns 0 results</p>
+            <p class="vp-desc">Nothing in the database matches. Claude generates a counterfeit warning with guidance for the pharmacist.</p>
+          </div>
+          <div class="vp-outcome">
+            <span class="vp-badge vp-badge--nf">NOT FOUND</span>
+            <span class="vp-tag vp-tag--cl">✦ Claude warns</span>
+          </div>
+        </div>
+
+        <div class="vp-card vp-notfound">
+          <div class="vp-body">
+            <span class="vp-num">03</span>
+            <p class="vp-title">FTS5 returns exactly 1 result</p>
+            <p class="vp-desc">A single fuzzy match isn't confident enough to surface — returning it would risk a false positive. The system returns NOT FOUND instead.</p>
+          </div>
+          <div class="vp-outcome">
+            <span class="vp-badge vp-badge--nf">NOT FOUND</span>
+            <span class="vp-tag vp-tag--n">false positive guard</span>
+          </div>
+        </div>
+
+        <div class="vp-card vp-multiple">
+          <div class="vp-body">
+            <span class="vp-num">04</span>
+            <p class="vp-title">FTS5 returns 2+ results — one dominant</p>
+            <p class="vp-desc">Top result's rank score is at least 2× the second. Claude picks the best candidate and explains the distinction.</p>
+          </div>
+          <div class="vp-outcome">
+            <span class="vp-badge vp-badge--mm">MULTIPLE MATCHES</span>
+            <span class="vp-tag vp-tag--cl">✦ Claude picks</span>
+          </div>
+        </div>
+
+        <div class="vp-card vp-multiple">
+          <div class="vp-body">
+            <span class="vp-num">05</span>
+            <p class="vp-title">FTS5 returns 2+ results — evenly matched</p>
+            <p class="vp-desc">No clear winner by score. Claude lists all candidates so the pharmacist can compare and decide.</p>
+          </div>
+          <div class="vp-outcome">
+            <span class="vp-badge vp-badge--mm">MULTIPLE MATCHES</span>
+            <span class="vp-tag vp-tag--cl">✦ Claude lists</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>Real regulatory integration. Dual-audience design. Honest about what it can't guarantee.</h2>
+      <ul class="cs-feature-list">
+        <li><span><strong>Same data layer, two UX modes</strong> &mdash; clinical for pharmacists, plain-language for the public. No backend changes, no separate app.</span></li>
+        <li><span><strong>Honest about limits</strong> &mdash; VERIFIED means registered, not that the pack is genuine. The inspection checklist appears on VERIFIED cards in Community mode for exactly this reason.</span></li>
+        <li><span><strong>Real regulatory pipeline</strong> &mdash; reports route to NAFDAC's actual SF alert inbox in WHO Rapid Alert System format. Not a mock endpoint.</span></li>
+        <li><span><strong>Review-driven quality</strong> &mdash; 8 issues caught through structured code review before a line hit production, including an XSS vector in the email template and a mode prop threading bug across card states.</span></li>
+      </ul>
+      <ul class="cs-tags">
+        <li>Claude API</li><li>FastAPI</li><li>SQLite FTS5</li><li>React 19</li><li>Vite</li><li>Vercel</li><li>Railway</li><li>GitHub Actions</li><li>Resend</li><li>pytest</li><li>Healthcare</li>
+      </ul>
+      <div class="cs-links">
+        <a class="cs-link-btn" href="https://nafdac-verifier-sooty.vercel.app/" target="_blank" rel="noopener">Open NAFDAC Verifier &rarr;</a>
+        <a class="cs-link-btn cs-link-btn--ghost" href="https://github.com/stephen-oso/nafdac-verifier" target="_blank" rel="noopener">GitHub &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="cs-project-nav fade-in">
+    <a href="elicit-furnishing.html">&larr; Elicit Furnishing</a>
+    <a class="next" href="../index.html#work">All Projects &rarr;</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-copy">&copy; 2026 Stephen Okulaja</p>
+    <div class="footer-links">
+      <a href="mailto:okulajastephen@gmail.com">Email</a>
+      <a href="https://github.com/stephenokulaja" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/stephen-okulaja/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="case-study.js"></script>
+</body>
+</html>

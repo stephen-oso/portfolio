@@ -544,6 +544,28 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 })();
 
 // =====================
+// PAGE TRANSITION — card click exit
+// =====================
+(function () {
+  if ('startViewTransition' in document) return; // VT handles it natively
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function (e) {
+      const link = this.tagName === 'A' ? this : this.querySelector('a');
+      if (!link) return;
+
+      const href = link.href;
+      if (!href || href.includes('#') || href.includes('mailto')) return;
+
+      e.preventDefault();
+      document.body.classList.add('page-leaving');
+      setTimeout(() => { window.location.href = href; }, 300);
+    });
+  });
+})();
+
+// =====================
 // CONTACT FORM (AJAX)
 // =====================
 const contactForm = document.querySelector('.contact-form');
@@ -555,17 +577,20 @@ if (contactForm && formSuccess) {
     btn.disabled = true;
     btn.textContent = 'Sending…';
     try {
-      await fetch('/', {
+      const res = await fetch('https://formspree.io/f/mljrleoq', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(contactForm)).toString()
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
       });
-      contactForm.hidden = true;
-      formSuccess.hidden = false;
+      if (res.ok) {
+        contactForm.hidden = true;
+        formSuccess.hidden = false;
+      } else {
+        throw new Error('failed');
+      }
     } catch {
       btn.disabled = false;
       btn.textContent = 'Send Message →';
-      contactForm.submit();
     }
   });
 }

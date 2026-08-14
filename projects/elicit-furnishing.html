@@ -8,6 +8,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="case-study.css" />
+  <style>
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+    @media (min-width: 640px) {
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .tech-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .tech-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+    }
+    .tech-card-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .tech-card-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .tech-card-body {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .tech-code {
+      display: block;
+      margin-top: 0.6rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 7px 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.6;
+      white-space: pre;
+    }
+  </style>
 </head>
 <body>
 
@@ -40,12 +92,12 @@
         <span class="cs-meta-value">2025</span>
       </div>
       <div class="cs-meta-item">
-        <span class="cs-meta-label">Type</span>
-        <span class="cs-meta-value">Full-Stack &middot; Supabase &middot; PWA</span>
+        <span class="cs-meta-label">Stack</span>
+        <span class="cs-meta-value">React &middot; Supabase &middot; Vercel &middot; Resend &middot; PWA</span>
       </div>
       <div class="cs-meta-item">
         <span class="cs-meta-label">Live</span>
-        <a class="cs-meta-link" href="https://furniture-sales-ledger.vercel.app/" target="_blank" rel="noopener">Open the App &rarr;</a>
+        <a class="cs-meta-link" href="https://furniture-sales-ledger-demo-hjzld39g5.vercel.app/inventory" target="_blank" rel="noopener">Open the App &rarr;</a>
       </div>
     </div>
   </header>
@@ -62,28 +114,133 @@
     </section>
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">What Was Built</p>
-      <h2>Five systems. One app. Zero training required.</h2>
+      <p class="cs-section-label">Why Custom</p>
+      <h2>Every tool she tried bent the business to fit the software. She needed the opposite.</h2>
+      <p class="cs-body-text">Off-the-shelf options exist — but none could be shaped to her exact product hierarchy, stock logic, or the specific way Elicit Furnishing processes sales. Something built from scratch, around her business, was the only path.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Process</p>
+      <h2>She explained the problem. I built. We iterated from there.</h2>
+      <p class="cs-body-text">She walked me through how her business works — what she sells, how she restocks, what she needs to know at the end of each week. I built from that. Once it was live and she was using it in her actual business, real edge cases surfaced that no spec could have anticipated. We worked through them one at a time.</p>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Revisions</p>
+      <h2>Real use revealed what no spec could.</h2>
       <ul class="cs-feature-list">
-        <li>Sales logging with searchable product picker across all 74 items</li>
-        <li>Real-time revenue dashboard with 7-day chart and transaction history</li>
-        <li>Automated weekly and monthly email reports &mdash; delivered without the client doing anything</li>
+        <li><span><strong>Category structure</strong> &mdash; Certain groups (like Medium Centers) needed splitting from their parent category entirely. The inventory view was restructured into collapsible sections showing per-category unit counts; the flat list restores when filtering to a specific category.</span></li>
+        <li><span><strong>Restocking logic</strong> &mdash; Two modes emerged from a real issue: Add to All applies the same quantity to each model individually; Distribute Total splits a combined shipment evenly across the category. She needed both depending on how stock arrived.</span></li>
+        <li><span><strong>Generic product sales</strong> &mdash; When a sale doesn't map to a specific model, the app auto-deducts from the oldest stock entry in that category. An edge case she surfaced in use, turned into a first-class feature.</span></li>
+        <li><span><strong>Dashboard analytics</strong> &mdash; Preset and custom date range filtering driving a revenue / orders / daily-average stat block and a top-10 best sellers list &mdash; all computed client-side from already-loaded sales data. She needed to see performance over time, not just a running total.</span></li>
+        <li><span><strong>Low-stock threshold</strong> &mdash; Went through three iterations: a global setting, then a Settings modal field, then per-product values editable inline on each inventory row. Persisted to Supabase and mirrored in localStorage for the demo build. Sort options (name, stock, price) and a low-stock-only filter toggle added alongside.</span></li>
       </ul>
     </section>
 
     <section class="cs-section fade-in">
-      <p class="cs-section-label">Outcome</p>
-      <h2>Live. Used daily. Pen and paper gone.</h2>
-      <ul class="cs-tags">
-        <li>Product Design</li><li>UX Design</li><li>React</li><li>Web App</li><li>Full-Stack</li>
+      <p class="cs-section-label">What Was Built</p>
+      <h2>Five systems. One tab. Zero training required.</h2>
+      <ul class="cs-feature-list">
+        <li>Sales logging with searchable product picker across all 74 items &mdash; price auto-fills on selection</li>
+        <li>Revenue dashboard with date range analysis &mdash; monthly, yearly, custom ranges, best sellers panel, and daily averages (Recharts)</li>
+        <li>Automated weekly and monthly email reports via Resend, triggered on a Vercel cron schedule &mdash; no manual export, no reminder needed</li>
+        <li>Inventory tracking across 12 product categories with collapsible category groups, sort options, and a configurable low-stock threshold synced to Supabase</li>
       </ul>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Under the Hood</p>
+      <h2>PostgreSQL, edge functions, and automated email &mdash; not just a front-end.</h2>
+      <div class="tech-grid">
+
+        <div class="tech-card">
+          <p class="tech-card-label">Database</p>
+          <p class="tech-card-title">Supabase &mdash; PostgreSQL</p>
+          <p class="tech-card-body">Three tables with row-level security so the app works without user auth. Five SQL migrations shipped post-launch as Kerzy's needs evolved &mdash; adding stock, variants, category splits.</p>
+          <code class="tech-code">products  · sales  · settings
+stock_quantity  · variant
+is_group  · low_stock_threshold</code>
+        </div>
+
+        <div class="tech-card">
+          <p class="tech-card-label">Email Automation</p>
+          <p class="tech-card-title">Resend + Vercel Cron</p>
+          <p class="tech-card-body">Weekly and monthly reports fire on a cron schedule &mdash; no manual export, no reminder. Vercel edge functions act as a proxy so the API key never touches the client.</p>
+          <code class="tech-code">Mon 08:00 UTC → weekly report
+1st of month  → monthly report
+POST /api/send-report → Resend</code>
+        </div>
+
+        <div class="tech-card">
+          <p class="tech-card-label">Data Layer</p>
+          <p class="tech-card-title">Custom Supabase Client</p>
+          <p class="tech-card-body">All DB logic lives in a single <code style="font-size:.68rem">db.js</code> module &mdash; addSale, deleteSale, restockProduct, setStock, getSalesByDateRange. Stock auto-deducts silently on every sale so logging is never blocked.</p>
+          <code class="tech-code">addSale()  · deleteSale()
+restockProduct()  · setStock()
+getSalesByDateRange()</code>
+        </div>
+
+        <div class="tech-card">
+          <p class="tech-card-label">Analytics</p>
+          <p class="tech-card-title">Recharts &mdash; Client-Side</p>
+          <p class="tech-card-body">Revenue, order count, daily averages, and best-seller rankings are all computed client-side from already-loaded sales data. No extra API calls for filters or date ranges.</p>
+          <code class="tech-code">Weekly bar chart
+Top-10 best sellers
+Custom date range filter</code>
+        </div>
+
+        <div class="tech-card">
+          <p class="tech-card-label">Auth</p>
+          <p class="tech-card-title">Password Gate</p>
+          <p class="tech-card-body">Lightweight password gate wraps the entire app &mdash; no full auth system needed for a single-operator tool. Stored in <code style="font-size:.68rem">localStorage</code>; password lives as a Vercel env var.</p>
+          <code class="tech-code">VITE_APP_PASSWORD → Vercel
+localStorage → session persist
+PasswordGate.jsx → full wrap</code>
+        </div>
+
+        <div class="tech-card">
+          <p class="tech-card-label">Deployment</p>
+          <p class="tech-card-title">Vercel &mdash; React + Vite</p>
+          <p class="tech-card-body">Frontend on Vercel with serverless edge functions in <code style="font-size:.68rem">/api</code> for email and cron. Env vars for Supabase keys, Resend key, and app password kept off the client entirely.</p>
+          <code class="tech-code">React 18 + Vite + Tailwind
+/api/send-report.js  (edge fn)
+/api/weekly-report.js (cron)</code>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cs-section fade-in">
+      <p class="cs-section-label">Outcome</p>
+      <h2>Live. Used every day by the client it was built for.</h2>
+      <ul class="cs-feature-list">
+        <li><span><strong>Real client, real data</strong> &mdash; Elicit Furnishing's actual inventory and sales, no demo mode</span></li>
+        <li><span><strong>Designed for a non-technical user</strong> &mdash; zero training, no manual, learnable by looking at it</span></li>
+        <li><span><strong>Full-stack solo delivery</strong> &mdash; design, frontend, backend, email automation, and deployment</span></li>
+      </ul>
+      <ul class="cs-tags">
+        <li>Product Design</li><li>UX Design</li><li>React</li><li>Vite</li><li>Tailwind</li><li>Recharts</li><li>Supabase</li><li>Vercel</li><li>Resend</li><li>Full-Stack</li><li>PWA</li>
+      </ul>
+      <div class="cs-links">
+        <a class="cs-link-btn" href="https://furniture-sales-ledger-demo-hjzld39g5.vercel.app/inventory" target="_blank" rel="noopener">Open the App &rarr;</a>
+      </div>
+    </section>
+
+    <section class="cs-section cs-testimonial fade-in">
+      <p class="cs-section-label">Client</p>
+      <blockquote class="cs-quote">
+        <p>&ldquo;He completely exceeded my expectations. Not only did he create exactly what I requested, but he also went above and beyond by incorporating additional features that made the ledger even more useful &mdash; particularly when it came to analysing my business data.</p>
+        <p>Every single request was incorporated, often within just a few hours. He took note of everything and made sure nothing was overlooked, so I never had to worry about reminding him about something I had previously mentioned.</p>
+        <p>Most importantly, Stephen brought a huge sense of relief to what had previously been one of my biggest bookkeeping struggles. I now have a system that is not only tailored to my business but also makes it much easier to keep track of and understand my data.&rdquo;</p>
+        <cite>&mdash; Kersten Brefo, CEO &mdash; Elicit Furnishing</cite>
+      </blockquote>
     </section>
 
   </main>
 
   <nav class="cs-project-nav fade-in">
     <a href="versecue.html">&larr; VerseCue</a>
-    <a class="next" href="../index.html#work">All Projects &rarr;</a>
+    <a class="next" href="nafdac.html">Next: NAFDAC Verifier &rarr;</a>
   </nav>
 
   <footer class="footer">
