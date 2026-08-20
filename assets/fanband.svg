@@ -11,6 +11,20 @@
     <clipPath id="card1clip"><rect x="28" y="128" width="268" height="260" rx="10"/></clipPath>
     <clipPath id="card2clip"><rect x="314" y="128" width="268" height="260" rx="10"/></clipPath>
     <clipPath id="card3clip"><rect x="600" y="128" width="268" height="260" rx="10"/></clipPath>
+    <style>
+      .acard1 { opacity: 0; animation: slideUp 0.55s ease 0.2s both; }
+      .acard2 { opacity: 0; animation: slideUp 0.55s ease 0.38s both; }
+      .acard3 { opacity: 0; animation: slideUp 0.55s ease 0.56s both; }
+      .nowPlaying { opacity: 0; animation: fadeIn 0.6s ease 0.8s both; }
+      .progress { animation: progressGrow 2.5s ease 1s both; }
+      .playBtn1 { transform-box: fill-box; transform-origin: center; animation: playPulse 2.4s ease-in-out 1.2s infinite; }
+      .playBtn2 { transform-box: fill-box; transform-origin: center; animation: playPulse 2.4s ease-in-out 1.5s infinite; }
+      .playBtn3 { transform-box: fill-box; transform-origin: center; animation: playPulse 2.4s ease-in-out 1.8s infinite; }
+      @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes progressGrow { from { width: 0; } to { width: 520; } }
+      @keyframes playPulse { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.12); opacity: 1; } }
+    </style>
   </defs>
 
   <!-- Base -->
@@ -22,13 +36,11 @@
   <rect width="900" height="56" fill="rgba(15,11,24,0.95)"/>
   <rect y="56" width="900" height="1" fill="#1e1830"/>
   <text x="28" y="34" font-family="DM Sans, sans-serif" font-size="16" font-weight="700" fill="#f0eaf8">fan<tspan fill="#8b5cf6">band</tspan></text>
-  <!-- Nav tabs -->
   <text x="300" y="34" font-family="DM Sans, sans-serif" font-size="12" fill="#8b5cf6" font-weight="600">Discover</text>
   <rect x="300" y="50" width="60" height="2" rx="1" fill="#8b5cf6"/>
   <text x="386" y="34" font-family="DM Sans, sans-serif" font-size="12" fill="#4a3f60">Following</text>
   <text x="468" y="34" font-family="DM Sans, sans-serif" font-size="12" fill="#4a3f60">Trending</text>
   <text x="548" y="34" font-family="DM Sans, sans-serif" font-size="12" fill="#4a3f60">Local</text>
-  <!-- Search + avatar -->
   <rect x="728" y="16" width="130" height="28" rx="6" fill="#1a1428" stroke="#2a2040" stroke-width="1"/>
   <text x="744" y="34" font-family="DM Sans, sans-serif" font-size="11" fill="#4a3f60">Search artists...</text>
   <circle cx="876" cy="30" r="14" fill="#2a2040" stroke="#3a3060" stroke-width="1"/>
@@ -38,84 +50,91 @@
   <text x="28" y="100" font-family="DM Sans, sans-serif" font-size="18" font-weight="700" fill="#f0eaf8">Fresh Finds</text>
   <text x="28" y="120" font-family="DM Sans, sans-serif" font-size="11" fill="#4a3f60">Artists gaining momentum this week · Based on your listening</text>
 
-  <!-- Artist Card 1 — Gradient purple -->
-  <rect x="28" y="128" width="268" height="260" rx="10" fill="#1a1428"/>
-  <rect x="28" y="128" width="268" height="152" fill="#2d1f4e" clip-path="url(#card1clip)"/>
-  <!-- Abstract art in card 1 -->
-  <circle cx="162" cy="204" r="70" fill="#4c1d95" opacity="0.6"/>
-  <circle cx="110" cy="180" r="45" fill="#7c3aed" opacity="0.4"/>
-  <circle cx="210" cy="230" r="35" fill="#a78bfa" opacity="0.3"/>
-  <!-- Waveform overlay on art -->
-  <rect x="52" y="256" width="3" height="14" rx="1" fill="rgba(167,139,250,0.4)"/>
-  <rect x="59" y="250" width="3" height="20" rx="1" fill="rgba(167,139,250,0.5)"/>
-  <rect x="66" y="246" width="3" height="28" rx="1" fill="rgba(167,139,250,0.6)"/>
-  <rect x="73" y="252" width="3" height="16" rx="1" fill="rgba(167,139,250,0.5)"/>
-  <rect x="80" y="248" width="3" height="24" rx="1" fill="rgba(167,139,250,0.4)"/>
-  <!-- Play button -->
-  <circle cx="230" cy="265" r="16" fill="rgba(139,92,246,0.9)"/>
-  <polygon points="226,258 226,272 238,265" fill="white"/>
-  <!-- Card info -->
-  <text x="46" y="308" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#f0eaf8">Solara</text>
-  <text x="46" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6a5f80">Neo-soul · Toronto</text>
-  <rect x="46" y="338" width="52" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
-  <text x="72" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">R&amp;B</text>
-  <rect x="106" y="338" width="62" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
-  <text x="137" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">Lo-fi</text>
-  <text x="46" y="378" font-family="DM Sans, sans-serif" font-size="9" fill="#4a3f60">2.4k listeners · ↑ 340 this week</text>
+  <!-- Artist Card 1 — Purple -->
+  <g class="acard1">
+    <rect x="28" y="128" width="268" height="260" rx="10" fill="#1a1428"/>
+    <rect x="28" y="128" width="268" height="152" fill="#2d1f4e" clip-path="url(#card1clip)"/>
+    <circle cx="162" cy="204" r="70" fill="#4c1d95" opacity="0.6"/>
+    <circle cx="110" cy="180" r="45" fill="#7c3aed" opacity="0.4"/>
+    <circle cx="210" cy="230" r="35" fill="#a78bfa" opacity="0.3"/>
+    <rect x="52" y="256" width="3" height="14" rx="1" fill="rgba(167,139,250,0.4)"/>
+    <rect x="59" y="250" width="3" height="20" rx="1" fill="rgba(167,139,250,0.5)"/>
+    <rect x="66" y="246" width="3" height="28" rx="1" fill="rgba(167,139,250,0.6)"/>
+    <rect x="73" y="252" width="3" height="16" rx="1" fill="rgba(167,139,250,0.5)"/>
+    <rect x="80" y="248" width="3" height="24" rx="1" fill="rgba(167,139,250,0.4)"/>
+    <g class="playBtn1">
+      <circle cx="230" cy="265" r="16" fill="rgba(139,92,246,0.9)"/>
+      <polygon points="226,258 226,272 238,265" fill="white"/>
+    </g>
+    <text x="46" y="308" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#f0eaf8">Solara</text>
+    <text x="46" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6a5f80">Neo-soul · Toronto</text>
+    <rect x="46" y="338" width="52" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
+    <text x="72" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">R&amp;B</text>
+    <rect x="106" y="338" width="62" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
+    <text x="137" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#8b5cf6" text-anchor="middle">Lo-fi</text>
+    <text x="46" y="378" font-family="DM Sans, sans-serif" font-size="9" fill="#4a3f60">2.4k listeners · ↑ 340 this week</text>
+  </g>
 
-  <!-- Artist Card 2 — Warm pink -->
-  <rect x="314" y="128" width="268" height="260" rx="10" fill="#1a1428"/>
-  <rect x="314" y="128" width="268" height="152" fill="#2e1a2a" clip-path="url(#card2clip)"/>
-  <circle cx="448" cy="200" r="65" fill="#7e1d4e" opacity="0.5"/>
-  <circle cx="390" cy="220" r="40" fill="#be185d" opacity="0.35"/>
-  <circle cx="500" cy="175" r="50" fill="#f472b6" opacity="0.2"/>
-  <circle cx="448" cy="265" r="16" fill="rgba(236,72,153,0.85)"/>
-  <polygon points="444,258 444,272 456,265" fill="white"/>
-  <rect x="332" y="256" width="3" height="10" rx="1" fill="rgba(244,114,182,0.4)"/>
-  <rect x="339" y="250" width="3" height="22" rx="1" fill="rgba(244,114,182,0.5)"/>
-  <rect x="346" y="253" width="3" height="16" rx="1" fill="rgba(244,114,182,0.6)"/>
-  <rect x="353" y="248" width="3" height="26" rx="1" fill="rgba(244,114,182,0.4)"/>
-  <text x="332" y="308" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#f0eaf8">MXRE</text>
-  <text x="332" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6a5f80">Indie pop · Montreal</text>
-  <rect x="332" y="338" width="66" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
-  <text x="365" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#ec4899" text-anchor="middle">Alt-pop</text>
-  <rect x="406" y="338" width="56" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
-  <text x="434" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#ec4899" text-anchor="middle">Indie</text>
-  <text x="332" y="378" font-family="DM Sans, sans-serif" font-size="9" fill="#4a3f60">1.1k listeners · ↑ 890 this week</text>
+  <!-- Artist Card 2 — Pink -->
+  <g class="acard2">
+    <rect x="314" y="128" width="268" height="260" rx="10" fill="#1a1428"/>
+    <rect x="314" y="128" width="268" height="152" fill="#2e1a2a" clip-path="url(#card2clip)"/>
+    <circle cx="448" cy="200" r="65" fill="#7e1d4e" opacity="0.5"/>
+    <circle cx="390" cy="220" r="40" fill="#be185d" opacity="0.35"/>
+    <circle cx="500" cy="175" r="50" fill="#f472b6" opacity="0.2"/>
+    <g class="playBtn2">
+      <circle cx="448" cy="265" r="16" fill="rgba(236,72,153,0.85)"/>
+      <polygon points="444,258 444,272 456,265" fill="white"/>
+    </g>
+    <rect x="332" y="256" width="3" height="10" rx="1" fill="rgba(244,114,182,0.4)"/>
+    <rect x="339" y="250" width="3" height="22" rx="1" fill="rgba(244,114,182,0.5)"/>
+    <rect x="346" y="253" width="3" height="16" rx="1" fill="rgba(244,114,182,0.6)"/>
+    <rect x="353" y="248" width="3" height="26" rx="1" fill="rgba(244,114,182,0.4)"/>
+    <text x="332" y="308" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#f0eaf8">MXRE</text>
+    <text x="332" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6a5f80">Indie pop · Montreal</text>
+    <rect x="332" y="338" width="66" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
+    <text x="365" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#ec4899" text-anchor="middle">Alt-pop</text>
+    <rect x="406" y="338" width="56" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
+    <text x="434" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#ec4899" text-anchor="middle">Indie</text>
+    <text x="332" y="378" font-family="DM Sans, sans-serif" font-size="9" fill="#4a3f60">1.1k listeners · ↑ 890 this week</text>
+  </g>
 
-  <!-- Artist Card 3 — Cool teal -->
-  <rect x="600" y="128" width="268" height="260" rx="10" fill="#1a1428"/>
-  <rect x="600" y="128" width="268" height="152" fill="#0f2230" clip-path="url(#card3clip)"/>
-  <circle cx="734" cy="204" r="68" fill="#0e4a5a" opacity="0.7"/>
-  <circle cx="680" cy="185" r="42" fill="#0891b2" opacity="0.35"/>
-  <circle cx="780" cy="225" r="38" fill="#22d3ee" opacity="0.2"/>
-  <circle cx="734" cy="265" r="16" fill="rgba(6,182,212,0.85)"/>
-  <polygon points="730,258 730,272 742,265" fill="white"/>
-  <rect x="618" y="252" width="3" height="18" rx="1" fill="rgba(34,211,238,0.5)"/>
-  <rect x="625" y="246" width="3" height="30" rx="1" fill="rgba(34,211,238,0.6)"/>
-  <rect x="632" y="250" width="3" height="22" rx="1" fill="rgba(34,211,238,0.4)"/>
-  <rect x="639" y="244" width="3" height="34" rx="1" fill="rgba(34,211,238,0.5)"/>
-  <text x="618" y="308" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#f0eaf8">Thren</text>
-  <text x="618" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6a5f80">Electronic · Vancouver</text>
-  <rect x="618" y="338" width="74" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
-  <text x="655" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#22d3ee" text-anchor="middle">Ambient</text>
-  <rect x="700" y="338" width="50" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
-  <text x="725" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#22d3ee" text-anchor="middle">EDM</text>
-  <text x="618" y="378" font-family="DM Sans, sans-serif" font-size="9" fill="#4a3f60">3.8k listeners · ↑ 210 this week</text>
+  <!-- Artist Card 3 — Teal -->
+  <g class="acard3">
+    <rect x="600" y="128" width="268" height="260" rx="10" fill="#1a1428"/>
+    <rect x="600" y="128" width="268" height="152" fill="#0f2230" clip-path="url(#card3clip)"/>
+    <circle cx="734" cy="204" r="68" fill="#0e4a5a" opacity="0.7"/>
+    <circle cx="680" cy="185" r="42" fill="#0891b2" opacity="0.35"/>
+    <circle cx="780" cy="225" r="38" fill="#22d3ee" opacity="0.2"/>
+    <g class="playBtn3">
+      <circle cx="734" cy="265" r="16" fill="rgba(6,182,212,0.85)"/>
+      <polygon points="730,258 730,272 742,265" fill="white"/>
+    </g>
+    <rect x="618" y="252" width="3" height="18" rx="1" fill="rgba(34,211,238,0.5)"/>
+    <rect x="625" y="246" width="3" height="30" rx="1" fill="rgba(34,211,238,0.6)"/>
+    <rect x="632" y="250" width="3" height="22" rx="1" fill="rgba(34,211,238,0.4)"/>
+    <rect x="639" y="244" width="3" height="34" rx="1" fill="rgba(34,211,238,0.5)"/>
+    <text x="618" y="308" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#f0eaf8">Thren</text>
+    <text x="618" y="326" font-family="DM Sans, sans-serif" font-size="10" fill="#6a5f80">Electronic · Vancouver</text>
+    <rect x="618" y="338" width="74" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
+    <text x="655" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#22d3ee" text-anchor="middle">Ambient</text>
+    <rect x="700" y="338" width="50" height="18" rx="3" fill="#1e1830" stroke="#2e2848" stroke-width="1"/>
+    <text x="725" y="350" font-family="DM Sans, sans-serif" font-size="9" fill="#22d3ee" text-anchor="middle">EDM</text>
+    <text x="618" y="378" font-family="DM Sans, sans-serif" font-size="9" fill="#4a3f60">3.8k listeners · ↑ 210 this week</text>
+  </g>
 
   <!-- Now playing bar -->
-  <rect y="524" width="900" height="76" fill="#100c1c"/>
-  <rect y="524" width="900" height="1" fill="#1e1830"/>
-  <rect y="524" width="520" height="2" rx="1" fill="#8b5cf6"/>
-  <!-- Track info -->
-  <rect x="28" y="542" width="36" height="36" rx="5" fill="#2d1f4e"/>
-  <circle cx="46" cy="560" r="10" fill="#7c3aed" opacity="0.6"/>
-  <text x="74" y="556" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#f0eaf8">Stillwater (feat. LYA)</text>
-  <text x="74" y="572" font-family="DM Sans, sans-serif" font-size="10" fill="#4a3f60">Solara · 3:42</text>
-  <!-- Controls -->
-  <text x="392" y="563" font-family="DM Sans, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle">⏸</text>
-  <text x="354" y="563" font-family="DM Sans, sans-serif" font-size="14" fill="#4a3f60" text-anchor="middle">⏮</text>
-  <text x="430" y="563" font-family="DM Sans, sans-serif" font-size="14" fill="#4a3f60" text-anchor="middle">⏭</text>
-  <!-- Volume -->
-  <text x="820" y="563" font-family="DM Sans, sans-serif" font-size="11" fill="#4a3f60">♪ 78%</text>
+  <g class="nowPlaying">
+    <rect y="524" width="900" height="76" fill="#100c1c"/>
+    <rect y="524" width="900" height="1" fill="#1e1830"/>
+    <rect y="524" width="520" height="2" rx="1" fill="#8b5cf6" class="progress"/>
+    <rect x="28" y="542" width="36" height="36" rx="5" fill="#2d1f4e"/>
+    <circle cx="46" cy="560" r="10" fill="#7c3aed" opacity="0.6"/>
+    <text x="74" y="556" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#f0eaf8">Stillwater (feat. LYA)</text>
+    <text x="74" y="572" font-family="DM Sans, sans-serif" font-size="10" fill="#4a3f60">Solara · 3:42</text>
+    <text x="392" y="563" font-family="DM Sans, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle">⏸</text>
+    <text x="354" y="563" font-family="DM Sans, sans-serif" font-size="14" fill="#4a3f60" text-anchor="middle">⏮</text>
+    <text x="430" y="563" font-family="DM Sans, sans-serif" font-size="14" fill="#4a3f60" text-anchor="middle">⏭</text>
+    <text x="820" y="563" font-family="DM Sans, sans-serif" font-size="11" fill="#4a3f60">♪ 78%</text>
+  </g>
 </svg>

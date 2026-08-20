@@ -1,131 +1,233 @@
-<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif">
   <defs>
-    <radialGradient id="cglow" cx="30%" cy="50%" r="55%">
-      <stop offset="0%" stop-color="#1d3a6e" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="cglow2" cx="80%" cy="20%" r="40%">
-      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/>
-    </radialGradient>
-    <clipPath id="phoneclip">
-      <rect x="500" y="30" width="370" height="540" rx="28"/>
-    </clipPath>
+    <clipPath id="c1"><rect x="131" y="69" width="150" height="322" rx="12"/></clipPath>
+    <clipPath id="c2"><rect x="355" y="49" width="150" height="362" rx="12"/></clipPath>
+    <clipPath id="c3"><rect x="579" y="69" width="150" height="322" rx="12"/></clipPath>
+    <filter id="sh" x="-25%" y="-12%" width="150%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#0a2a1e" flood-opacity="0.18"/>
+    </filter>
   </defs>
 
-  <!-- Base — dark navy -->
-  <rect width="900" height="600" fill="#080d1a"/>
-  <rect width="900" height="600" fill="url(#cglow)"/>
-  <rect width="900" height="600" fill="url(#cglow2)"/>
+  <!-- Background -->
+  <rect width="860" height="460" fill="#edf7f3"/>
+  <circle cx="86" cy="400" r="110" fill="#d5ede3" opacity="0.5"/>
+  <circle cx="790" cy="80" r="90" fill="#d5ede3" opacity="0.5"/>
 
-  <!-- Street grid — dark -->
-  <line x1="0" y1="120" x2="460" y2="120" stroke="#131e35" stroke-width="1"/>
-  <line x1="0" y1="200" x2="460" y2="200" stroke="#131e35" stroke-width="1"/>
-  <line x1="0" y1="280" x2="460" y2="280" stroke="#131e35" stroke-width="1"/>
-  <line x1="0" y1="360" x2="460" y2="360" stroke="#131e35" stroke-width="1"/>
-  <line x1="0" y1="440" x2="460" y2="440" stroke="#131e35" stroke-width="1"/>
-  <line x1="0" y1="520" x2="460" y2="520" stroke="#131e35" stroke-width="1"/>
-  <line x1="80" y1="0" x2="80" y2="600" stroke="#131e35" stroke-width="1"/>
-  <line x1="160" y1="0" x2="160" y2="600" stroke="#131e35" stroke-width="1"/>
-  <line x1="240" y1="0" x2="240" y2="600" stroke="#131e35" stroke-width="1"/>
-  <line x1="320" y1="0" x2="320" y2="600" stroke="#131e35" stroke-width="1"/>
-  <line x1="400" y1="0" x2="400" y2="600" stroke="#131e35" stroke-width="1"/>
+  <!-- PHONE 1: FEED -->
+  <rect x="124" y="62" rx="22" width="164" height="336" fill="#111" filter="url(#sh)"/>
+  <rect x="131" y="69" rx="12" width="150" height="322" fill="#fff"/>
+  <rect x="176" y="69" rx="3" width="58" height="5" fill="#0d0d0d"/>
 
-  <!-- Major roads — slightly brighter -->
-  <line x1="0" y1="300" x2="460" y2="300" stroke="#1c2a45" stroke-width="2.5"/>
-  <line x1="230" y1="0" x2="230" y2="600" stroke="#1c2a45" stroke-width="2.5"/>
+  <g clip-path="url(#c1)">
+    <rect x="131" y="69" width="150" height="14" fill="#f9fafb"/>
+    <text x="140" y="80" font-size="7" font-weight="600" fill="#1f2937">9:41</text>
+    <rect x="264" y="74" rx="1.5" width="11" height="5" fill="#9ca3af"/>
+    <rect x="258" y="75" rx="1" width="5" height="3" fill="#9ca3af"/>
+    <!-- CONNECT header -->
+    <rect x="131" y="83" width="150" height="34" fill="#fff"/>
+    <text x="140" y="97" font-size="14" font-weight="700" fill="#111827" letter-spacing="-0.5">CONNECT</text>
+    <text x="140" y="109" font-size="6.5" fill="#6b7280">Live activity · Toronto</text>
+    <rect x="228" y="86" rx="6.5" width="47" height="13" fill="#1a6b5a"/>
+    <circle cx="236" cy="92.5" r="2.5" fill="#4ade80"/>
+    <text x="255" y="97" font-size="6" font-weight="600" fill="#fff" text-anchor="middle">1 live now</text>
+    <text x="140" y="126" font-size="6" font-weight="600" fill="#9ca3af" letter-spacing="0.07em">NEARBY</text>
+    <!-- Jim Harvey -->
+    <circle cx="151" cy="143" r="10" fill="#1a6b5a"/>
+    <text x="151" y="147" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">JK</text>
+    <text x="167" y="139" font-size="8" font-weight="600" fill="#111827">Jim Harvey</text>
+    <rect x="208" y="131" rx="4" width="18" height="9" fill="#1a6b5a"/>
+    <text x="217" y="138" font-size="5.5" font-weight="700" fill="#fff" text-anchor="middle">LIVE</text>
+    <text x="230" y="138" font-size="6" fill="#9ca3af">4 min ago</text>
+    <text x="167" y="149" font-size="5.5" fill="#4b5563">Mid-set right now — crowd filling the</text>
+    <text x="167" y="157" font-size="5.5" fill="#4b5563">square. Come through if you're nearby</text>
+    <rect x="163" y="162" rx="5" width="108" height="38" fill="#c8e6d8"/>
+    <line x1="163" y1="181" x2="271" y2="181" stroke="#a8d5c0" stroke-width="4"/>
+    <line x1="217" y1="162" x2="217" y2="200" stroke="#a8d5c0" stroke-width="3"/>
+    <circle cx="217" cy="181" r="6" fill="#1a6b5a"/>
+    <circle cx="217" cy="181" r="2.5" fill="#fff"/>
+    <text x="217" y="211" font-size="5" fill="#374151" text-anchor="middle">Yonge-Dundas Square</text>
+    <rect x="163" y="215" rx="3" width="18" height="9" fill="#e5e7eb"/>
+    <text x="172" y="222" font-size="5.5" fill="#374151" text-anchor="middle">RnB</text>
+    <text x="185" y="222" font-size="5.5" fill="#9ca3af">0.8km · 47 watching</text>
+    <rect x="232" y="213" rx="5" width="42" height="13" fill="#1a6b5a"/>
+    <text x="253" y="222.5" font-size="6" font-weight="600" fill="#fff" text-anchor="middle">&#x2197; Directions</text>
+    <line x1="131" y1="231" x2="281" y2="231" stroke="#f3f4f6" stroke-width="1"/>
+    <!-- Maya Chen -->
+    <circle cx="151" cy="248" r="10" fill="#7c3aed"/>
+    <text x="151" y="252" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">BC</text>
+    <text x="167" y="244" font-size="8" font-weight="600" fill="#111827">Maya Chen</text>
+    <rect x="209" y="236" rx="4" width="22" height="9" fill="#f59e0b"/>
+    <text x="220" y="243" font-size="5.5" font-weight="700" fill="#fff" text-anchor="middle">SOON</text>
+    <text x="235" y="243" font-size="6" fill="#9ca3af">12 min</text>
+    <text x="167" y="254" font-size="5.5" fill="#4b5563">Setting up at Nathan Phillips now.</text>
+    <text x="167" y="262" font-size="5.5" fill="#4b5563">Starting at 6PM — bring your ears</text>
+    <rect x="163" y="267" rx="5" width="108" height="34" fill="#c8e6d8"/>
+    <line x1="163" y1="284" x2="271" y2="284" stroke="#a8d5c0" stroke-width="3.5"/>
+    <line x1="236" y1="267" x2="236" y2="301" stroke="#a8d5c0" stroke-width="3"/>
+    <circle cx="236" cy="284" r="5" fill="#1a6b5a"/>
+    <circle cx="236" cy="284" r="2" fill="#fff"/>
+    <rect x="232" y="304" rx="5" width="42" height="13" fill="#1a6b5a"/>
+    <text x="253" y="313.5" font-size="6" font-weight="600" fill="#fff" text-anchor="middle">&#x2197; Directions</text>
+    <!-- James Curry partial -->
+    <line x1="131" y1="321" x2="281" y2="321" stroke="#f3f4f6" stroke-width="1"/>
+    <circle cx="151" cy="337" r="10" fill="#065f46"/>
+    <text x="151" y="341" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">JC</text>
+    <text x="167" y="333" font-size="8" font-weight="600" fill="#111827">James Curry</text>
+    <rect x="214" y="325" rx="4" width="22" height="9" fill="#f59e0b"/>
+    <text x="225" y="332" font-size="5.5" font-weight="700" fill="#fff" text-anchor="middle">SOON</text>
+    <text x="240" y="332" font-size="6" fill="#9ca3af">28 min</text>
+    <text x="167" y="343" font-size="5.5" fill="#4b5563">Heading to the Distillery now. Full set</text>
+    <!-- Bottom nav -->
+    <rect x="131" y="371" width="150" height="20" fill="#fff"/>
+    <line x1="131" y1="371" x2="281" y2="371" stroke="#e5e7eb" stroke-width="0.5"/>
+    <text x="146" y="386" font-size="9" fill="#d1d5db" text-anchor="middle">&#x2302;</text>
+    <text x="176" y="386" font-size="8" fill="#d1d5db" text-anchor="middle">&#x25A6;</text>
+    <text x="206" y="386" font-size="9" fill="#d1d5db" text-anchor="middle">&#x2295;</text>
+    <text x="236" y="385" font-size="9" fill="#1a6b5a" text-anchor="middle">&#x25C8;</text>
+    <text x="236" y="391" font-size="4.5" fill="#1a6b5a" text-anchor="middle">Feed</text>
+    <text x="266" y="386" font-size="9" fill="#d1d5db" text-anchor="middle">&#x25CE;</text>
+  </g>
 
-  <!-- AR coverage zone glow -->
-  <ellipse cx="220" cy="295" rx="165" ry="130" fill="#2563eb" opacity="0.06"/>
-  <ellipse cx="220" cy="295" rx="165" ry="130" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.35"/>
+  <!-- PHONE 2: VENUE SEARCH (center, taller) -->
+  <rect x="348" y="42" rx="22" width="164" height="376" fill="#111" filter="url(#sh)"/>
+  <rect x="355" y="49" rx="12" width="150" height="362" fill="#fff"/>
+  <rect x="400" y="49" rx="3" width="58" height="5" fill="#0d0d0d"/>
 
-  <!-- Location pins -->
-  <circle cx="220" cy="260" r="10" fill="#2563eb" opacity="0.95"/>
-  <circle cx="220" cy="260" r="4.5" fill="#ffffff"/>
-  <rect x="234" y="250" width="115" height="22" rx="4" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
-  <text x="291" y="266" font-size="10" fill="#93b4e8" font-weight="600" text-anchor="middle">Yonge-Dundas Sq.</text>
+  <g clip-path="url(#c2)">
+    <rect x="355" y="49" width="150" height="14" fill="#f9fafb"/>
+    <text x="364" y="60" font-size="7" font-weight="600" fill="#1f2937">9:41</text>
+    <rect x="488" y="54" rx="1.5" width="11" height="5" fill="#9ca3af"/>
+    <!-- Find a Venue header -->
+    <rect x="355" y="63" width="150" height="28" fill="#fff"/>
+    <text x="430" y="77" font-size="12" font-weight="700" fill="#111827" text-anchor="middle">Find a Venue</text>
+    <text x="430" y="88" font-size="6" fill="#6b7280" text-anchor="middle">Book your next street performance spot</text>
+    <!-- Search bar -->
+    <rect x="363" y="94" rx="8" width="134" height="16" fill="#f3f4f6"/>
+    <text x="382" y="105" font-size="6" fill="#9ca3af">Search venues and intersections...</text>
+    <!-- Map -->
+    <rect x="355" y="113" width="150" height="96" fill="#c8e6d8"/>
+    <line x1="355" y1="139" x2="505" y2="139" stroke="#a8d5c0" stroke-width="4"/>
+    <line x1="355" y1="158" x2="505" y2="158" stroke="#a8d5c0" stroke-width="3"/>
+    <line x1="355" y1="174" x2="505" y2="174" stroke="#a8d5c0" stroke-width="2.5"/>
+    <line x1="355" y1="188" x2="505" y2="188" stroke="#a8d5c0" stroke-width="2"/>
+    <line x1="382" y1="113" x2="382" y2="209" stroke="#a8d5c0" stroke-width="4"/>
+    <line x1="410" y1="113" x2="410" y2="209" stroke="#a8d5c0" stroke-width="3"/>
+    <line x1="440" y1="113" x2="440" y2="209" stroke="#a8d5c0" stroke-width="2.5"/>
+    <line x1="468" y1="113" x2="468" y2="209" stroke="#a8d5c0" stroke-width="2"/>
+    <text x="430" y="168" font-size="10" fill="#94c4b2" font-weight="600" letter-spacing="0.12em" text-anchor="middle" opacity="0.7">TORONTO</text>
+    <circle cx="410" cy="143" r="6" fill="#1a6b5a"/>
+    <circle cx="410" cy="143" r="2.5" fill="#fff"/>
+    <circle cx="382" cy="166" r="6" fill="#1a6b5a"/>
+    <circle cx="382" cy="166" r="2.5" fill="#fff"/>
+    <circle cx="455" cy="192" r="6" fill="#1a6b5a"/>
+    <circle cx="455" cy="192" r="2.5" fill="#fff"/>
+    <text x="363" y="221" font-size="7" font-weight="600" fill="#374151">All Venues</text>
+    <!-- Venue 1 -->
+    <circle cx="368" cy="238" r="5.5" fill="#d0eddf"/>
+    <circle cx="368" cy="238" r="3" fill="#1a6b5a"/>
+    <text x="379" y="233" font-size="7.5" font-weight="600" fill="#111827">Yonge-Dundas Square</text>
+    <text x="379" y="242" font-size="5.5" fill="#6b7280">Yonge St &amp; Dundas St W, Toronto</text>
+    <text x="379" y="250" font-size="5.5" fill="#9ca3af">47 performers · 0 km</text>
+    <rect x="463" y="230" rx="5" width="34" height="14" fill="#1a6b5a"/>
+    <text x="480" y="240" font-size="6.5" font-weight="600" fill="#fff" text-anchor="middle">Book</text>
+    <line x1="363" y1="257" x2="497" y2="257" stroke="#f3f4f6" stroke-width="1"/>
+    <!-- Venue 2 -->
+    <circle cx="368" cy="273" r="5.5" fill="#d0eddf"/>
+    <circle cx="368" cy="273" r="3" fill="#1a6b5a"/>
+    <text x="379" y="268" font-size="7.5" font-weight="600" fill="#111827">Kensington Market</text>
+    <text x="379" y="277" font-size="5.5" fill="#6b7280">Augusta Ave &amp; Baldwin St, Toronto</text>
+    <text x="379" y="285" font-size="5.5" fill="#9ca3af">23 performers · 1.2 km</text>
+    <rect x="463" y="265" rx="5" width="34" height="14" fill="#1a6b5a"/>
+    <text x="480" y="275" font-size="6.5" font-weight="600" fill="#fff" text-anchor="middle">Book</text>
+    <line x1="363" y1="292" x2="497" y2="292" stroke="#f3f4f6" stroke-width="1"/>
+    <!-- Venue 3 -->
+    <circle cx="368" cy="308" r="5.5" fill="#d0eddf"/>
+    <circle cx="368" cy="308" r="3" fill="#1a6b5a"/>
+    <text x="379" y="303" font-size="7.5" font-weight="600" fill="#111827">Harbourfront Centre</text>
+    <text x="379" y="312" font-size="5.5" fill="#6b7280">235 Queens Quay W, Toronto</text>
+    <text x="379" y="320" font-size="5.5" fill="#9ca3af">18 performers · 2.1 km</text>
+    <rect x="463" y="300" rx="5" width="34" height="14" fill="#1a6b5a"/>
+    <text x="480" y="310" font-size="6.5" font-weight="600" fill="#fff" text-anchor="middle">Book</text>
+    <!-- Bottom nav -->
+    <rect x="355" y="393" width="150" height="18" fill="#fff"/>
+    <line x1="355" y1="393" x2="505" y2="393" stroke="#e5e7eb" stroke-width="0.5"/>
+    <text x="370" y="406" font-size="9" fill="#d1d5db" text-anchor="middle">&#x2302;</text>
+    <text x="400" y="406" font-size="8" fill="#d1d5db" text-anchor="middle">&#x25A6;</text>
+    <text x="430" y="405" font-size="9" fill="#1a6b5a" text-anchor="middle">&#x2295;</text>
+    <text x="430" y="410" font-size="4.5" fill="#1a6b5a" text-anchor="middle">Search</text>
+    <text x="460" y="406" font-size="9" fill="#d1d5db" text-anchor="middle">&#x25C8;</text>
+    <text x="490" y="406" font-size="9" fill="#d1d5db" text-anchor="middle">&#x25CE;</text>
+  </g>
 
-  <circle cx="165" cy="320" r="7" fill="#2563eb" opacity="0.7"/>
-  <circle cx="165" cy="320" r="3.5" fill="#ffffff"/>
-  <rect x="100" y="310" width="56" height="20" rx="3" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
-  <text x="128" y="324" font-size="10" fill="#6a8fc0" font-weight="500" text-anchor="middle">TTC Path</text>
+  <!-- PHONE 3: PROFILE -->
+  <rect x="572" y="62" rx="22" width="164" height="336" fill="#111" filter="url(#sh)"/>
+  <rect x="579" y="69" rx="12" width="150" height="322" fill="#fff"/>
+  <rect x="624" y="69" rx="3" width="58" height="5" fill="#0d0d0d"/>
 
-  <circle cx="285" cy="340" r="7" fill="#2563eb" opacity="0.65"/>
-  <circle cx="285" cy="340" r="3.5" fill="#ffffff"/>
-  <rect x="297" y="330" width="56" height="20" rx="3" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
-  <text x="325" y="344" font-size="10" fill="#6a8fc0" font-weight="500" text-anchor="middle">The PATH</text>
-
-  <!-- AR badge -->
-  <rect x="24" y="28" width="120" height="26" rx="5" fill="#1a3a7c" stroke="#2563eb" stroke-width="0.5" stroke-opacity="0.5"/>
-  <text x="84" y="46" font-size="10" fill="#93b4e8" font-weight="600" text-anchor="middle" letter-spacing="0.05em">AR Coverage Zone</text>
-
-  <!-- Bottom label -->
-  <rect x="24" y="548" width="200" height="34" rx="5" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
-  <text x="124" y="562" font-size="9" fill="#2563eb" font-weight="700" text-anchor="middle" letter-spacing="0.08em">CONNECT TORONTO</text>
-  <text x="124" y="574" font-size="9" fill="#4a6888" text-anchor="middle">Permit &amp; AR discovery platform</text>
-
-  <!-- Divider -->
-  <line x1="480" y1="20" x2="480" y2="580" stroke="#131e35" stroke-width="1"/>
-
-  <!-- Phone outer -->
-  <rect x="503" y="28" width="268" height="544" rx="30" fill="#0c0c14"/>
-  <rect x="503" y="28" width="268" height="544" rx="30" fill="none" stroke="#1e2030" stroke-width="1.5"/>
-
-  <!-- Screen background -->
-  <rect x="515" y="52" width="244" height="496" rx="18" fill="#0f1117"/>
-
-  <!-- Notch -->
-  <rect x="597" y="52" width="88" height="18" rx="9" fill="#0c0c14"/>
-
-  <!-- App header -->
-  <rect x="515" y="70" width="244" height="44" fill="#0f1117"/>
-  <text x="637" y="98" font-size="13" fill="#e2eaf8" font-weight="700" text-anchor="middle">Busker Permit</text>
-  <line x1="515" y1="114" x2="759" y2="114" stroke="#1e2030" stroke-width="1"/>
-
-  <!-- Progress -->
-  <rect x="531" y="124" width="212" height="3" rx="1.5" fill="#1e2030"/>
-  <rect x="531" y="124" width="106" height="3" rx="1.5" fill="#2563eb"/>
-  <text x="531" y="142" font-size="9.5" fill="#2563eb" font-weight="500">Step 2 of 4 — Location</text>
-
-  <!-- Step heading -->
-  <text x="531" y="166" font-size="14" fill="#e2eaf8" font-weight="700">Where will you perform?</text>
-  <text x="531" y="182" font-size="10" fill="#4a6888">Tap a zone or search below</text>
-
-  <!-- Mini map inside phone -->
-  <rect x="531" y="192" width="212" height="116" rx="7" fill="#080d1a"/>
-  <line x1="531" y1="230" x2="743" y2="230" stroke="#131e35" stroke-width="1"/>
-  <line x1="531" y1="270" x2="743" y2="270" stroke="#131e35" stroke-width="1"/>
-  <line x1="591" y1="192" x2="591" y2="308" stroke="#131e35" stroke-width="1"/>
-  <line x1="671" y1="192" x2="671" y2="308" stroke="#131e35" stroke-width="1"/>
-  <ellipse cx="631" cy="248" rx="36" ry="26" fill="#2563eb" opacity="0.1"/>
-  <ellipse cx="631" cy="248" rx="36" ry="26" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
-  <circle cx="631" cy="244" r="7" fill="#2563eb"/>
-  <circle cx="631" cy="244" r="3.5" fill="#ffffff"/>
-  <rect x="640" y="236" width="88" height="16" rx="3" fill="#1a3a7c"/>
-  <text x="684" y="248" font-size="8.5" fill="#93b4e8" font-weight="600" text-anchor="middle">Yonge-Dundas</text>
-
-  <!-- Selected location -->
-  <rect x="531" y="318" width="212" height="34" rx="6" fill="#111b30" stroke="#2563eb" stroke-width="0.75" stroke-opacity="0.5"/>
-  <circle cx="548" cy="335" r="5.5" fill="#2563eb" opacity="0.25"/>
-  <circle cx="548" cy="335" r="3" fill="#2563eb"/>
-  <text x="560" y="339" font-size="10.5" fill="#c8d8f0" font-weight="500">Yonge-Dundas Square</text>
-
-  <!-- Dates -->
-  <text x="531" y="378" font-size="10.5" fill="#e2eaf8" font-weight="600">Performance dates</text>
-  <rect x="531" y="388" width="100" height="30" rx="6" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
-  <text x="581" y="408" font-size="10" fill="#4a6888" text-anchor="middle">Start date</text>
-  <rect x="643" y="388" width="100" height="30" rx="6" fill="#0d1525" stroke="#1e2e4a" stroke-width="1"/>
-  <text x="693" y="408" font-size="10" fill="#4a6888" text-anchor="middle">End date</text>
-
-  <!-- Toggle -->
-  <text x="531" y="442" font-size="10" fill="#4a6888">Repeat weekly</text>
-  <rect x="703" y="430" width="34" height="18" rx="9" fill="#2563eb"/>
-  <circle cx="728" cy="439" r="7" fill="#ffffff"/>
-
-  <!-- CTA -->
-  <rect x="531" y="462" width="212" height="44" rx="10" fill="#2563eb"/>
-  <text x="637" y="490" font-size="13" fill="#ffffff" font-weight="600" text-anchor="middle">Continue</text>
-
-  <!-- Back -->
-  <text x="637" y="524" font-size="10" fill="#4a6888" text-anchor="middle">← Back</text>
+  <g clip-path="url(#c3)">
+    <rect x="579" y="69" width="150" height="14" fill="#f9fafb"/>
+    <text x="588" y="80" font-size="7" font-weight="600" fill="#1f2937">9:41</text>
+    <rect x="712" y="74" rx="1.5" width="11" height="5" fill="#9ca3af"/>
+    <!-- Profile header -->
+    <rect x="579" y="83" width="150" height="28" fill="#fff"/>
+    <text x="588" y="102" font-size="11" fill="#374151">&#x2190;</text>
+    <text x="654" y="100" font-size="12" font-weight="700" fill="#111827" text-anchor="middle">Profile</text>
+    <!-- City of Toronto card -->
+    <rect x="587" y="115" rx="6" width="134" height="36" fill="#f9fafb" stroke="#e5e7eb" stroke-width="0.5"/>
+    <rect x="596" y="127" rx="1" width="3" height="10" fill="#1a6b5a"/>
+    <rect x="600" y="124" rx="1" width="3" height="13" fill="#1a6b5a"/>
+    <rect x="604" y="129" rx="1" width="3" height="8" fill="#1a6b5a"/>
+    <rect x="608" y="121" rx="1" width="3" height="16" fill="#1a6b5a"/>
+    <text x="617" y="129" font-size="7.5" font-weight="600" fill="#111827">City of Toronto</text>
+    <text x="617" y="138" font-size="6" fill="#6b7280">Municipal License And Standards</text>
+    <text x="617" y="147" font-size="5.5" fill="#6b7280">+1 416 312-6700</text>
+    <!-- Performer card -->
+    <rect x="587" y="155" rx="6" width="134" height="52" fill="#fff" stroke="#e5e7eb" stroke-width="0.5"/>
+    <circle cx="609" cy="181" r="18" fill="#d1d5db"/>
+    <circle cx="609" cy="175" r="7.5" fill="#9ca3af"/>
+    <ellipse cx="609" cy="198" rx="13" ry="7" fill="#9ca3af"/>
+    <circle cx="622" cy="196" r="6" fill="#1a6b5a" stroke="#fff" stroke-width="1.5"/>
+    <text x="622" y="200" font-size="6" font-weight="700" fill="#fff" text-anchor="middle">&#x2713;</text>
+    <text x="634" y="170" font-size="5.5" fill="#9ca3af">NAME</text>
+    <text x="634" y="180" font-size="9" font-weight="600" fill="#111827">John Doe</text>
+    <text x="634" y="193" font-size="5.5" fill="#9ca3af">EXPIRES</text>
+    <text x="634" y="203" font-size="8" font-weight="600" fill="#111827">15/10/2026</text>
+    <!-- Permit chip -->
+    <rect x="604" y="210" rx="6" width="109" height="12" fill="#e8f5f0" stroke="#1a6b5a" stroke-width="0.8"/>
+    <circle cx="612" cy="216" r="3" fill="#1a6b5a"/>
+    <text x="657" y="220" font-size="6" font-weight="600" fill="#1a6b5a" text-anchor="middle">Authorized Busking Permit</text>
+    <!-- Stars -->
+    <text x="654" y="235" font-size="7" font-weight="600" fill="#111827" text-anchor="middle">Rate Your Experience</text>
+    <text x="593" y="249" font-size="11" fill="#f59e0b">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</text>
+    <text x="649" y="249" font-size="7" fill="#374151">5.0 / 5.0</text>
+    <!-- Dark teal permit table -->
+    <rect x="579" y="258" width="150" height="14" fill="#1a4a38"/>
+    <text x="587" y="268" font-size="6.5" fill="#8fbfae">Permit No.</text>
+    <text x="721" y="268" font-size="6.5" font-weight="600" fill="#fff" text-anchor="end">TOR-JD-2026</text>
+    <rect x="579" y="272" width="150" height="14" fill="#1e5242"/>
+    <text x="587" y="282" font-size="6.5" fill="#8fbfae">Email</text>
+    <text x="721" y="282" font-size="5.5" fill="#fff" text-anchor="end">performer@connect.ca</text>
+    <rect x="579" y="286" width="150" height="14" fill="#1a4a38"/>
+    <text x="587" y="296" font-size="6.5" fill="#8fbfae">Phone</text>
+    <text x="721" y="296" font-size="6.5" fill="#fff" text-anchor="end">+1 416 312 0001</text>
+    <rect x="579" y="300" width="150" height="14" fill="#1e5242"/>
+    <text x="587" y="310" font-size="6.5" fill="#8fbfae">Municipality</text>
+    <text x="721" y="310" font-size="6.5" font-weight="600" fill="#fff" text-anchor="end">City of Toronto</text>
+    <rect x="579" y="314" width="150" height="14" fill="#1a4a38"/>
+    <text x="587" y="324" font-size="6.5" fill="#8fbfae">Date Joined</text>
+    <text x="721" y="324" font-size="6.5" fill="#fff" text-anchor="end">March 2021</text>
+    <rect x="579" y="328" width="150" height="14" fill="#1e5242"/>
+    <text x="587" y="338" font-size="6.5" fill="#8fbfae">Permit Expiry</text>
+    <text x="721" y="338" font-size="6.5" font-weight="600" fill="#fff" text-anchor="end">15/10/2026</text>
+    <text x="654" y="358" font-size="7.5" fill="#6b7280" text-anchor="middle">Sign Out</text>
+    <!-- Bottom nav -->
+    <rect x="579" y="371" width="150" height="20" fill="#fff"/>
+    <line x1="579" y1="371" x2="729" y2="371" stroke="#e5e7eb" stroke-width="0.5"/>
+    <text x="594" y="386" font-size="9" fill="#d1d5db" text-anchor="middle">&#x2302;</text>
+    <text x="624" y="386" font-size="8" fill="#d1d5db" text-anchor="middle">&#x25A6;</text>
+    <text x="654" y="386" font-size="9" fill="#d1d5db" text-anchor="middle">&#x2295;</text>
+    <text x="684" y="386" font-size="9" fill="#d1d5db" text-anchor="middle">&#x25C8;</text>
+    <text x="714" y="385" font-size="9" fill="#1a6b5a" text-anchor="middle">&#x25CE;</text>
+    <text x="714" y="391" font-size="4.5" fill="#1a6b5a" text-anchor="middle">Profile</text>
+  </g>
 </svg>
